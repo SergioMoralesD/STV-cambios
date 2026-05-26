@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
     try {
       // Verificamos si el token es real y no ha caducado
       const payload = await this.jwtService.verifyAsync(token, {
-        secret: 'CLAVE_SECRETA_STV_DE_PRUEBAS', // Debe coincidir con la del módulo
+        secret: 'mi_super_clave_secreta_stv_123', // Debe coincidir con la del módulo
       });
       
       // Guardamos los datos del usuario dentro de la petición por seguridad
