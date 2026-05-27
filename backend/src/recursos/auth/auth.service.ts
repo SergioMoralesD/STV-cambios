@@ -5,17 +5,19 @@ import { JwtService } from '@nestjs/jwt';
 export class AuthService {
   constructor(private jwtService: JwtService) {}
 
- async login(usuario: string, clave: string) {
-  // Esto es VITAL: mira tu terminal de VS Code después de hacer Send
-  console.log("VALORES RECIBIDOS -> Usuario: '" + usuario + "', Clave: '" + clave + "'");
+  async login(username: string, pass: string) {
+    // Si ves que esto no funciona, descomenta la siguiente línea para debuguear:
+    // console.log(`Validando: ${username} con clave: ${pass}`);
 
-  if (usuario === 'admin' && clave === 'stv2026') {
-    const payload = { username: usuario, role: 'admin' };
-    return {
-      backend_status: 'AUTHENTICATED',
-      accessToken: await this.jwtService.signAsync(payload, { secret: 'stv_2026' }),
-    };
+    if (username === 'admin' && pass === 'stv2026') {
+      const payload = { username: username, role: 'admin' };
+      return {
+        backend_status: 'AUTHENTICATED',
+        accessToken: await this.jwtService.signAsync(payload, {
+          secret: 'stv_2026'
+        }),
+      };
+    }
+    return null;
   }
-  
-  return null;
 }
