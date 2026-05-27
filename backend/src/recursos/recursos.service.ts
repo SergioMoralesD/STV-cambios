@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
-import { fileLog } from '../utils/logger';
+import { fileLog } from '../../../utils/logger';
 
 @Injectable()
 export class RecursosService {
