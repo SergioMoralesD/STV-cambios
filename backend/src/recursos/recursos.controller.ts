@@ -7,7 +7,7 @@ export class RecursosController {
   constructor(private readonly recursosService: RecursosService) {}
 
   @Get('datos') 
-  @UseGuards(AuthGuard) // 🔒 Bloquea el paso si el técnico no está logueado
+  // @UseGuards(AuthGuard) // <--- ESTA LÍNEA ESTÁ COMENTADA, YA NO PIDE TOKEN
   async obtenerDatos() {
     return await this.recursosService.obtenerDatosDeAPI();
   }
