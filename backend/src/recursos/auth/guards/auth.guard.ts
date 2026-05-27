@@ -10,18 +10,14 @@ export class AuthGuard implements CanActivate {
     const request = context.switchToHttp().getRequest();
     const token = this.extractTokenFromHeader(request);
 
-    // DEBUG: Ver qué está llegando al servidor en la consola de VS Code
-    console.log("Token extraído:", token);
-
     if (!token) {
-      console.log("Error: No se encontró token en los headers");
       throw new UnauthorizedException('Acceso denegado: No se ha iniciado sesión');
     }
 
     try {
-      // Verificamos el token con la clave secreta
+      // Usamos la MISMA clave secreta aquí
       const payload = await this.jwtService.verifyAsync(token, {
-        secret: 'mi_super_clave_secreta_stv_123', 
+        secret: 'stv_2026', 
       });
       
       request['user'] = payload;
