@@ -1,0 +1,363 @@
+/* ==========================================================
+   ESTILOSTATS - Estilos para la vista de Ranking de Técnicos
+   Reciclado de: Ranking_Tecnicos/src/css/estilos.css
+   Scopeado bajo #productividad-tecnicos-page para no afectar a Home
+   ========================================================== */
+
+/* HEADER */
+#productividad-tecnicos-page #headDiv {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 15%;
+    align-items: center;
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+#productividad-tecnicos-page .logoIsla {
+    float: inline-start;
+    width: 50px;
+    height: 50px;
+}
+
+#productividad-tecnicos-page #logo {
+    float: left;
+    width: 200px;
+    margin-left: 5px;
+    margin-right: 236px;
+}
+
+#productividad-tecnicos-page #titulo {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#productividad-tecnicos-page .productividad-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 40px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 100px;
+}
+
+#productividad-tecnicos-page .productividad-title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+}
+
+#productividad-tecnicos-page #fechas {
+    position: relative;
+    float: right;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    padding-right: 20px;
+}
+
+#productividad-tecnicos-page #fecha {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    width: 400px;
+}
+
+#productividad-tecnicos-page #labelFecha {
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    margin-right: 10px;
+    font-size: 0.8vw;
+    width: 10vw;
+}
+
+#productividad-tecnicos-page #fechaConsulta,
+#productividad-tecnicos-page #fechaIni,
+#productividad-tecnicos-page #fechaFin {
+    width: 7vw;
+    cursor: pointer;
+    font-size: 0.8vw;
+    margin-left: 10px;
+    margin-right: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+}
+
+#productividad-tecnicos-page #btnNextPage,
+#productividad-tecnicos-page #botonProductividad {
+    margin-left: 10px;
+    margin-right: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 6px;
+    padding: 5px 15px;
+    font-family: 'Outfit', sans-serif;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    font-size: 0.8vw;
+    height: 1.8vw;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#productividad-tecnicos-page #btnNextPage:hover,
+#productividad-tecnicos-page #botonProductividad:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#productividad-tecnicos-page #btnNextPage:active,
+#productividad-tecnicos-page #botonProductividad:active {
+    transform: scale(0.95);
+}
+
+/* RANGE PICKER TECNICO */
+.tecnico-range-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    width: fit-content;
+}
+
+.tecnico-range-picker .range-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 15px;
+}
+
+.tecnico-range-picker .range-row label {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    width: 140px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.tecnico-range-picker input[type="date"] {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: white;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    outline: none;
+    backdrop-filter: blur(5px);
+}
+
+.tecnico-range-picker input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.tecnico-range-picker .consultar-btn {
+    margin-top: 10px;
+    align-self: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+}
+
+.tecnico-range-picker .consultar-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
+}
+
+.tecnico-range-picker .consultar-btn:active {
+    transform: translateY(0);
+}
+
+#productividad-tecnicos-page #ayuda {
+    float: right;
+    font: 1.2vw Arial, sans-serif;
+    color: white;
+    background: #095899;
+    border: 1px solid white;
+    box-shadow: 6px 3px 18px -8px rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    padding: 8px;
+    width: 1.5vw;
+    height: 1.5vw;
+    text-align: center;
+    margin-right: 1%;
+    margin-left: 1%;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* GRID PRINCIPAL */
+#productividad-tecnicos-page .tablaGrande {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3%;
+    width: 98%;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 2% 1%;
+}
+
+/* COLORES DE ACTIVIDAD (Base) - Colores idénticos al original */
+#productividad-tecnicos-page .actividadProductiva,
+#detalle-tecnico-page .actividadProductiva {
+    background-color: green;
+    color: white;
+}
+
+#productividad-tecnicos-page .actNoEsperada,
+#detalle-tecnico-page .actNoEsperada {
+    background-color: rgb(161, 161, 161);
+}
+
+#productividad-tecnicos-page .actividadDiaria,
+#detalle-tecnico-page .actividadDiaria {
+    background-color: rgb(84, 189, 255);
+    color: black;
+}
+
+#productividad-tecnicos-page .diaInicioFin,
+#detalle-tecnico-page .diaInicioFin {
+    background-color: purple;
+    color: white;
+    z-index: 999;
+    width: 3px;
+    min-width: 2px;
+    position: absolute;
+    height: 100%;
+    top: 0;
+}
+
+#productividad-tecnicos-page .desplazamiento,
+#detalle-tecnico-page .desplazamiento {
+    background-color: #f2f200;
+    color: black;
+}
+
+#productividad-tecnicos-page .reunion,
+#detalle-tecnico-page .reunion {
+    background-color: orange;
+}
+
+#productividad-tecnicos-page .pausaComer,
+#detalle-tecnico-page .pausaComer {
+    background-color: rgb(238, 0, 0);
+    color: white;
+}
+
+#productividad-tecnicos-page .trabajoEventos,
+#detalle-tecnico-page .trabajoEventos {
+    background-color: pink;
+    color: black;
+}
+
+#productividad-tecnicos-page .noPlazo,
+#detalle-tecnico-page .noPlazo {
+    background-color: white !important;
+    color: black !important;
+}
+
+#productividad-tecnicos-page .cancelado,
+#detalle-tecnico-page .cancelado {
+    background-color: black;
+    color: white;
+}
+
+/* BANDERA JORNADA (Morado) */
+#productividad-tecnicos-page .bandera-morada,
+#detalle-tecnico-page .bandera-morada,
+#productividad-tecnicos-page .bandera-jornada,
+#detalle-tecnico-page .bandera-jornada {
+    background-color: purple !important;
+    color: white !important;
+}
+
+/* TOOLTIP FLOTANTE */
+#productividad-tecnicos-page .divHover,
+#detalle-tecnico-page .divHover {
+    white-space: pre-line;
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    background-color: rgba(73, 73, 73, 0.95);
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    pointer-events: none;
+    max-width: 200px;
+    border: 1px solid #666;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* NOTIFICACIÓN */
+#productividad-tecnicos-page .notificacion-ranking,
+#detalle-tecnico-page .notificacion-ranking {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    color: #fff;
+    background-color: rgba(27, 27, 27, 0.9);
+    border-radius: 5px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#productividad-tecnicos-page .notificacion-ranking.mostrar,
+#detalle-tecnico-page .notificacion-ranking.mostrar {
+    opacity: 1;
+}  

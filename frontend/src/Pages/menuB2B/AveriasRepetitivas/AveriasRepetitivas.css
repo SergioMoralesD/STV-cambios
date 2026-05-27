@@ -1,0 +1,354 @@
+.container-fluid.avRepetitivas-container {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto; /* Default: don't grow */
+}
+
+/* Reset and Layout */
+.avRepetitivas-container {
+    width: 100%;
+    padding: 10px 15px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Flexible Sections */
+.section-wrapper:first-of-type {
+    flex: 0 0 auto;
+}
+
+.section-wrapper:last-of-type {
+    flex: 1 1 0;
+    min-height: 0;
+    margin-bottom: 10px;
+}
+
+.section-header {
+    flex: 0 0 auto; /* Ensure header never grows */
+}
+
+div#dataRowSemana {
+    width: 100%;
+}
+
+div#dataRowAno {
+    width: 100%;
+    flex: 1 1 0;
+    min-height: 0;
+}
+
+div#dataRowSemana .av-col {
+    max-height: 45vh;
+    overflow-y: auto;
+}
+
+div#dataRowAno .av-col {
+    height: 100%;
+    max-height: 100% !important;
+    overflow-y: auto;
+}
+
+.header-visible div#dataRowSemana .av-col {
+    max-height: 40vh;
+}
+
+div#dataRowSemana .av-col::-webkit-scrollbar,
+div#dataRowAno .av-col::-webkit-scrollbar {
+    width: 6px;
+}
+
+div#dataRowSemana .av-col::-webkit-scrollbar-track,
+div#dataRowAno .av-col::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+div#dataRowSemana .av-col::-webkit-scrollbar-thumb,
+div#dataRowAno .av-col::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
+
+.section-header {
+    background: linear-gradient(180deg, #c4a21a 0%, #776728 100%);
+    color: white;
+    padding: 10px 45px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.267);
+    border: 1px solid #ffcc00;
+    letter-spacing: 2px;
+    z-index: 999;
+}
+
+/* 4 Column Grid */
+.av-row {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+@media (min-width: 768px) {
+    .av-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 1280px) {
+    .av-row {
+        grid-template-columns: repeat(5, 1fr) !important;
+    }
+}
+
+.av-col {
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+/* Island Header */
+.avRepetitivas-container .tableElements th {
+    padding: 0 !important;
+    border: none !important;
+}
+
+.sticky-header {
+    position: sticky;
+    top: -1px;
+    z-index: 10;
+    background-color: #0052a5;
+}
+
+/* Remove default padding from the IslaCard inner flex wrapper so the header is completely flush to the edges */
+.sticky-header .isla-card-header-flex,
+.sticky-header.isla-card-header-flex {
+    padding: 0 !important;
+    gap: 0 !important;
+}
+
+.thead-container {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    background-color: #0052a5;
+    color: white;
+    min-height: 48px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+.thead-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    padding: 2px 10px 2px 5px;
+    border: none !important;
+}
+
+.thead-left span {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    color: white !important;
+}
+
+.islas {
+    height: 28px;
+    width: auto;
+}
+
+.thead-right-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: white;
+    min-width: 44px !important;
+    width: 44px !important;
+    padding: 4px;
+    border: none !important;
+    text-transform: uppercase;
+}
+
+/* Rows and Cells */
+.main-info-cell {
+    padding: 2px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.matricula-text {
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: normal;
+}
+
+.cliente-text {
+    font-size: 0.78rem;
+    font-weight: 800;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+.count-cell {
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 4px;
+    min-width: 44px !important;
+    width: 44px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    vertical-align: middle;
+}
+
+.Machine {
+    width: 38px !important;
+    min-width: 38px !important;
+    font-weight: 800;
+    text-align: center;
+    color: white !important;
+    font-size: 0.8rem;
+    padding: 0 !important;
+    vertical-align: middle;
+    border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Specific Family Colors for the left Column Tags */
+.colorVitrina {
+    background-color: #f18200 !important;
+}
+
+.colorDispensing {
+    background-color: #6c757d !important;
+}
+
+.colorBotellero {
+    background-color: #007bff !important;
+}
+
+.text-red {
+    color: #ff0000 !important;
+}
+
+
+/* Tooltip styles are defined globally in HoverTooltip.css */
+
+
+/* Custom Div Row */
+.av-row-custom {
+    display: flex !important;
+    width: 100%;
+    align-items: stretch;
+}
+
+.av-card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.main-info-cell {
+    flex: 1;
+    /* Para que ocupe el espacio restante */
+    padding: 2px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+@media (min-width: 2000px) {
+
+    .avRepetitivas-container {
+        padding: 5px 15px;
+        gap: 10px;
+    }
+
+    div#dataRowSemana .av-col {
+        max-height: 52vh;
+    }
+
+    .header-visible div#dataRowSemana .av-col {
+        max-height: 43vh;
+    }
+
+    div#dataRowAno .av-col {
+        max-height: 100% !important;
+        height: 100%;
+    }
+
+    .matricula-text {
+        font-size: 1.8rem !important;
+    }
+
+    .cliente-text {
+        font-size: 1.2rem !important;
+    }
+
+    .thead-left span {
+        font-size: 2.2rem !important;
+    }
+
+    div#dataRowAno .matricula-text {
+        font-size: 1.9rem !important;
+    }
+
+    div#dataRowAno .cliente-text {
+        font-size: 1.3rem !important;
+    }
+
+    .section-header {
+        font-size: 2.5rem !important;
+        padding: 20px 80px;
+    }
+
+    .islas {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .Machine {
+        width: 85px !important;
+        min-width: 85px !important;
+        font-size: 1.4rem !important;
+        padding: 10px 0 !important;
+    }
+
+    .thead-right-col {
+        font-size: 1.4rem !important;
+        min-width: 80px !important;
+        width: 80px !important;
+    }
+
+    .count-cell {
+        font-size: 1.8rem !important;
+        min-width: 80px !important;
+        width: 80px !important;
+        padding: 15px 5px !important;
+    }
+
+    .thead-container {
+        min-height: 80px;
+    }
+
+    .av-row {
+        gap: 15px !important;
+    }
+}  

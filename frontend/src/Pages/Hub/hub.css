@@ -1,0 +1,35 @@
+.hub-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.hub-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 720px) {
+    .hub-container {
+        padding: 2rem 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hub-buttons {
+        width: 100%;
+        max-width: 320px;
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hub-buttons .btn {
+        width: 100% !important;
+        margin: 0;
+    }
+}  

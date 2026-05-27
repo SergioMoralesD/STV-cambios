@@ -1,0 +1,207 @@
+/* IslaCard.css */
+
+.tableElements {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableElements th {
+  text-align: center !important;
+  color: white;
+  font-weight: bold !important;
+  font-size: 1.5rem !important;
+  background-color: #095899;
+  position: sticky;
+  top: -5px;
+  /* height removed - let content decide */
+  width: 100%;
+  border: 1px solid black;
+  z-index: 10;
+  /* Lower than 9999 to avoid covering tooltips but high enough for scroll */
+}
+
+.isla-card-header-flex {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 0px 25px !important;
+  flex-direction: row;
+  /* Default for most pages */
+  gap: 4px !important;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Ensure gradients in rows don't look choppy */
+.table-isla tr,
+.tableElements tr {
+  background-clip: padding-box;
+}
+
+/* Ensure gradients in rows don't look choppy across columns */
+
+.Machine {
+  /* Allow Machine cells to keep their own backgrounds */
+  position: relative;
+  z-index: 1;
+}
+
+/* SLAST02 custom layout might need different flex */
+.sla-card-header .isla-card-header-flex {
+  flex-direction: row !important;
+}
+
+/* Guia cells (sub-header) */
+.Guia,
+.MachineGuia,
+.matriculaGuia,
+.fechaGuia,
+.modeloGuia,
+.fechaGuia {
+  color: white !important;
+  background-color: #095899 !important;
+  text-align: center !important;
+  font-weight: bold !important;
+  border-bottom: 1px solid black !important;
+}
+
+.MachineGuia {
+  border-left: 1px solid black !important;
+}
+
+.fechaGuia,
+.modeloGuia {
+  border-right: 1px solid black !important;
+}
+
+/* Regions */
+.canarias {
+  width: 20%;
+}
+
+.baleares {
+  width: 25%;
+}
+
+/* Specific page overrides to maintain layout */
+.col-isla {
+  width: 20%;
+}
+
+/* AveriasSLA */
+.maint-col-isla {
+  width: 14%;
+  flex: 0 0 14.28% !important;
+}
+
+/* Sanitizaciones (7 columns) */
+.col-isla-logistics {
+  /* removed flex: 1 to allow natural height */
+}
+
+.col-isla-logistics .isla-card-header-flex {
+  padding: 0 !important;
+}
+
+.col,
+.fa-col {
+  padding: 5px !important;
+  position: relative;
+}
+
+/* Redundant but necessary for override */
+.tableElements th .etiqueta-isla,
+.table-isla th .etiqueta-isla,
+.maint-table th .etiqueta-isla {
+  display: flex !important;
+  flex-direction: row;
+  gap: 4px !important;
+  align-items: center !important;
+  font-family: "Montserrat", sans-serif;
+}
+
+.tableElements th .etiqueta-isla img,
+.table-isla th .logo-isla,
+.maint-table th .maint-isla-img {
+  width: 32px;
+  height: 32px;
+  margin-top: 4px;
+}
+
+.tableElements th .etiqueta-isla span,
+.table-isla th,
+.maint-table th span {
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  color: white !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+/* Ensure sticky tables work across all class names */
+.table-isla,
+.maint-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-isla th,
+.col-isla-logistics .tableElements th,
+.maint-table th {
+  background-color: #095899;
+  position: sticky;
+  top: -2px;
+  z-index: 10;
+  border-bottom: 1px solid black;
+  height: 70px;
+  white-space: nowrap;
+}
+
+
+
+.isla-card-header-sub {
+  background-color: #0e4f8f;
+  color: white !important;
+}
+
+/* ─── 4K / PANTALLAS GRANDES ─────────────────────────────────────────── */
+@media screen and (min-width: 2000px) {
+    .tableElements th .etiqueta-isla img,
+    .table-isla th .logo-isla,
+    .maint-table th .maint-isla-img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .tableElements th .etiqueta-isla span,
+    .table-isla th,
+    .maint-table th span {
+        font-size: 2.2rem !important;
+        padding: 8px 4px;
+    }
+
+    .tableElements th,
+    .table-isla th,
+    .maint-table th {
+        font-size: 2.2rem !important;
+        padding: 12px 8px;
+        height: 120px !important;
+        white-space: nowrap !important;
+    }
+
+    .tableElements th .etiqueta-isla span,
+    .table-isla th span,
+    .maint-table th span {
+        font-size: 2.2rem !important;
+        padding: 8px 4px;
+        white-space: nowrap !important;
+    }
+
+    .isla-card-header-flex {
+        gap: 10px !important;
+        padding: 0px 25px !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}  

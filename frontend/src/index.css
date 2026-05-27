@@ -1,0 +1,107 @@
+/* ! ESTILO GLOBAL GENERAL - IMPORTAR 'root.css' SIEMPRE */
+@import "tailwindcss";
+
+:root {
+    /* * FONDOS */
+    --background-url: url("../media/img/background.jpg");
+
+    /* * MEDIA */
+    --menu-logo-url: url("../media/img/header/menu-logo.png");
+
+    /* * FUENTES */
+    --menu-header-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --menu-body-font: "Nunito Sans", sans-serif;
+
+    /* * ELEMENTOS */
+    --menu-button-height: 50px;
+    --menu-button-width: 280px;
+    --border-radius: 10px;
+
+    /* * COLORES */
+    --background-menu-color: #F2F2F2;
+    --background-container-color: #FAFAFA;
+    --menu-azul-boton: #3172b4;
+    --menu-azul: #0052a5;
+
+    --menu-error: #cc8e00;
+}
+
+/* PANTALLAS GRANDES (Full HD hacia arriba) */
+@media (min-width: 1920px) {
+    :root {
+        --menu-button-height: 60px;
+        --menu-button-width: 350px;
+        --border-radius: 15px;
+    }
+}
+
+/* PANTALLAS ULTRA GRANDES (4K) */
+@media (min-width: 3840px) {
+    :root {
+        --menu-button-height: 80px;
+        --menu-button-width: 500px;
+        --border-radius: 20px;
+    }
+}
+
+/* ! RESET GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ! AJUSTE GLOBAL DE VISTA */
+html,
+body,
+#root {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+
+    /* Escalado balanceado: ~16px en 1080p, ~21px en 4K, ~13px en móvil */
+    font-size: clamp(13px, 0.75rem + 0.2vw, 25px);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-text,
+.menu-link {
+    color: var(--menu-azul);
+    font-size: 0.865rem;
+    font-family: var(--menu-body-font);
+    text-align: justify;
+}
+
+.menu-text {
+    font-weight: light;
+    text-decoration: none;
+}
+
+.menu-link {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.login-container *,
+.menu,
+label,
+input {
+    outline: none;
+}
+
+.menu::selection {
+    background-color: rgba(255, 255, 255, 0.33);
+}
+
+.menu::-moz-selection {
+    background-color: rgba(255, 255, 255, 0.33);
+}  

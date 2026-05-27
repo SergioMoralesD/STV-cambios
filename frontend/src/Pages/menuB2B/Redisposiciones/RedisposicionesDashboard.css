@@ -1,0 +1,183 @@
+/*RedisposicionesDashboard.css*/
+/* ── DASHBOARD ── */
+.rd-dashboard {
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  color: white;
+}
+
+/* ── FILTERS ── */
+.rd-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.rd-select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-width: 160px;
+}
+
+.rd-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rd-search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.rd-search {
+  width: 100%;
+  padding: 8px 36px 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.95);
+  background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/search.svg");
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  background-position: right 0.5rem center;
+  color: #333;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.rd-search:disabled {
+  opacity: 0.5;
+}
+
+.rd-search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+/* ── LOADER ── */
+.rd-loader-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+/* ── TABLE ── */
+.rd-table-wrap {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.rd-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rd-table tbody {
+  display: block;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.rd-table thead,
+.rd-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* ── TH PERSONALIZADO PARA REDISPOSICIONES ── */
+.rd-dashboard th {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: var(--stv-blue);
+  position: sticky;
+  top: 0;
+  height: auto;
+  border: none;
+  z-index: 9999;
+  padding: 12px 16px;
+  letter-spacing: 0.5px;
+}
+
+/* ── TD ── */
+.rd-dashboard td {
+  padding: 9px 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── ROW COLORS ── */
+.rd-verde {
+  background: #1e8c2f;
+}
+
+.rd-amarillo {
+  background: #c8a800;
+}
+
+.rd-rojo {
+  background: #b52020;
+}
+
+.rd-negro {
+  background: #111111;
+}
+
+.rd-morado {
+  background: #6a0dad;
+}
+
+.rd-verde td,
+.rd-rojo td,
+.rd-negro td,
+.rd-morado td {
+  color: white;
+}
+
+.rd-amarillo td {
+  color: #111;
+}
+
+/* ── NO DATA ── */
+.rd-no-data {
+  padding: 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.filter .searcher-input {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  padding-left: 12px;
+  padding-right: 2rem;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  box-sizing: border-box;
+  background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/search.svg");
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  background-position: right 0.5rem center;
+}
+  

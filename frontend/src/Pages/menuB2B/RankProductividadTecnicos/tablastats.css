@@ -1,0 +1,263 @@
+/* ==========================================================
+   TABLASTATS - Tarjetas de técnicos y timeline para Ranking
+   Reciclado de: Ranking_Tecnicos/src/css/tabla.css
+   Scopeado bajo #ranking-tecnicos-page para no afectar a Home
+   ========================================================== */
+
+/* 1. REJILLA PRINCIPAL */
+#ranking-tecnicos-page #tablaTecnicos {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding: 10px 20px;
+    padding-bottom: 175px;
+    box-sizing: border-box;
+    align-items: stretch !important;
+}
+
+/* 2. TARJETA DEL TÉCNICO */
+#ranking-tecnicos-page .tecnico {
+    display: flex;
+    box-sizing: border-box;
+    transition: transform 0.15s ease, background 0.15s ease;
+    height: auto;
+    width: 100% !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: rgba(13, 71, 161, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+}
+
+#ranking-tecnicos-page .tecnico.layout-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+#ranking-tecnicos-page .tecnico.layout-column {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+}
+
+
+/* Nombre del técnico */
+#ranking-tecnicos-page .nomTecnico {
+    font-size: 12px;
+    color: white;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Minutos totales */
+#ranking-tecnicos-page .minTecnico {
+    font-size: 11px;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+#ranking-tecnicos-page h1#h1titulo {
+    font-size: 1.5vw;
+}
+
+#ranking-tecnicos-page .bandera-cuadrada span {
+    font-size: 0.8vw;
+    font-weight: 800;
+}
+
+/* 3. DATOS DEL TÉCNICO */
+#ranking-tecnicos-page .layout-row .datos-tecnico {
+    width: 120px;
+    min-width: 120px;
+}
+
+#ranking-tecnicos-page .layout-column .datos-tecnico {
+    width: 100%;
+    min-width: 100%;
+    margin-bottom: 5px;
+}
+
+#ranking-tecnicos-page .datos-tecnico {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 4. ALINEACIÓN PÁRRAFOS */
+#ranking-tecnicos-page .datos-tecnico p,
+#ranking-tecnicos-page .datos-tecnico span {
+    text-align: left !important;
+    width: 100%;
+    margin: 2px 0;
+    cursor: pointer;
+}
+
+/* 5. CONTENEDOR DE BARRAS */
+#ranking-tecnicos-page .contenedor-horario {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+/* Banderas */
+#ranking-tecnicos-page .banderas {
+    height: 3vh;
+    min-height: 25px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    clip-path: inset(-100px 0px);
+}
+
+span#labelTabla {
+    font-size: 0.8vw;
+}
+
+/* Barra gráfica */
+#ranking-tecnicos-page .barra-grafica {
+    position: relative;
+    width: 100%;
+    height: 3vh;
+    min-height: 24px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 6. TAREAS */
+#ranking-tecnicos-page .tarea {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.13),
+        inset -1px 0 0 rgba(0, 0, 0, 0.13);
+}
+
+#ranking-tecnicos-page .tarea:hover {
+    cursor: pointer;
+    animation: parpadeo 0.8s infinite alternate ease-in-out;
+}
+
+#ranking-tecnicos-page .tarea.desplazamiento:hover {
+    animation: parpadeo-oscuro 0.8s infinite alternate ease-in-out;
+}
+
+/* 7. BANDERAS CUADRADAS */
+#ranking-tecnicos-page .bandera-cuadrada {
+    position: absolute;
+    top: auto;
+    bottom: 2px;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 0 10px;
+    min-width: 30px;
+    width: fit-content;
+    z-index: var(--z-index, 20);
+    transform: var(--h-transform, scale(1));
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, outline 0.3s ease, z-index 0.3s;
+    cursor: pointer;
+    outline: 0px solid rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+#ranking-tecnicos-page .bandera-cuadrada:focus {
+    outline: 0px solid rgba(255, 255, 255, 0);
+}
+
+#ranking-tecnicos-page .bandera-cuadrada:hover {
+    transform: var(--h-transform, scale(1)) scale(1.2);
+    z-index: 9999 !important;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+/* Estados de interacción de banderas */
+#ranking-tecnicos-page .bandera-cuadrada.is-hovered {
+    transform: scale(1.1);
+    z-index: 60;
+    border-radius: 0px;
+}
+
+#ranking-tecnicos-page .bandera-cuadrada.is-active {
+    outline: 1.5px solid white;
+    z-index: 400 !important;
+    transform: scale(1.2) !important;
+    border-radius: 0px;
+}
+
+#ranking-tecnicos-page .bandera-cuadrada.is-expanded {
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+#ranking-tecnicos-page .bandera-cuadrada[data-expanded="true"] {
+    outline: 1.5px solid #ffffff;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+/* 8. EJE DE HORAS */
+#ranking-tecnicos-page .horas-trabajo {
+    display: flex;
+    position: relative;
+    align-items: start;
+    justify-content: space-between;
+    padding-top: 2px;
+    color: #e0e0e0;
+    font-size: 10px;
+    height: 15px;
+}
+
+#ranking-tecnicos-page .horas-trabajo span {
+    font-size: 10px;
+}
+
+/* 9. DROPDOWN HEADER */
+#ranking-tecnicos-page .dropdown-header {
+    color: white;
+    font-size: 0.8vw;
+    cursor: pointer;
+    padding: 8px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+#ranking-tecnicos-page .dropdown-header:hover {
+    text-decoration: underline;
+}
+
+/* 10. CHEVRON ICON */
+#ranking-tecnicos-page #dropdownIcon {
+    transition: transform 0.3s ease;
+    font-size: 0.8vw;
+    color: white;
+}  

@@ -1,0 +1,261 @@
+/* ─── CONTENEDOR PRINCIPAL ────────────────────────────────────────────────── */
+
+.trabajo-cliente-main-container {
+    background-image: url("/img/Fondo_Escritorio_2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #095899;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    box-sizing: border-box;
+    position: relative;
+    flex: 1;
+    min-height: 0;
+}
+
+/* ─── FILA DE TABLAS POR ISLA ─────────────────────────────────────────────── */
+
+.trabajo-cliente-main-container .row-tables {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    /* Fuerza a que todas las columnas lleguen al fondo */
+    gap: 4px;
+    flex: 1;
+    min-height: 0;
+    margin-bottom: 0 !important;
+    /* Eliminamos el margen de 180px que se colaba de otras pantallas */
+}
+
+.trabajo-cliente-main-container .col-isla {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    /* Añadido para que el hijo pueda estirarse */
+    flex-direction: column;
+    overflow: hidden;
+    /* El scroll lo maneja el hijo si es necesario */
+    padding: 0 1px 0px 1px;
+    /* Pegado al fondo */
+}
+
+/* Forzamos el alto máximo para anular los límites de otras pantallas (Averías SLA) */
+.header-visible .trabajo-cliente-main-container .col-isla {
+    max-height: calc(100vh - 100px) !important;
+}
+
+.header-hidden .trabajo-cliente-main-container .col-isla {
+    max-height: 100vh !important;
+}
+
+/* Custom scrollbar para indicar que se puede hacer scroll */
+.col-isla::-webkit-scrollbar {
+    width: 6px;
+    /* Hacemos que sea fina para no afectar el diseño */
+}
+
+.col-isla::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.col-isla::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
+.col-isla::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.col-isla::-webkit-scrollbar-button,
+.col-isla::-webkit-scrollbar-corner {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.trabajo-cliente-main-container .cards-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    /* El scroll pasa al body interno */
+}
+
+.trabajo-cliente-main-container .tc-card-body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 80vh;
+}
+
+/* Scrollbar para el cuerpo de la tarjeta */
+.tc-card-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tc-card-body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.tc-card-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
+.tc-card-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── HEADER DE CADA ISLA ─────────────────────────────────────────────────── */
+
+.tc-sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.tc-sticky-header .isla-card-header-flex {
+    background-color: #095899;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Override: In Trabajo en Cliente the header must be compact with image + name side by side */
+.tc-sticky-header .isla-card-header-flex {
+    padding: 8px 12px !important;
+    justify-content: center !important;
+    gap: 8px;
+    flex-direction: row !important;
+}
+
+.logo-isla {
+    width: 28px;
+    margin-right: 8px;
+}
+
+/* ─── FILA DE TRABAJO CLIENTE (ESTILO IMAGEN) ────────────────────────────── */
+
+.trabajo-cliente-row {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 1px;
+    height: 42px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trabajo-cliente-tag {
+    width: 45px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Gris por defecto */
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.trabajo-cliente-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
+
+/* ─── FOOTER (scoped para no interferir con Averías SLA) ─────────────────── */
+
+.trabajo-cliente-main-container .footer-sla {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+}
+
+.trabajo-cliente-main-container .leyenda-familias table {
+    border: none;
+}
+
+.trabajo-cliente-main-container .trLeyenda {
+    display: flex;
+}
+
+.trabajo-cliente-main-container .leyenda {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-left: 8px;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Responsive para pantallas grandes */
+@media screen and (min-width: 2000px) {
+    .isla-card-header-flex {
+        font-size: 2.3rem;
+        padding: 22px 12px;
+    }
+
+    .logo-isla {
+        width: 65px;
+        margin-right: 18px;
+    }
+
+    .trabajo-cliente-row {
+        height: 85px;
+        font-size: 1.8rem;
+    }
+
+    .trabajo-cliente-tag {
+        width: 90px;
+        min-width: 90px;
+    }
+
+    .footer-sla {
+        padding: 25px 45px 35px;
+        gap: 70px;
+    }
+
+    .trabajo-cliente-main-container .leyenda {
+        font-size: 1.6rem;
+        margin-left: 35px;
+        gap: 18px;
+    }
+
+    .trabajo-cliente-main-container .leyenda .colorBotellero,
+    .trabajo-cliente-main-container .leyenda .colorVitrina,
+    .trabajo-cliente-main-container .leyenda .colorVending,
+    .trabajo-cliente-main-container .leyenda .colorDispensing {
+        height: 45px;
+        min-width: 55px;
+        font-size: 1.4rem;
+        border-radius: 6px;
+    }
+
+}  

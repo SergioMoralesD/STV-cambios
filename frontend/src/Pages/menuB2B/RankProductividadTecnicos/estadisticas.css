@@ -1,0 +1,245 @@
+#estadisticas-page {
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+}
+
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.stats-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    flex: 1;
+    text-align: center;
+}
+
+.btn-back {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.stats-filtros {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filtro-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.filtro-group label {
+    font-weight: 700;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.filtro-group input[type="date"] {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #333;
+}
+
+.stats-action {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.btn-evaluar {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 4px 50px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-evaluar:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 10px 20px;
+}
+
+.stats-card {
+    background: #0d47a1;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Tipos de Tarjetas */
+.stats-card.card-blue {
+    border-color: #1565c0;
+}
+
+.stats-card.card-yellow-border {
+    border: 3px solid #ffd600;
+}
+
+.stats-card.card-green {
+    background: #004d00;
+    border: 3px solid #ffd600;
+    /* Borde amarillo incluso en verde si aplica, pero la captura muestra amarillo en azul */
+}
+
+.stats-card.card-dark-red {
+    background: #800000;
+    border: 3px solid #ffd600;
+    /* Borde amarillo por pocas horas */
+}
+
+.stats-card.card-red-border {
+    border: 3px solid #d50000;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.tec-icon {
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border: 3px solid #0d47a1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0d47a1;
+    margin-bottom: 12px;
+    transition: transform 0.2s;
+}
+
+.tec-icon:hover {
+    transform: scale(1.1);
+}
+
+.tec-icon svg {
+    width: 45px;
+    height: 45px;
+}
+
+.card-green .tec-icon {
+    border-color: #004d00;
+    color: #004d00;
+}
+
+.card-dark-red .tec-icon {
+    border-color: #800000;
+    color: #800000;
+}
+
+.tec-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.tec-id {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.tec-name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table td {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 8px 12px;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.stats-table td:first-child {
+    width: 65%;
+    text-align: left;
+}
+
+.stats-table .stat-value {
+    width: 35%;
+    text-align: center;
+    background: #01579b;
+}
+
+/* Colores específicos de valores según la tarjeta */
+.card-yellow-border .stat-value {
+    background: #c5a000;
+    color: #1a1a1a;
+}
+
+.card-green .stat-value {
+    background: #003300;
+    color: #fff;
+}
+
+.card-dark-red .stat-value {
+    background: #4d0000;
+    color: #fff;
+}
+
+.card-red-border .stat-value {
+    background: #1a1a1a;
+    color: #ff5252;
+}
+
+.card-blue .stat-value {
+    background: #01579b;
+    color: #fff;
+}  

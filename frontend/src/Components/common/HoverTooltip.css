@@ -1,0 +1,142 @@
+/* HoverTooltip.css */
+
+/* Tooltip (Gray Box) */
+.custom-tooltip {
+    position: fixed;
+    z-index: 100000;
+    background: #3a3a3a;
+    color: #ffffff;
+    padding: 10px 12px;
+    /* Top Right Bottom Left - more left margin */
+    border-radius: 6px;
+    font-size: 0.82rem;
+    max-width: 300px;
+    min-width: 100px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    pointer-events: auto;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Bridge to prevent tooltip from closing when moving mouse from trigger to tooltip */
+.custom-tooltip::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    right: -40px;
+    bottom: -40px;
+    background: transparent;
+    z-index: -1;
+}
+
+/* Custom scrollbar para tooltip */
+.custom-tooltip::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-tooltip::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.custom-tooltip::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.custom-tooltip::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.tooltip-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.tooltip-title {
+    font-weight: 800;
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.tooltip-divider {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 8px 0;
+}
+
+.tooltip-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tooltip-date {
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.tooltip-desc {
+    font-weight: 500;
+    margin-left: 10px;
+    font-size: 0.95rem;
+}
+
+.tooltip-intervention {
+    margin-left: 10px;
+    margin-top: 5px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 8px;
+}
+
+.tooltip-tech {
+    font-size: 0.78rem;
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+.tooltip-activity {
+    font-size: 0.75rem;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+.tooltip-spacer {
+    height: 6px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    margin-bottom: 4px;
+}
+
+/* ─── 4K / PANTALLAS GRANDES ─────────────────────────────────────────── */
+
+@media screen and (min-width: 2000px) {
+    .custom-tooltip {
+        max-width: 600px;
+        max-height: 800px;
+        font-size: 1.4rem;
+        padding: 20px 25px;
+    }
+
+    .tooltip-title {
+        font-size: 2rem;
+    }
+
+    .tooltip-date {
+        font-size: 1.4rem;
+    }
+
+    .tooltip-desc {
+        font-size: 1.4rem;
+    }
+
+    .tooltip-tech {
+        font-size: 1.2rem;
+    }
+
+    .tooltip-activity {
+        font-size: 1.2rem;
+    }
+}  

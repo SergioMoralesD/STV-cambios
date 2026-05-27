@@ -1,0 +1,214 @@
+.panel-admin-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    max-height: 90vh;
+    width: auto;
+    min-width: 400px;
+    max-width: 90vw;
+
+    background-color: var(--background-container-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+
+    position: fixed;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+
+    overflow: visible;
+
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+    font-family: var(--menu-body-font);
+}
+
+.panel-admin-container.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.panel-admin-content {
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.panel-admin-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.panel-admin-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.panel-admin-container.collapsed {
+    transform: translateY(-50%) translateX(calc(-100% + 1rem));
+}
+
+.panel-collapse-toggle {
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 60px;
+    background: white;
+
+    border: 2px solid var(--menu-azul);
+    border-radius: 8px;
+
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--menu-azul);
+    font-weight: 800;
+    font-size: 1.2rem;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1002;
+    transition: transform 0.1s ease, background 0.1s ease;
+}
+
+.panel-collapse-toggle:hover {
+    background: #f1f5f9;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.panel-admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.panel-admin-title {
+    margin: 0;
+    color: var(--menu-azul);
+    font-size: 1.75rem;
+    font-family: var(--menu-header-font);
+    font-weight: 700;
+}
+
+.admin-btn {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: var(--menu-azul);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.admin-btn:hover {
+    background-color: #f1f5f9;
+    border-color: var(--menu-azul);
+}
+
+.back-to-menu {
+    background: none;
+    border: 1px solid #e2e8f0;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--menu-azul);
+    font-weight: 600;
+}
+
+.back-to-menu:hover {
+    background: #f1f5f9;
+}
+
+.panel-menu-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.placeholder-view {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #999;
+    background: #fafafa;
+    border: 2px dashed #e0e0e0;
+    border-radius: var(--border-radius);
+    font-style: italic;
+    width: 100%;
+}
+
+.panel-admin-alert {
+    background-color: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #92400e;
+    font-size: 0.95rem;
+    font-weight: 500;
+    animation: fadeInDown 0.3s ease-out;
+}
+
+.reload-btn {
+    background-color: #f59e0b;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.reload-btn:hover {
+    background-color: #d97706;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .panel-admin-container {
+        min-width: 95vw;
+        left: 2.5vw;
+    }
+
+    .panel-admin-content {
+        height: 650px
+    }
+}  

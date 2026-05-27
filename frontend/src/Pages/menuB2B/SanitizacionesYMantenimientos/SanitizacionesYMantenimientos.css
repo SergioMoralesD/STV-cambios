@@ -1,0 +1,364 @@
+/*SanitizacionesYmantenimiento.css*/
+
+/* ─── Fix logo overlap ONLY on Sanitizaciones header ─────────────────────── */
+/* Uses :has() to scope to the layout that contains .maint-main */
+.layout:has(.maint-main) .logo-container {
+  margin-left: 3%;
+  width: 15%;
+}
+
+.layout:has(.maint-main) .logo-container img {
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* ─── Layout principal ──────────────────────────────────────────────────── */
+.maint-main {
+  background-image: url("./img/Fondo_Escritorio_2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #095899;
+  font-family: "Montserrat", Helvetica, Arial, Lucida, sans-serif;
+  font-size: 16px;
+  padding-top: 8px;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.maint-header {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.maint-header__logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.maint-logo {
+  height: 60px;
+  width: auto;
+}
+
+.maint-ayuda-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: #095899;
+  color: white;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 6px 3px 18px -8px rgba(0, 0, 0, 0.75);
+  user-select: none;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+
+.maint-ayuda-btn:hover {
+  transform: scale(1.1);
+}
+
+.maint-tables-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* ─── Columna / tabla por isla ──────────────────────────────────────────── */
+.maint-col-isla {
+  position: relative;
+  flex: 1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: calc(100vh - 35px);
+  overflow-y: overlay;
+  overflow-x: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.header-visible .maint-col-isla {
+  max-height: calc(100vh - 125px);
+}
+
+
+.maint-col-isla::-webkit-scrollbar {
+  width: 6px;
+}
+
+.maint-col-isla::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.maint-col-isla::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+.maint-col-isla::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.maint-table {
+  border-collapse: collapse;
+  width: 100%;
+  line-height: 1.125em;
+}
+
+/* Quita bordes de Bootstrap */
+.maint-table> :not(caption)>*>* {
+  border-bottom-width: 0 !important;
+  padding: 2px !important;
+}
+
+/* ─── Cabecera de isla ───────────────────────────────────────────────────── */
+.maint-table thead th {
+  padding-bottom: 3px;
+  background-color: #095899;
+  position: sticky;
+  top: -1px;
+  z-index: 10;
+}
+
+.maint-col-isla::-webkit-scrollbar-button,
+.maint-col-isla::-webkit-scrollbar-corner,
+.maint-col-isla::-webkit-scrollbar-button:start:decrement,
+.maint-col-isla::-webkit-scrollbar-button:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+
+
+.maint-isla-img {
+  width: auto;
+  height: 32px;
+}
+
+.maint-table thead span {
+  padding-left: 6px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* ─── Celdas ─────────────────────────────────────────────────────────────── */
+.maint-table td {
+  font-family: "Montserrat", Helvetica, Arial, Lucida, sans-serif;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 4px !important;
+}
+
+/* ─── Colores de fila (sanitizaciones) ──────────────────────────────────── */
+.fondo-verde {
+  background-color: green !important;
+}
+
+.fondo-amarillo {
+  background-color: yellow !important;
+}
+
+.fondo-rojo {
+  background-color: red !important;
+}
+
+.fondo-negro {
+  background-color: #000000 !important;
+}
+
+/* ─── Avisos de limpieza ─────────────────────────────────────────────────── */
+.gris {
+  color: #ffffff;
+  background-color: grey !important;
+}
+
+/* ─── Tooltip CSS ────────────────────────────────────────────────────────── */
+[data-title] {
+  position: relative;
+}
+
+[data-title]:after {
+  content: attr(data-title);
+  background-color: yellow;
+  color: #000000;
+  box-shadow: 1px 1px 3px #222222;
+  border: 1px solid #000000;
+  font-size: 130%;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  position: absolute;
+  padding: 2px 5px;
+  bottom: -1.4em;
+  left: 1%;
+  z-index: 99999;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+[data-title]:hover:after {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.1s ease 0.4s;
+}
+
+/* ─── Toast de notificación ─────────────────────────────────────────────── */
+.maint-notificacion {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.maint-notificacion--visible {
+  opacity: 1;
+}
+
+/* ─── Loader ─────────────────────────────────────────────────────────────── */
+.maint-loader {
+  transform: rotateZ(45deg);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin: 10% auto 2%;
+  color: #fff;
+}
+
+.maint-loader::before,
+.maint-loader::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: maint-spin 1s linear infinite;
+}
+
+.maint-loader::after {
+  color: yellow;
+  transform: rotateY(70deg);
+  animation-delay: 0.4s;
+}
+
+@keyframes maint-spin {
+
+  0%,
+  100% {
+    box-shadow: 0.2em 0 0 0 currentcolor;
+  }
+
+  12% {
+    box-shadow: 0.2em 0.2em 0 0 currentcolor;
+  }
+
+  25% {
+    box-shadow: 0 0.2em 0 0 currentcolor;
+  }
+
+  37% {
+    box-shadow: -0.2em 0.2em 0 0 currentcolor;
+  }
+
+  50% {
+    box-shadow: -0.2em 0 0 0 currentcolor;
+  }
+
+  62% {
+    box-shadow: -0.2em -0.2em 0 0 currentcolor;
+  }
+
+  75% {
+    box-shadow: 0 -0.2em 0 0 currentcolor;
+  }
+
+  87% {
+    box-shadow: 0.2em -0.2em 0 0 currentcolor;
+  }
+}
+
+/* ─── Error ──────────────────────────────────────────────────────────────── */
+.maint-error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px 30px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  text-align: center;
+  max-width: 480px;
+}
+
+@media (min-width: 2000px) {
+  .maint-main {
+    font-size: 40px;
+  }
+
+  .maint-table td {
+    padding: 10px 4px !important;
+  }
+
+  .isla-card-header-flex {
+    font-size: 40px !important;
+  }
+
+  .tableElements th .etiqueta-isla img,
+  .table-isla th .logo-isla,
+  .maint-table th .maint-isla-img {
+    width: 2vw;
+    height: 2vw !important;
+  }
+
+  .tableElements th .etiqueta-isla span,
+  .table-isla th,
+  .maint-table th span {
+    padding: 1%;
+    font-size: 1.5vw !important;
+  }
+
+  .maint-col-isla {
+    max-height: calc(100vh - 100px);
+  }
+
+  .header-visible .maint-col-isla {
+    max-height: calc(100vh - 250px);
+  }
+}  

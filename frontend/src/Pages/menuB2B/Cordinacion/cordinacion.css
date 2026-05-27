@@ -1,0 +1,140 @@
+/* src/Pages/Cordinacion/cordinacion.css */
+:root {
+    --stv-blue: #0052a5;
+    --stv-blue-hover: #003d7a;
+    --header-line: #0052a5;
+    --text-white: #ffffff;
+    --bg-blanco: #ffffff;
+    --bg-gris-claro: #ebe7e7;
+    --color-alerta: #4e0101;
+    --accent-color: #f40009;
+}
+
+.atras {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    position: fixed;
+    top: 100px;
+    left: 25px;
+    z-index: 100;
+    width: fit-content;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.atras:hover {
+    background: rgba(0, 82, 165, 0.1);
+}
+
+.atras img {
+    width: 40px;
+    height: auto;
+    display: block;
+}
+
+.cajasRutas1,
+.cajaboton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.cajaboton {
+    margin-top: 100px;
+    gap: 20px;
+}
+
+.cordinacion-text,
+.no-access,
+.cajaboton p {
+    text-align: center;
+    width: 100%;
+}
+
+.cajasRutas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background-color: var(--stv-blue);
+    color: var(--text-white);
+    border: none;
+    border-radius: 6px;
+    width: 440px;
+    height: 48px;
+    font-size: 16px !important;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--stv-blue-hover) !important;
+}
+
+.cajaboton .btn {
+    width: 480px;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+.websContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 900px) {
+    .cajasRutas {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .container {
+        padding-bottom: 15px;
+    }
+
+    .btn,
+    .cajaboton .btn {
+        width: min(92vw, 520px);
+    }
+
+    .cajaboton {
+        margin-top: 60px;
+    }
+}  

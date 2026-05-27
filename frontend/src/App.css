@@ -1,0 +1,252 @@
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Trebuchet MS', Arial;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  main {
+    height: auto;
+    min-height: 0;
+    padding: 0;
+  }
+}
+
+/* ─── Colores de Estado ──────────────────────────────────────────────────── */
+
+.verde {
+  background-color: #008000;
+  color: white;
+}
+
+.amarillo {
+  background-color: #ffff00;
+  color: black;
+}
+
+.rojo {
+  background-color: #ff0000;
+  color: white;
+}
+
+.negro {
+  background-color: #1d1d1d;
+  color: rgb(255, 242, 0);
+}
+
+.morado {
+  background-color: #6e42c1c2;
+  color: white;
+}
+
+.moradoverde {
+  background: linear-gradient(90deg, #008000, rgb(200, 2, 200));
+  color: white;
+}
+
+.moradoamarillo {
+  background: linear-gradient(90deg, yellow, rgb(200, 2, 200));
+}
+
+.moradorojo {
+  background: linear-gradient(90deg, red, rgb(200, 2, 200));
+}
+
+.moradonegro {
+  background: linear-gradient(90deg, black, rgb(200, 2, 200));
+  color: white;
+}
+
+/* ─── Animaciones y Bordes ────────────────────────────────────────────────── */
+
+.parpadea {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: .4;
+  }
+
+
+}
+
+.bordeAmarillo {
+  border: 2px solid #ffc107;
+}
+
+.bordeNegro {
+  border: 2px solid #000;
+}
+
+/* ─── Familia / Machine ──────────────────────────────────────────────────── */
+
+.DI,
+.VI,
+.VE,
+.BO {
+  width: 40px;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  background-color: #3174b8;
+}
+
+/* Todos los colores de las familias */
+/* Color de la familia botellero */
+.colorBotellero {
+  background-color: #288ba8;
+  color: white;
+}
+
+/* Color de la familia vitrina */
+.colorVitrina {
+  background-color: #e67e22;
+  color: white;
+}
+
+/* Color de la familia vending */
+.colorVending {
+  background-color: #7b5103;
+  color: white;
+}
+
+/* Color de la familia dispensing */
+.colorDispensing {
+  background-color: #979a9a;
+  color: white;
+}
+
+/* Color de la familia vacía */
+.colorDesconocido {
+  color: #FFFFFF;
+  background-color: #000000;
+}
+
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  background-color: #f8d7da;
+  border: 1px solid #ffa1aa;
+  border-radius: 5px;
+  font-size: xx-large;
+}
+
+.errorText {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.cruzError {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: red;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* ─── ESCALA VERDE→ROJO para celdas de tiempo STVLogistics ─────────────────────────────── */
+.Color0 {
+  background-color: #63bc7b;
+  color: black;
+}
+
+.Color1 {
+  background-color: #7ac57d;
+  color: black;
+}
+
+.Color2 {
+  background-color: #9ac57d;
+  color: black;
+}
+
+.Color3 {
+  background-color: #a6d27f;
+  color: black;
+}
+
+.Color4 {
+  background-color: #bed881;
+  color: black;
+}
+
+.Color5 {
+  background-color: #d3df82;
+  color: black;
+}
+
+.Color6 {
+  background-color: #e9e583;
+  color: black;
+}
+
+.Color7 {
+  background-color: #ffeb83;
+  color: black;
+}
+
+.Color8 {
+  background-color: #fed880;
+  color: black;
+}
+
+.Color9 {
+  background-color: #fdc57c;
+  color: black;
+}
+
+.Color10 {
+  background-color: #fcb379;
+  color: black;
+}
+
+.Color11 {
+  background-color: #fba075;
+  color: black;
+}
+
+.Color12 {
+  background-color: #fa8a72;
+  color: black;
+}
+
+.Color13 {
+  background-color: #f97b6e;
+  color: black;
+}
+
+.Color14 {
+  background-color: #f8696b;
+  color: black;
+}
+
+.Color15 {
+  background-color: #fd2e32;
+  color: black;
+}  

@@ -1,0 +1,249 @@
+/* ==========================================================
+   TABLASTATS - Tarjetas de técnicos y timeline para Ranking
+   Reciclado de: Ranking_Tecnicos/src/css/tabla.css
+   Scopeado bajo #productividad-tecnicos-page para no afectar a Home
+   ========================================================== */
+
+/* 1. REJILLA PRINCIPAL */
+#productividad-tecnicos-page #tablaTecnicos {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 15px;
+    width: 98%;
+    margin: 0 auto;
+    padding: 10px 10px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    align-items: start;
+}
+
+#productividad-tecnicos-page .tecnico,
+#detalle-tecnico-page .tecnico {
+    display: flex;
+    box-sizing: border-box;
+    transition: transform 0.15s ease, background 0.15s ease;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: rgba(13, 71, 161, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 10px 15px;
+}
+
+#productividad-tecnicos-page .tecnico.layout-row,
+#detalle-tecnico-page .tecnico.layout-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+#productividad-tecnicos-page .tecnico.layout-column,
+#detalle-tecnico-page .tecnico.layout-column {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+}
+
+#productividad-tecnicos-page .tecnico:hover,
+#detalle-tecnico-page .tecnico:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.55) 0%, rgba(25, 118, 210, 0.35) 100%);
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+
+/* Nombre del técnico */
+#productividad-tecnicos-page .nomTecnico,
+#detalle-tecnico-page .nomTecnico {
+    font-size: 12px;
+    color: white;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Minutos totales */
+#productividad-tecnicos-page .minTecnico,
+#detalle-tecnico-page .minTecnico {
+    font-size: 11px;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+/* 3. DATOS DEL TÉCNICO */
+#productividad-tecnicos-page .layout-row .datos-tecnico,
+#detalle-tecnico-page .layout-row .datos-tecnico {
+    width: 120px;
+    min-width: 120px;
+}
+
+#productividad-tecnicos-page .layout-column .datos-tecnico,
+#detalle-tecnico-page .layout-column .datos-tecnico {
+    width: 100%;
+    min-width: 100%;
+    margin-bottom: 5px;
+}
+
+#productividad-tecnicos-page .datos-tecnico,
+#detalle-tecnico-page .datos-tecnico {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 4. ALINEACIÓN PÁRRAFOS */
+#productividad-tecnicos-page .datos-tecnico p,
+#productividad-tecnicos-page .datos-tecnico span,
+#detalle-tecnico-page .datos-tecnico p,
+#detalle-tecnico-page .datos-tecnico span {
+    text-align: left !important;
+    width: 100%;
+    margin: 2px 0;
+    cursor: pointer;
+}
+
+/* 5. CONTENEDOR DE BARRAS */
+#productividad-tecnicos-page .contenedor-horario,
+#detalle-tecnico-page .contenedor-horario {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+/* Banderas */
+#productividad-tecnicos-page .banderas,
+#detalle-tecnico-page .banderas {
+    height: 3vh;
+    min-height: 25px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    clip-path: inset(-100px 0px);
+}
+
+/* Barra gráfica */
+#productividad-tecnicos-page .barra-grafica,
+#detalle-tecnico-page .barra-grafica {
+    position: relative;
+    width: 100%;
+    height: 3vh;
+    min-height: 24px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 6. TAREAS */
+#productividad-tecnicos-page .tarea,
+#detalle-tecnico-page .tarea {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(0, 0, 0, 0.192);
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+#productividad-tecnicos-page .tarea:hover,
+#detalle-tecnico-page .tarea:hover {
+    cursor: pointer;
+    animation: parpadeo 0.8s infinite alternate ease-in-out;
+}
+
+#productividad-tecnicos-page .tarea.desplazamiento:hover,
+#detalle-tecnico-page .tarea.desplazamiento:hover {
+    animation: parpadeo-oscuro 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes parpadeo {
+    0% { filter: brightness(1); box-shadow: none; }
+    100% { filter: brightness(1.15); box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.9); }
+}
+
+@keyframes parpadeo-oscuro {
+    0% { filter: brightness(1); box-shadow: none; }
+    100% { filter: brightness(0.9); box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); }
+}
+
+/* 7. BANDERAS CUADRADAS */
+#productividad-tecnicos-page .bandera-cuadrada,
+#detalle-tecnico-page .bandera-cuadrada {
+    position: absolute;
+    bottom: 0;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.0;
+    white-space: nowrap;
+    padding: 3px 6px;
+    min-width: auto;
+    box-shadow: 1px -1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s;
+    z-index: var(--z-index, 20);
+    transform: var(--h-transform, scale(1));
+    border-radius: 3px 3px 0 0;
+    cursor: pointer;
+}
+
+#productividad-tecnicos-page .bandera-cuadrada:focus,
+#detalle-tecnico-page .bandera-cuadrada:focus {
+    outline: 0px solid rgba(255, 255, 255, 0);
+}
+
+#productividad-tecnicos-page .bandera-cuadrada:hover,
+#detalle-tecnico-page .bandera-cuadrada:hover {
+    transform: var(--h-transform, scale(1)) scale(1.2);
+    z-index: 9999 !important;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+/* 8. EJE DE HORAS */
+#productividad-tecnicos-page .horas-trabajo,
+#detalle-tecnico-page .horas-trabajo {
+    display: flex;
+    position: relative;
+    align-items: start;
+    justify-content: space-between;
+    padding-top: 2px;
+    color: #e0e0e0;
+    font-size: 10px;
+    height: 15px;
+}
+
+/* 9. DROPDOWN HEADER */
+#productividad-tecnicos-page .dropdown-header {
+    color: white;
+    font-size: 0.8vw;
+    cursor: pointer;
+    padding: 8px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+/* 10. CHEVRON ICON */
+#productividad-tecnicos-page #dropdownIcon {
+    transition: transform 0.3s ease;
+    font-size: 0.8vw;
+    color: white;
+}  

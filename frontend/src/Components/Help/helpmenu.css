@@ -1,0 +1,200 @@
+/* Fondo oscuro detrás del menú */
+.help-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+    /* Muy alto para estar sobre todo */
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* La barra lateral blanca */
+.help-sidebar {
+    width: 90%;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.help-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.help-content {
+    flex: 1;
+    margin-top: 20px;
+    color: #333;
+    line-height: 1.6;
+    overflow-y: auto;
+    padding-right: 10px;
+    /* Space for scrollbar */
+}
+
+/* Estilo del circulito del botón '?' */
+.lineaAyuda {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Botón flotante para que siempre sea visible */
+.help-button-fixed {
+    position: fixed;
+    bottom: 30px;
+    /* Distancia del fondo */
+    right: 30px;
+    /* Distancia de la derecha */
+    z-index: 1000;
+    /* Por encima de todo */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.help-button-fixed:hover {
+    transform: scale(1.1);
+}
+
+
+
+#ayuda {
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    border: 2px solid #eaff00;
+    color: rgb(242, 255, 0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.19);
+}
+
+#ayuda:hover {
+    cursor: pointer;
+    background: #005fc4;
+    transform: scale(1.1);
+    translate: 0 -2px;
+    transition: transform 0.3s ease, translate 0.2s ease, background .5s ease;
+}
+
+
+/*?  estilos para todos los help */
+
+.logo-help {
+    width: 10%;
+}
+
+.help-section {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.help-section h3 {
+    color: #003e80;
+    margin-bottom: 10px;
+    font-size: x-large;
+}
+
+.help-section p {
+    color: #797979;
+    margin-bottom: 10px;
+}
+
+.help-section ul {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.help-section li {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.help-title {
+    text-align: center;
+    color: #003e80;
+    margin: 10px 0 16px;
+    letter-spacing: 0.5px;
+}
+
+.help-subtitle {
+    text-align: center;
+    color: #003e80;
+    margin: 18px 0 8px;
+}
+
+.help-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.help-logo-inline {
+    width: 140px;
+    max-width: 40%;
+    height: auto;
+}
+
+.help-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+}
+
+.help-table td {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+}
+
+.help-image {
+    display: block;
+    margin: 10px auto 16px;
+    max-width: 100%;
+    height: auto;
+}
+
+.help-inline-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 8px 0 12px;
+}
+
+.help-inline-images img {
+    max-height: 80px;
+    width: auto;
+    height: auto;
+}  

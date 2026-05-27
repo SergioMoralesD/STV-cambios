@@ -1,0 +1,432 @@
+/* ─── stvLogisticaAgenda.css ───────────────────────────────────────────────────
+   Estilos específicos de la página STVLogisticaAgenda.
+   Portados del legacy STV_Logistics/src/css/index.css.
+   El layout del calendario (AgendaSemanal) vive en:
+     Components/common/AgendaSemanal/AgendaSemanal.css
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ─── Layout del dashboard ─────────────────────────────────────────────────── */
+
+/* agenda-dashboard ocupa todo el espacio sobrante en logistics-scale-inner
+   tras el isla-selector-tabs (flex:1 = "crecer todo lo que puedas").
+   Legacy: contenido principal ~66vh + footer fijo ~34vh = 100vh total. */
+.agenda-dashboard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 6px 8px 4px;
+  background: transparent;
+  gap: 0;
+  overflow: auto; /* Permite scroll si el contenido total excede la pantalla */
+}
+
+/* ─── Selector de Islas (Tabs) ────────────────────────────────────────────── */
+
+.isla-selector-tabs {
+  display: none;
+}
+
+/* Legacy: th / thead estilos adaptados a botón */
+.isla-tab-button {
+  background: rgba(9, 88, 153, 0.5);
+  border: 1px solid #095899;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.isla-tab-button:hover {
+  background: rgba(26, 95, 160, 0.75);
+  color: #fff;
+}
+
+/* Legacy: .Azul { background-color: #0053a1; color: white } */
+.isla-tab-button.active {
+  background: #095899;
+  color: #fff;
+  border-color: #095899;
+  box-shadow: 0 0 10px rgba(9, 88, 153, 0.55);
+}
+
+/* Top row: crece para llenar el espacio disponible (~66vh), sin overflow externo */
+.agenda-top-row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  height: 54vh; /* Reducido para dar espacio al footer y evitar cortes */
+  min-height: 0;
+  overflow: hidden;
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto suave para cuando se despliega el menú superior: encoge la parte de arriba
+   para que la tabla resumen y los relojes suban animadamente */
+.header-visible .agenda-top-row {
+  height: 48vh !important; /* Reduce la altura para hacer hueco al header */
+}
+
+/* Panel izquierdo: tabla de islas */
+.agenda-islas-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 0 0 40%;
+  margin-left: 8px;
+  height: 100%; /* Para que mida lo mismo que el calendario */
+}
+
+.agenda-islas-panel .row-islas {
+  display: flex;
+  flex-direction: column !important;
+  gap: 6px;
+  height: 100%;
+}
+
+.agenda-islas-panel .col-isla-logistics {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.isla-table-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.isla-card-body-flex {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Legacy: #rowTable { max-height: 57vh; overflow: auto } */
+.agenda-islas-panel .tabla-body-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.agenda-islas-panel .tabla-body-scroll .tableElements {
+  width: 100%;
+}
+
+/* Forzar scrollbars visibles en la tabla de la isla */
+.agenda-islas-panel .tabla-body-scroll::-webkit-scrollbar {
+  width: 8px !important;
+  display: block !important;
+}
+
+.agenda-islas-panel .tabla-body-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-radius: 4px !important;
+}
+
+/* ─── Tarjeta de avería dentro de la agenda ────────────────────────────────── */
+
+/* Legacy: .cuadrado + colorDispensing / colorVitrina / colorVending / colorBotellero
+   table { font-family: "Trebuchet MS", Arial; font-size: 12px; font-weight: bold } */
+.agenda-averia-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.75rem; /* Aumentado */
+  /* Legacy: border de acento a la izquierda según familia */
+  border-left: 3px solid rgba(0, 0, 0, 0.3);
+  background: rgb(189, 188, 188);
+  cursor: pointer;
+  transition: transform 0.1s, background 0.1s;
+}
+
+.agenda-averia-card:hover {
+  transform: scale(1.01);
+  background: rgb(160, 160, 160);
+}
+
+/* ─── Badge de familia — estilo cuadrado del legacy ───────────────────────── */
+/* Legacy: .cuadrado { display: flex; justify-content: center; align-items: center }
+          .colorDispensing/.colorVitrina/... { color: white; text-transform: uppercase;
+            text-shadow: 0px 2px 3px #666; padding: 1px; width: 32px; height: 32px } */
+
+.agenda-familia-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px; /* Aumentado ligeramente */
+  height: 15px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 2px #444;
+  padding: 1px;
+  border-radius: 2px;
+  letter-spacing: 0.2px;
+  align-self: flex-start;
+}
+
+.agenda-averia-text {
+  font-weight: bold;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.72rem; /* Aumentado */
+}
+
+/* Legacy: .leyenda { color: white } → cliente en blanco sobre la tarjeta */
+.agenda-cliente-text {
+  color: #222;
+  font-size: 0.68rem; /* Aumentado */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Colores de familia — Legacy exacto ──────────────────────────────────── */
+/* Legacy: .colorDispensing { color: white } con background en la celda de tabla.
+   En la tarjeta usamos border-left + fondo del badge como portado fiel.        */
+
+.agenda-averia-card.colorDispensing {
+  border-left-color: #e6a817;
+}
+
+.agenda-averia-card.colorVitrina {
+  border-left-color: #f5cf00;
+}
+
+.agenda-averia-card.colorVending {
+  border-left-color: #1abc1a;
+}
+
+.agenda-averia-card.colorBotellero {
+  border-left-color: #1a7ee6;
+}
+
+/* Badge background por familia — igual que cuadrado del legacy */
+.agenda-averia-card.colorDispensing .agenda-familia-badge {
+  background: #e6a817;
+  color: #fff;
+}
+
+.agenda-averia-card.colorVitrina .agenda-familia-badge {
+  background: #c8a800;
+  color: #fff;
+}
+
+.agenda-averia-card.colorVending .agenda-familia-badge {
+  background: #1abc1a;
+  color: #fff;
+}
+
+.agenda-averia-card.colorBotellero .agenda-familia-badge {
+  background: #1a7ee6;
+  color: #fff;
+}
+
+/* ─── Footer: Tabla Resumen y Medidores ────────────────────────────────────── */
+
+.logistics-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+  transition: padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tabla Resumen alineada bajo la Delegación (40%) */
+.logistics-footer .tabla-resumen-wrapper {
+  flex: 0 0 47%; /* 40% / 0.85 scale = ~47% para igualar ancho visual con isla */
+  margin-left: 8px;
+  display: flex;
+  justify-content: flex-start;
+  transform: scale(0.85);
+  transform-origin: top left;
+}
+
+.logistics-footer .tabla-resumen-logistica {
+  width: 100% !important;
+}
+
+/* Medidores centrados bajo la Agenda (60%) */
+.logistics-footer .medidoresEImagen {
+  flex: 1;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: scale(0.9);
+}
+
+/* ─── Optimización Orgánica para 1080p Desktop ─────────────────────────── */
+@media (min-width: 1200px) and (max-width: 1920px) and (min-height: 800px) and (max-height: 1080px) {
+  .agenda-top-row {
+    height: 65vh; /* Altura perfecta y fluida para el calendario y la tabla */
+  }
+  
+  .logistics-footer {
+     /* Compacta el footer ligeramente para evitar desbordamiento vertical */
+    align-items: flex-end; /* Alinea horizontalmente las bases de ambos elementos */
+  }
+
+  .logistics-footer .tabla-resumen-wrapper {
+    flex: 0 0 40%; /* Coincide exactamente con el ancho de la tabla de isla (40%) */
+    transform: scale(0.85); /* Mantiene la escala idónea */
+    transform-origin: bottom center; /* Pega la tabla abajo y al centro al escalar */
+    align-self: flex-end; /* Alinea al fondo verticalmente */
+    justify-content: center; /* Centra horizontalmente la tabla en su columna */
+  }
+
+  .logistics-footer .tabla-resumen-wrapper .tabla-resumen-logistica {
+    width: 75% !important; /* La hace un poco menos ancha */
+  }
+
+  .logistics-footer .medidoresEImagen {
+    flex: 0 0 60% !important; /* Coincide exactamente con el 60% de la Agenda Semanal */
+    transform: scale(0.95); /* Relojes un poco más grandes */
+    transform-origin: bottom center; /* Mantiene la base de los relojes perfectamente alineada */
+    align-self: flex-end; /* Asegura la alineación vertical inferior con la tabla */
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* Cuando el header de navegación está desplegado (visible), encogemos el espacio */
+  .header-visible .agenda-top-row {
+    height: 55vh !important; /* Reduce la altura superior para que quepa todo */
+  }
+
+  .header-visible .logistics-footer {
+    padding: 5px 0 !important; /* Reduce drásticamente el padding vertical a 5px */
+  }
+}
+
+
+/* ─── Responsive (Layout Vertical Apilado) ────────────────────────────────── */
+@media (max-width: 1100px) {
+  .logistics-scale-wrapper {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  .logistics-scale-inner {
+    transform: none !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .agenda-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: visible;
+    height: auto;
+    gap: 40px; /* Espacio entre los grandes bloques */
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Aplanamiento de la jerarquía para usar order */
+  .agenda-top-row, 
+  .logistics-footer {
+    display: contents !important;
+  }
+
+  /* 1. Agenda Semanal (Calendario) */
+  .agenda-semanal {
+    order: 1;
+    width: 98% !important;
+    flex: none !important;
+    margin: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* 2. Relojes (Medidores) - Justo debajo de la agenda */
+  .medidoresEImagen {
+    order: 2;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    transform: scale(0.9) !important;
+    grid-column: span 1 !important; /* Reset de grid si existiera */
+  }
+
+  /* 3. Tabla de Delegación (Isla seleccionada) */
+  .agenda-islas-panel {
+    order: 3;
+    width: 95% !important;
+    max-width: 1200px;
+    flex: none !important;
+    margin: 0 !important;
+    height: 700px !important; /* Altura aumentada para mostrar más contenido hacia abajo */
+  }
+
+  /* 4. Tabla de Resumen - Mismo ancho que la de delegación */
+  .tabla-resumen-wrapper {
+    order: 4;
+    width: 95% !important;
+    max-width: 1200px;
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+  }
+
+  .tabla-resumen-logistica {
+    width: 100% !important;
+    min-width: 800px; /* Para mantener legibilidad con scroll horizontal */
+  }
+
+  .isla-table-wrapper {
+    width: 100% !important;
+  }
+}
+
+/* ─── 4K / Pantallas Grandes (Agenda) ────────────────────────────────────── */
+@media screen and (min-width: 2000px) {
+  .agenda-islas-panel {
+    flex: 0 0 40% !important;
+    max-width: 40% !important;
+  }
+  
+  .logistics-footer .tabla-resumen-wrapper {
+    flex: 0 0 40% !important;
+    max-width: 40% !important;
+    transform: scale(1) !important; /* Resetea posibles escalas para usar todo el ancho real */
+    transform-origin: left center;
+  }
+
+  .logistics-footer .tabla-resumen-wrapper .tabla-resumen-logistica {
+    width: 100% !important;
+  }
+}

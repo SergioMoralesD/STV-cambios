@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "title": "Manual de procedimientos",
+    "subtitle": "Guía de operaciones STV",
+    "category": "documentacion",
+    "url": "/docs/manual-procedimientos.pdf",
+    "type": "download",
+    "iconKey": "file-text",
+    "color": "#3B82F6"
+  },
+  {
+    "id": "2",
+    "title": "Catálogo de repuestos",
+    "subtitle": "Listado oficial de piezas",
+    "category": "inventario",
+    "url": "/docs/catalogo-repuestos.pdf",
+    "type": "download",
+    "iconKey": "package",
+    "color": "#10B981"
+  },
+  {
+    "id": "3",
+    "title": "Informes de averías",
+    "subtitle": "Dashboard interactivo",
+    "category": "informes",
+    "url": "/averias",
+    "type": "view",
+    "iconKey": "bar-chart",
+    "color": "#F59E0B"
+  },
+  {
+    "id": "4",
+    "title": "Portal de logística",
+    "subtitle": "Gestión de rutas y técnicos",
+    "category": "logistica",
+    "url": "/STVLogistics",
+    "type": "view",
+    "iconKey": "truck",
+    "color": "#8B5CF6"
+  },
+  {
+    "id": "5",
+    "title": "Formulario de incidencias",
+    "subtitle": "Reportar nueva avería",
+    "category": "reportes",
+    "url": "https://forms.stv.com/incidencias",
+    "type": "link",
+    "iconKey": "external-link",
+    "color": "#EF4444"
+  }
+]
