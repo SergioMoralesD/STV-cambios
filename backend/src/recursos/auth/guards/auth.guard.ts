@@ -10,30 +10,21 @@ export class AuthGuard implements CanActivate {
     const request = context.switchToHttp().getRequest();
     const token = this.extractTokenFromHeader(request);
 
-    if (!token) {
-      throw new UnauthorizedException('Acceso denegado: No se ha iniciado sesión');
-    }
+    if (!token) throw new UnauthorizedException();
 
     try {
-      // Usamos la MISMA clave secreta aquí
       const payload = await this.jwtService.verifyAsync(token, {
-        secret: 'stv_2026', 
+        secret: 'stv_2026',
       });
-      
       request['user'] = payload;
-    } catch (e) {
-      console.log("Error de validación JWT:", e.message);
-      throw new UnauthorizedException('Acceso denegado: Sesión inválida o expirada');
+    } catch {
+      throw new UnauthorizedException();
     }
-    
     return true;
   }
 
   private extractTokenFromHeader(request: Request): string | undefined {
-    const authHeader = request.headers.authorization;
-    if (!authHeader) return undefined;
-    
-    const [type, token] = authHeader.split(' ');
+    const [type, token] = request.headers.authorization?.split(' ') ?? [];
     return type === 'Bearer' ? token : undefined;
   }
 }
