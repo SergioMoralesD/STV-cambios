@@ -6,11 +6,14 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post('login')
-  async login(@Body() body: { usuario: string; clave: string }) {
-    const user = await this.authService.login(body.usuario, body.clave);
-    if (!user) {
+  async login(@Body() body: any) {
+    // Aquí forzamos la lectura del cuerpo JSON enviado desde Talend
+    const { username, password } = body;
+    const result = await this.authService.login(username, password);
+    
+    if (!result) {
       throw new UnauthorizedException('Usuario o contraseña incorrectos');
     }
-    return user;
+    return result;
   }
 }
