@@ -1,15 +1,18 @@
-import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common';
-import { AuthService } from './auth.service';
+import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 
-@Controller('auth') // La URL base será: tu-dominio.com/auth
-export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+@Injectable()
+export class AuthService {
+  constructor(private jwtService: JwtService) {}
 
-  @Post('login') // La URL final para la web será: tu-dominio.com/auth/login
-  @HttpCode(HttpStatus.OK)
-  async login(@Body() body: any) {
-    // Recogemos el usuario y clave que se escriben en el formulario de la web
-    const { usuario, clave } = body;
-    return await this.authService.login(usuario, clave);
+  async login(usuario: string, clave: string) {
+    if (usuario === 'admin' && clave === 'stv2026') {
+      const payload = { username: usuario, role: 'admin' };
+      return {
+        backend_status: 'AUTHENTICATED',
+        accessToken: await this.jwtService.signAsync(payload),
+      };
+    }
+    return null;
   }
 }
