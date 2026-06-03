@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+*.log
+logs
+portalb2b.db
+portalb2b.db-shm
+portalb2b.db-wal
+.env
+scratch
+test-js
+*.sql
+.vscode
+.idea
