@@ -63,14 +63,14 @@ export interface ModuleConfig {
 
 export const MODULE_REGISTRY: Record<string, ModuleConfig> = {
   // ── Sin props (leen el contexto internamente) ──────────────────────────────
-  'AVERIAS': { Component: AveriasPage, propsMode: 'usuario', delegacionesVista: 'AVERIAS', path: 'averias' },
+  'AVERIAS': { Component: AveriasPage, propsMode: 'none', delegacionesVista: 'AVERIAS', path: 'averias' },
   'AVREPE': { Component: AveriasRepetitivasPage, propsMode: 'none', delegacionesVista: 'AVREPE', path: 'AveriasRepetitivas' },
   'AVSLA': { Component: AveriasSLAPage, propsMode: 'none', delegacionesVista: 'AVSLA', path: 'Averias_SLA' },
   'STVLOG': { Component: STVLogisticsPage, propsMode: 'none', delegacionesVista: 'STVLOG', path: 'STVLogistics' },
   'SANMTTO': { Component: SanitizacionesYMantenimientosPage, propsMode: 'none', delegacionesVista: 'SANMTTO', path: 'SanitizacionesYMantenimientos' },
   'TRABCL': { Component: TrabajoClientePage, propsMode: 'none', delegacionesVista: 'TRABCL', path: 'Trabajo_Cliente' },
   'RANKPROD': { Component: RankProductividad, propsMode: 'none', delegacionesVista: 'RANKPROD', path: 'Ranking_Tecnicos' },
-  'PRODTEC': { Component: Productividad, propsMode: 'usuario', delegacionesVista: 'PRODTEC', path: 'Gestion_Tecnicos' },
+  'PRODTEC': { Component: Productividad, propsMode: 'none', delegacionesVista: 'PRODTEC', path: 'Gestion_Tecnicos' },
   'REPAVRO': { Component: AprovisionamientoRepuestos, propsMode: 'none', delegacionesVista: 'REPAVRO', path: 'AprovisionamientoRepuestos' },
   'REPINV': { Component: RepuestosSinInventariar, propsMode: 'none', delegacionesVista: 'REPINV', path: 'RepuestosSinInventariar' },
 

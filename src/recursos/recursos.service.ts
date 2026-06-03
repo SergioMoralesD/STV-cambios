@@ -12,7 +12,7 @@ export class RecursosService {
       // // fileLog({ level: 'INFO', message: 'Simulando petición a API externa (Modo Local Mock)...' });
       
       // Apuntamos a la carpeta raíz donde guardaste tu JSON
-      const mockPath = path.resolve(__dirname, '../../../utils/stv-mock.json');
+      const mockPath = path.resolve(__dirname, '../../utils/stv-mock.json');
       const dataRaw = fs.readFileSync(mockPath, 'utf-8');
       
       // Devolvemos los datos simulados exactamente igual que si vinieran de internet

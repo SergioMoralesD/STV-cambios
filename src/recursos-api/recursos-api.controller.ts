@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-const JSON_PATH = join(__dirname, '..', '..', '..', 'utils', 'recursos-api.json');
+const JSON_PATH = join(__dirname, '..', '..', 'utils', 'recursos-api.json');
 
 @Controller('recursos-api')
 export class RecursosApiController {

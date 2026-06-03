@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { FastifyRequest, FastifyReply } from 'fastify';
 
-const JSON_PATH = join(__dirname, '..', '..', '..', 'utils', 'mock-data.json');
+const JSON_PATH = join(__dirname, '..', '..', 'utils', 'mock-data.json');
 
 let cache: Record<string, any> = {};
 function loadJson(): Record<string, any> {
@@ -26,6 +26,15 @@ export class MockController {
       const body = req.body as any;
       const sla = body?.sla ?? 90;
       return res.send({ "nuevo_sla_objetivo": sla });
+    }
+
+    if (path === 'tecnico-info' && Array.isArray(result)) {
+      const query = new URL(req.url, 'http://localhost').searchParams;
+      const codTecnico = query.get('codTecnico');
+      if (codTecnico) {
+        const filtered = result.filter((t: any) => t.CODIGO_EMPLEADO === codTecnico);
+        return res.send(filtered.length ? filtered[0] : {});
+      }
     }
 
     if (result !== undefined) {

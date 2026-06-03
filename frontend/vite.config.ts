@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     server: {
-      port: 4000,
+      port: 5173,
       proxy: {
         '/auth': {
            target: backendUrl,
