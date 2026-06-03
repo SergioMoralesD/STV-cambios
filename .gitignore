@@ -15,7 +15,7 @@ dist-ssr
 /test-js
 portalb2b.db-shm
 portalb2b.db-wal
-portalb2b.db
+# portalb2b.db
 portalb2b.db.bak
 # walkthrough.md
 fix_urls.js
