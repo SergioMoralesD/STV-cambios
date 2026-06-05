@@ -1,0 +1,95 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: stv-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-stv_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-stv_secret}
+      POSTGRES_DB: ${DB_NAME:-stv_portal}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/01_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-stv_user} -d ${DB_NAME:-stv_portal}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - stv-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: stv-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      JWT_SECRET: ${JWT_SECRET:-CLAVE_SECRETA_STV_DE_PRUEBAS}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${DB_USER:-stv_user}
+      DB_PASSWORD: ${DB_PASSWORD:-stv_secret}
+      DB_NAME: ${DB_NAME:-stv_portal}
+      DATABASE_URL: postgresql://${DB_USER:-stv_user}:${DB_PASSWORD:-stv_secret}@db:5432/${DB_NAME:-stv_portal}
+    ports:
+      - "4000:4000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    volumes:
+      # Datos mock compartidos (utils/ en la raíz del repo)
+      - ./utils:/utils:ro
+    networks:
+      - stv-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_BACKEND_URL_PROD: ""
+    container_name: stv-frontend
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "5173:5173"
+    networks:
+      - stv-network
+
+  db-seed:
+    profiles: ["seed"]
+    image: node:22-alpine
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${DB_USER:-stv_user}:${DB_PASSWORD:-stv_secret}@db:5432/${DB_NAME:-stv_portal}
+    volumes:
+      - ./db:/app/db
+      - ./utils:/app/utils:ro
+    working_dir: /app/db
+    command: sh -c "npm install --omit=dev && node seed.mjs"
+    networks:
+      - stv-network
+
+networks:
+  stv-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

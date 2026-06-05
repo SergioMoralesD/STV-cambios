@@ -1,0 +1,185 @@
+/* ─── AgendaSemanal.css ────────────────────────────────────────────────────────
+   Estilos del componente genérico AgendaSemanal.
+   Diseño sólido, sin transparencias excesivas.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ─── Contenedor raíz ──────────────────────────────────────────────────────── */
+.agenda-semanal {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  background: #0d3a6e52;
+  border-radius: 6px;
+  border: 1px solid #1a5fa0;
+  overflow: hidden;
+}
+
+/* ─── Cabecera (título + navegación) ───────────────────────────────────────── */
+.agenda-semanal__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px 6px;
+  background: #072a52;
+  border-bottom: 2px solid #1a5fa0;
+}
+
+.agenda-semanal__titulo {
+  color: #ffd700;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.agenda-semanal__nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.agenda-semanal__nav-btn {
+  background: #f0a500;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.agenda-semanal__nav-btn:hover {
+  background: #c87d00;
+  transform: scale(1.1);
+}
+
+.agenda-semanal__rango {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  white-space: nowrap;
+}
+
+/* ─── Grid de días ─────────────────────────────────────────────────────────── */
+.agenda-semanal__grid {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+  /* Corregido de 100vh a 100% */
+}
+
+.agenda-semanal__col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #1a5fa0;
+}
+
+.agenda-semanal__col:last-child {
+  border-right: none;
+}
+
+.agenda-semanal__col--hoy {
+  background: #154d88;
+}
+
+/* ─── Cabecera de columna de día ───────────────────────────────────────────── */
+.agenda-semanal__col-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 4px 4px;
+  background: #072a52;
+  border-bottom: 1px solid #1a5fa0;
+  gap: 1px;
+}
+
+.agenda-semanal__col--hoy .agenda-semanal__col-header {
+  background: #1a5fa0;
+}
+
+.agenda-semanal__dia-nombre {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.agenda-semanal__col--hoy .agenda-semanal__dia-nombre {
+  color: #ffd700;
+}
+
+.agenda-semanal__dia-fecha {
+  color: #ffd700;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+/* ─── Cuerpo de la columna ─────────────────────────────────────────────────── */
+.agenda-semanal__col-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.agenda-semanal__col-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.agenda-semanal__col-body::-webkit-scrollbar-thumb {
+  background: #1a5fa0;
+  border-radius: 4px;
+}
+
+.agenda-semanal__vacio {
+  color: #4a7aaa;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 8px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .agenda-semanal {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .agenda-semanal__grid {
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .agenda-semanal__col {
+    border-right: none;
+    border-bottom: 2px solid #1a5fa0;
+    min-height: 120px;
+  }
+
+  .agenda-semanal__col-body {
+    max-height: none;
+    padding-bottom: 15px;
+  }
+}  

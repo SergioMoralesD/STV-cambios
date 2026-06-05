@@ -1,0 +1,166 @@
+/*STVTracker.css*/
+
+.stv-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.stv-map {
+    height: 100%;
+    width: 100%;
+}
+
+.stv-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.75);
+    font-size: 20px;
+    z-index: 1000;
+}
+
+.stv-error {
+    color: #ff4444;
+}
+
+.stv-legend {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1000;
+    background: #095593;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    min-width: 260px;
+    max-width: 320px;
+    overflow: hidden;
+}
+
+.stv-legend-header {
+    background: #ffff;
+    color: #095593;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 2.5px solid #fbcc26;
+    user-select: none;
+}
+
+.stv-legend-body {
+    padding: 8px 10px;
+    max-height: 360px;
+    overflow-y: auto;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.stv-legend-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.stv-legend-name {
+    flex: 1;
+    font-size: 13px;
+}
+
+.stv-legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    border: 1px solid #000;
+    flex-shrink: 0;
+}
+
+.stv-legend-buttons {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.stv-btn-mark {
+    flex: 1;
+    background: #095593;
+    color: #fbcc26;
+    font-weight: bold;
+    border: 2px solid #fbcc26;
+    border-radius: 4px;
+    padding: 3px 0;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.stv-btn-unmark {
+    flex: 1;
+    background: #fbcc26;
+    color: #095593;
+    font-weight: bold;
+    border: 2px solid #095593;
+    border-radius: 4px;
+    padding: 3px 0;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* Custom SVG Icon Container */
+.custom-svg-icon {
+    background: transparent;
+    border: none;
+}
+
+/* Overlays */
+.stv-header-logo {
+    position: absolute;
+    top: 15px;
+    left: 45px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    pointer-events: none;
+}
+
+.stv-logo-thumb {
+    height: 35px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.stv-logo-text {
+    font-size: 24px;
+    font-weight: 900;
+    color: #ffffff;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-top: 5px;
+}
+
+.stv-btn-historico {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 1000;
+    background-color: #095593;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 6px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
+}
+
+.stv-btn-historico:hover {
+    background-color: #0d6ab9;
+    transform: translateY(-1px);
+}  

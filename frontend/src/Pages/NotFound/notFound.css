@@ -1,0 +1,134 @@
+.notfound-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: var(--menu-body-font, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+}
+
+.notfound-content {
+    background-color: var(--background-container-color, #ffffff);
+    padding: 3rem;
+    border-radius: var(--border-radius, 12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.notfound-title {
+    font-size: 6rem;
+    margin: 0;
+    color: var(--menu-azul, #0056b3);
+    font-family: var(--menu-header-font, inherit);
+    line-height: 1;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--menu-azul), #00a8ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.notfound-message {
+    font-size: 1.25rem;
+    color: #444;
+    margin-bottom: 2rem;
+}
+
+.notfound-redirect-info {
+    margin-bottom: 2.5rem;
+}
+
+.notfound-redirect-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.countdown-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--menu-azul);
+}
+
+.countdown-progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--menu-azul);
+    transition: width 1s linear;
+}
+
+.back-button {
+    background-color: var(--menu-azul);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: var(--border-radius, 12px);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+}
+
+.back-button:hover {
+    background-color: #004494;
+    transform: translateY(-2px);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 1920px) {
+    .notfound-content {
+        max-width: 500px;
+        padding: 4rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .notfound-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .notfound-title {
+        font-size: 3.5rem;
+    }
+
+    .notfound-message {
+        font-size: 1rem;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+}
+  

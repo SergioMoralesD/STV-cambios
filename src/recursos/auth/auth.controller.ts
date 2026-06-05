@@ -1,0 +1,170 @@
+import { Controller, Get, Post, Body, UnauthorizedException, UseGuards, Req, Res } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { FastifyReply } from 'fastify';
+
+@Controller('auth')
+export class AuthController {
+  constructor(private authService: AuthService) {}
+
+  @Post('login')
+  async login(@Body() body: any, @Res({ passthrough: true }) reply: FastifyReply) {
+    const { usuario, password } = body;
+    const result = await this.authService.login(usuario, password);
+    
+    if (!result) {
+      throw new UnauthorizedException('Usuario o contraseña incorrectos');
+    }
+
+    reply.setCookie('session_token', result.accessToken, {
+      path: '/',
+      httpOnly: true,
+      sameSite: 'lax',
+      maxAge: 28800,
+    });
+
+    return result;
+  }
+
+  @Get('me')
+  @UseGuards(AuthGuard)
+  async me(@Req() req: any) {
+    return {
+      id: 1,
+      usuario: req.user.usuario,
+      correo: 'admin@stv.com',
+      rol_id: 1,
+      rol_nombre: 'Admin',
+      activo: 1,
+      regiones: [
+        { codigo: 'C', nombre: 'Canarias' },
+        { codigo: 'B', nombre: 'Baleares' },
+      ],
+      vistas: {
+        C: ['AVERIAS', 'AVREPE', 'AVSLA', 'STVLOG', 'RECUR', 'PEDREP', 'SANMTTO', 'TRABCL', 'FAEQUIP', 'FLYFB', 'STVLOGAG', 'RANKPROD', 'PRODTEC', 'REPAVRO', 'REPINV', 'CONREP'],
+        B: ['AVERIAS', 'AVREPE', 'AVSLA', 'STVLOG', 'RECUR', 'PEDREP', 'SANMTTO', 'TRABCL', 'FAEQUIP', 'FLYFB', 'STVLOGAG', 'RANKPROD', 'PRODTEC', 'REPAVRO', 'REPINV', 'CONREP'],
+      },
+      codigo_usuario: 'admin',
+      delegaciones: {
+        C: {
+          AVERIAS: ['6S21'],
+          AVREPE: ['6S21'],
+          AVSLA: ['6S21'],
+          STVLOG: ['6S21'],
+          RECUR: ['6S21'],
+          PEDREP: ['6S21'],
+          SANMTTO: ['6S21'],
+          TRABCL: ['6S21'],
+          FAEQUIP: ['6S21'],
+          FLYFB: ['6S21'],
+          STVLOGAG: ['6S21'],
+          RANKPROD: ['6S21'],
+          PRODTEC: ['6S21'],
+          REPAVRO: ['6S21'],
+          REPINV: ['6S21'],
+          CONREP: ['6S21'],
+        },
+        B: {
+          AVERIAS: ['6E21'],
+          AVREPE: ['6E21'],
+          AVSLA: ['6E21'],
+          STVLOG: ['6E21'],
+          RECUR: ['6E21'],
+          PEDREP: ['6E21'],
+          SANMTTO: ['6E21'],
+          TRABCL: ['6E21'],
+          FAEQUIP: ['6E21'],
+          FLYFB: ['6E21'],
+          STVLOGAG: ['6E21'],
+          RANKPROD: ['6E21'],
+          PRODTEC: ['6E21'],
+          REPAVRO: ['6E21'],
+          REPINV: ['6E21'],
+          CONREP: ['6E21'],
+        },
+      },
+      menuConfig: {
+        vistas: [
+          { codigo: 'AVERIAS', nombre: 'Averías', mostrar_juntas: false },
+          { codigo: 'AVREPE', nombre: 'Averías Repetitivas', mostrar_juntas: false },
+          { codigo: 'AVSLA', nombre: 'Averías SLA', mostrar_juntas: false },
+          { codigo: 'STVLOG', nombre: 'Logística', mostrar_juntas: false },
+          { codigo: 'RECUR', nombre: 'Recursos', mostrar_juntas: true },
+          { codigo: 'PEDREP', nombre: 'Pedidos Repuestos', mostrar_juntas: true },
+          { codigo: 'SANMTTO', nombre: 'Saneamientos', mostrar_juntas: false },
+          { codigo: 'TRABCL', nombre: 'Trabajo Cliente', mostrar_juntas: false },
+          { codigo: 'FAEQUIP', nombre: 'FA Equipos', mostrar_juntas: false },
+          { codigo: 'FLYFB', nombre: 'FL y FB', mostrar_juntas: false },
+          { codigo: 'STVLOGAG', nombre: 'Agenda Logística', mostrar_juntas: false },
+          { codigo: 'RANKPROD', nombre: 'Ranking Productividad', mostrar_juntas: true },
+          { codigo: 'PRODTEC', nombre: 'Gestión Técnicos', mostrar_juntas: false },
+          { codigo: 'REPAVRO', nombre: 'Aprovisionamiento', mostrar_juntas: false },
+          { codigo: 'REPINV', nombre: 'Repuestos Sin Inventariar', mostrar_juntas: false },
+          { codigo: 'CONREP', nombre: 'Consumo Repuestos', mostrar_juntas: false },
+        ],
+        vistaUrls: [
+          { region_codigo: 'C', vista_codigo: 'AVERIAS', url: '/averias' },
+          { region_codigo: 'C', vista_codigo: 'AVREPE', url: '/AveriasRepetitivas' },
+          { region_codigo: 'C', vista_codigo: 'AVSLA', url: '/Averias_SLA' },
+          { region_codigo: 'C', vista_codigo: 'STVLOG', url: '/STVLogistics' },
+          { region_codigo: 'C', vista_codigo: 'RECUR', url: '/recursos' },
+          { region_codigo: 'C', vista_codigo: 'PEDREP', url: '/Pedidos_Repuestos' },
+          { region_codigo: 'C', vista_codigo: 'SANMTTO', url: '/SanitizacionesYMantenimientos' },
+          { region_codigo: 'C', vista_codigo: 'TRABCL', url: '/Trabajo_Cliente' },
+          { region_codigo: 'C', vista_codigo: 'FAEQUIP', url: '/FA_de_Equipos_recien_instalados' },
+          { region_codigo: 'C', vista_codigo: 'FLYFB', url: '/Trabajo_FL_FB' },
+          { region_codigo: 'C', vista_codigo: 'STVLOGAG', url: '/STVLogisticaAgenda' },
+          { region_codigo: 'C', vista_codigo: 'RANKPROD', url: '/Ranking_Tecnicos' },
+          { region_codigo: 'C', vista_codigo: 'PRODTEC', url: '/Gestion_Tecnicos' },
+          { region_codigo: 'C', vista_codigo: 'REPAVRO', url: '/AprovisionamientoRepuestos' },
+          { region_codigo: 'C', vista_codigo: 'REPINV', url: '/RepuestosSinInventariar' },
+          { region_codigo: 'C', vista_codigo: 'CONREP', url: '/Consumo' },
+          { region_codigo: 'B', vista_codigo: 'AVERIAS', url: '/averias' },
+          { region_codigo: 'B', vista_codigo: 'AVREPE', url: '/AveriasRepetitivas' },
+          { region_codigo: 'B', vista_codigo: 'AVSLA', url: '/Averias_SLA' },
+          { region_codigo: 'B', vista_codigo: 'STVLOG', url: '/STVLogistics' },
+          { region_codigo: 'B', vista_codigo: 'RECUR', url: '/recursos' },
+          { region_codigo: 'B', vista_codigo: 'PEDREP', url: '/Pedidos_Repuestos' },
+          { region_codigo: 'B', vista_codigo: 'SANMTTO', url: '/SanitizacionesYMantenimientos' },
+          { region_codigo: 'B', vista_codigo: 'TRABCL', url: '/Trabajo_Cliente' },
+          { region_codigo: 'B', vista_codigo: 'FAEQUIP', url: '/FA_de_Equipos_recien_instalados' },
+          { region_codigo: 'B', vista_codigo: 'FLYFB', url: '/Trabajo_FL_FB' },
+          { region_codigo: 'B', vista_codigo: 'STVLOGAG', url: '/STVLogisticaAgenda' },
+          { region_codigo: 'B', vista_codigo: 'RANKPROD', url: '/Ranking_Tecnicos' },
+          { region_codigo: 'B', vista_codigo: 'PRODTEC', url: '/Gestion_Tecnicos' },
+          { region_codigo: 'B', vista_codigo: 'REPAVRO', url: '/AprovisionamientoRepuestos' },
+          { region_codigo: 'B', vista_codigo: 'REPINV', url: '/RepuestosSinInventariar' },
+          { region_codigo: 'B', vista_codigo: 'CONREP', url: '/Consumo' },
+        ],
+        vistaIslas: [
+          { region_codigo: 'C', vista_codigo: 'AVERIAS', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'AVREPE', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'AVSLA', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'STVLOG', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'SANMTTO', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'TRABCL', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'FAEQUIP', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'FLYFB', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'STVLOGAG', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'PRODTEC', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'REPAVRO', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'REPINV', label: 'Tenerife', mainplant: '6S21' },
+          { region_codigo: 'C', vista_codigo: 'CONREP', label: 'Tenerife', mainplant: '6S21' },
+        ],
+      },
+      session_token: req.token || '',
+    };
+  }
+
+  @Post('logout')
+  async logout(@Res({ passthrough: true }) reply: FastifyReply) {
+    reply.clearCookie('session_token', { path: '/' });
+    return { message: 'Sesión cerrada' };
+  }
+
+  @Post('logout-all')
+  async logoutAll(@Res({ passthrough: true }) reply: FastifyReply) {
+    reply.clearCookie('session_token', { path: '/' });
+    return { message: 'Todas las sesiones cerradas' };
+  }
+}

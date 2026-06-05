@@ -1,0 +1,786 @@
+/*STVLogistics.css*/
+/* ─── FONDO Y LAYOUT GENERAL ──────────────────────────────────────────────── */
+
+.logistics-dashboard {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  padding: 8px;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* ─── CABECERA ─────────────────────────────────────────────────────────────── */
+
+.logistics-header {
+  padding: 6px 10px 4px;
+}
+
+.logistics-logo {
+  height: 90px;
+  /* Larger logo as in legacy */
+  width: auto;
+}
+
+/* ─── FILA DE ISLAS ────────────────────────────────────────────────────────── */
+
+.row-islas {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.col-isla-logistics {
+  flex: 1;
+  min-width: 250px;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.isla-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+}
+
+/* ─── TABLA DE ISLA ────────────────────────────────────────────────────────── */
+
+/* .tableElements {
+  width: 100%;
+  border-collapse: collapse;
+  font-weight: bold;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  text-align: center;
+} */
+
+.tabla-body-scroll {
+  max-height: 45vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Si el header está oculto, ganamos espacio para las tablas de arriba */
+.header-hidden .tabla-body-scroll {
+  max-height: 55vh;
+}
+
+.tabla-body-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tabla-body-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.tabla-body-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+}
+
+.tabla-body-scroll table {
+  width: 100%;
+}
+
+.header-fili-logistics {
+  background-color: #095899 !important;
+  color: white;
+  font-size: 1.4rem;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.islas {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.trTbody td {
+  padding: 5px;
+  border: none;
+  font-size: 0.85rem;
+}
+
+.trTbody:hover {
+  z-index: 100;
+  position: relative;
+}
+
+.family-icon-cell {
+  color: white;
+  font-weight: bold;
+  width: 28px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.fecha-cell {
+  white-space: nowrap;
+  padding: 1px 4px !important;
+}
+
+.fecha-pasada {
+  border: 2px solid red !important;
+}
+
+.sin-avisos {
+  color: white;
+  font-style: italic;
+}
+
+/* ─── FOOTER CON MEDIDORES ─────────────────────────────────────────────────── */
+
+.logistics-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 10px 5px; /* Reducido de 50px a 10px para pegar la tabla a la esquina */
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0;
+  transition: margin 0.5s cubic-bezier(0.4, 0, 0.2, 1), gap 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* margin-top específico solo para el Logistics Dashboard */
+.logistics-dashboard .logistics-footer {
+  margin-top: 5vh;
+}
+
+
+/* ─── LOADER ───────────────────────────────────────────────────────────────── */
+
+.loaderTabla {
+  transform: rotateZ(45deg);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  color: #fff;
+}
+
+.loaderTabla:before,
+.loaderTabla:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+
+.loaderTabla:after {
+  color: yellow;
+  transform: rotateY(70deg);
+  animation-delay: 0.4s;
+}
+
+@keyframes spin {
+
+  0%,
+  100% {
+    box-shadow: 0.2em 0px 0 0px currentcolor;
+  }
+
+  12% {
+    box-shadow: 0.2em 0.2em 0 0 currentcolor;
+  }
+
+  25% {
+    box-shadow: 0 0.2em 0 0px currentcolor;
+  }
+
+  37% {
+    box-shadow: -0.2em 0.2em 0 0 currentcolor;
+  }
+
+  50% {
+    box-shadow: -0.2em 0 0 0 currentcolor;
+  }
+
+  62% {
+    box-shadow: -0.2em -0.2em 0 0 currentcolor;
+  }
+
+  75% {
+    box-shadow: 0px -0.2em 0 0 currentcolor;
+  }
+
+  87% {
+    box-shadow: 0.2em -0.2em 0 0 currentcolor;
+  }
+}
+
+/* ─── OVERRIDES PARA LOGISTICS ─────────────────────────────────────────────── */
+
+.logistics-footer .gauge-card {
+  padding: 5px 10px !important;
+}
+
+.logistics-footer .gauge-card:hover {
+  transform: none !important;
+  background: none !important;
+}
+
+
+
+.logistics-footer .medidoresEImagen {
+  flex: 0 1 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px; /* Bajamos los relojes y el logo 50px */
+  transition: margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logistics-footer #medidores {
+  gap: 0 !important;
+  align-items: center !important;
+}
+
+.logistics-footer .gauge-period-group {
+  gap: 0 !important;
+  justify-content: flex-end !important;
+}
+
+.logistics-footer .central-group {
+  margin-top: 0 !important;
+  justify-content: center !important;
+}
+
+/* Tooltip CSS removed in favor of native HTML title attribute */
+
+/* ─── ESCALA AUTOMÁTICA PARA CABER EN PANTALLA ─────────────────────────────── */
+
+.logistics-scale-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  background-color: #095899;
+  background-image: url("../img/Fondo_Escritorio_2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.logistics-scale-inner {
+  
+  transform-origin: top left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── ADAPTACIÓN MÓVIL (STV Logistics) ─────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  /* 1. Ajuste del fondo y contenedor principal */
+  .logistics-scale-wrapper {
+    overflow-y: auto;
+    /* Permitir scroll vertical en móvil */
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .logistics-scale-inner {
+    transform: none !important;
+    position: static !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logistics-dashboard {
+    padding: 10px 5px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* 2. Cabecera más compacta */
+  .logistics-header {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .logistics-logo {
+    height: 50px;
+    /* Logo más pequeño en móvil */
+  }
+
+  /* 3. Las islas pasan de horizontal a vertical */
+  .row-islas {
+    flex-direction: column !important;
+    gap: 20px;
+    padding: 0 5px;
+  }
+
+  .col-isla-logistics {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* 4. Tablas más legibles */
+  .tabla-body-scroll {
+    max-height: 350px;
+    /* Un poco más de espacio para ver datos */
+  }
+
+  .header-fili-logistics {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .trTbody td {
+    padding: 8px 4px;
+    /* Más espacio para dedos (touch friendly) */
+    font-size: 1rem;
+  }
+
+  /* 5. Footer y Medidores (AJUSTADO PARA MÓVIL) */
+  .logistics-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 20px 10px;
+    gap: 15px;
+  }
+
+  .logistics-footer .medidoresEImagen {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Forzamos el contenedor padre a ser una columna estricta */
+  .logistics-footer #medidores {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* Subimos el grupo central (Coca-Cola + Semana) por encima de "Año" */
+  .gauge-period-group.central-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    order: -1 !important;
+    /* Salta al primer lugar de la lista */
+  }
+
+  /* Aseguramos que la imagen sea lo primero dentro de su bloque */
+  .imgCocaCola-central {
+    order: -2 !important;
+    width: 250px !important;
+    height: auto !important;
+    margin-bottom: 15px !important;
+    display: block !important;
+  }
+
+  .gauge-canvas-wrapper {
+    width: 200px !important;
+    height: auto !important;
+  }
+
+  /* Ajuste de la Tabla Resumen para que tenga scroll horizontal */
+  .tabla-resumen-wrapper {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    /* Un pequeño estilo para la barra de scroll horizontal */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+  }
+
+  .tabla-resumen-wrapper::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .tabla-resumen-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+  }
+
+  .tabla-resumen-logistica {
+    margin-top: 10px !important;
+    /* Reduce el margen superior excesivo en móvil */
+    min-width: max-content;
+    /* Asegura que la tabla no se colapse y se pueda hacer scroll */
+  }
+
+  /* El bloque de datos de "Semana" queda debajo de la imagen */
+  #semana {
+    order: 1 !important;
+    width: 100% !important;
+    text-align: center;
+  }
+
+  /* 6. LOADER GORDO (Versión móvil) */
+  .loaderTabla {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+  }
+
+  @keyframes spin {
+
+    0%,
+    100% {
+      box-shadow: 0.3em 0px 0 10px currentcolor;
+    }
+
+    12% {
+      box-shadow: 0.3em 0.3em 0 10px currentcolor;
+    }
+
+    25% {
+      box-shadow: 0 0.3em 0 10px currentcolor;
+    }
+
+    37% {
+      box-shadow: -0.3em 0.3em 0 10px currentcolor;
+    }
+
+    50% {
+      box-shadow: -0.3em 0 0 10px currentcolor;
+    }
+
+    62% {
+      box-shadow: -0.3em -0.3em 0 10px currentcolor;
+    }
+
+    75% {
+      box-shadow: 0px -0.3em 0 10px currentcolor;
+    }
+
+    87% {
+      box-shadow: 0.3em -0.3em 0 10px currentcolor;
+    }
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .logistics-dashboard {
+    min-width: 100%;
+    padding: 20px 40px !important;
+  }
+
+  .row-islas {
+    width: 100% !important;
+    gap: 20px !important;
+  }
+
+  .logistics-header {
+    width: 100% !important;
+    padding: 20px 60px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .header-fili-logistics {
+    font-size: 2.2rem !important;
+    padding: 10px 15px !important;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .header-fili-logistics img.islas {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .trTbody td {
+    padding: 8px 6px !important;
+    font-size: 1.35rem !important;
+    /* Slightly smaller to fit content better */
+  }
+
+  .col-isla-logistics {
+    flex: 1 1 0 !important;
+    /* Near-fill for 3840px (720*5 + gaps) */
+    max-width: none !important;
+  }
+
+  .tabla-body-scroll {
+    max-height: 52vh !important;
+  }
+
+  .header-hidden .tabla-body-scroll {
+    max-height: 60vh !important;
+  }
+
+  .logistics-logo {
+    height: 120px !important;
+  }
+
+  .logistics-header {
+    padding: 10px 30px !important;
+  }
+
+
+  /* Ajustes Footer y Relojes en 4K */
+  .logistics-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 0 20px !important; /* Reducido de 80px a 20px en 4K */
+    margin-top: 600px !important;
+    box-sizing: border-box !important;
+  }
+
+  .logistics-footer #medidores {
+    transform: none !important;
+    margin-right: 0 !important;
+  }
+
+  .logistics-footer .gauge-card {
+    margin-right: 0 !important;
+  }
+
+  /* Removido override de tamaño de logo para devolver original */
+
+  /* Escalar textos en 4K */
+  .logistics-footer .tituloTiempo {
+    font-size: 2.5rem !important;
+  }
+
+  .logistics-footer .metric-row-original-aligned {
+    font-size: 1.8rem !important;
+    width: 300px !important;
+  }
+
+  .logistics-footer .label-original {
+    width: 80px !important;
+  }
+
+  /* Escalar tooltips en 4K */
+  [data-title]:after {
+    font-size: 2.2rem !important;
+    padding: 8px 15px !important;
+  }
+}
+
+
+/* ─── LEGACY GRADIENTS (From network index.css) ──────────────────────────── */
+.moradoverde {
+  background: linear-gradient(90deg, green, purple) !important;
+  color: white !important;
+}
+
+.moradoamarillo {
+  background: linear-gradient(90deg, yellow, purple) !important;
+}
+
+.moradorojo {
+  background: linear-gradient(90deg, red, purple) !important;
+}
+
+.amarillorojo {
+  background: linear-gradient(90deg, yellow, red) !important;
+}
+
+.rojoamarillo {
+  background: linear-gradient(90deg, red, yellow) !important;
+}
+
+.amarillonegro {
+  background: linear-gradient(90deg, rgb(155, 155, 0), rgb(0, 0, 0)) !important;
+  color: white !important;
+}
+
+.rojonegro {
+  background: linear-gradient(90deg, red, rgb(0, 0, 0)) !important;
+}
+
+.verdenegro {
+  background: linear-gradient(90deg, black, green) !important;
+  color: white !important;
+}
+
+.moradonegro {
+  background: linear-gradient(90deg, purple, black) !important;
+  color: white !important;
+}
+
+.negronegro {
+  background-color: #000000 !important;
+  color: white !important;
+}
+
+/* ─── LEGACY GAUGE & INFO POSITIONING (Adapted from network gauge.css) ───── */
+.rowLogistics {
+  position: relative;
+  bottom: 10%;
+}
+
+.rowMOV {
+  position: relative;
+  bottom: 0%;
+}
+
+.rowTFC {
+  position: relative;
+  bottom: 0%;
+}
+
+.rowAVERIAS {
+  position: relative;
+  bottom: 0%;
+}
+
+.imagenCocaLogistics {
+  position: relative;
+  bottom: 70% !important;
+  width: 90px !important;
+  height: 35px !important;
+}
+
+#logisticInfoAnio>p {
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  position: relative;
+  bottom: 93%;
+  margin: 0;
+}
+
+#logisticInfoMes>p {
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  position: relative;
+  left: 35%;
+  bottom: 93%;
+  margin: 0;
+}
+
+/* ─── LEGACY TABLE STYLES (From network index.css) ───────────────────────── */
+.tableElements {
+  border-spacing: 1.5em;
+  border-collapse: collapse;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  text-align: center;
+}
+
+.tabla-resumen-logistica {
+  border-collapse: collapse;
+  font-weight: bold;
+  color: black;
+  width: 100% !important;
+  font-size: 0.85rem;
+}
+
+.tabla-resumen-logistica th,
+.tabla-resumen-logistica td {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  /* Force subtle borders */
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap;
+  padding: 4px 15px !important;
+  line-height: 1.1 !important;
+}
+
+.corner-cell {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.count-cell {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+.trIndex {
+  border: 1px solid black;
+}
+
+.Azul {
+  background-color: #0053a1;
+  color: white;
+  text-align: center;
+}
+
+.Blanco {
+  background-color: white;
+  color: #0053a1;
+  text-align: center;
+}  
+
+/* ─── Optimización para Desktop 1080p (Solo Logistics Dashboard) ────────── */
+@media (min-width: 769px) and (max-width: 1920px) {
+  .logistics-dashboard .logistics-footer .tabla-resumen-wrapper {
+    flex: 0 0 35% !important; /* Pega la tabla a la izquierda */
+    margin-right: 0 !important;
+  }
+}
+
+/* ─── Optimización para Monitores más Pequeños y Portátiles (Solo Logistics Dashboard) ── */
+@media (min-width: 769px) and (max-height: 900px) {
+  .logistics-dashboard .logistics-footer {
+    justify-content: center !important; /* Junta la tabla y los relojes en el centro */
+    gap: 220px !important;
+    margin: 100px 40px !important;
+  }
+
+  .logistics-dashboard .logistics-footer .tabla-resumen-wrapper {
+    flex: 0 1 auto !important;
+    margin: 50px !important;
+    transform: none !important;
+  }
+
+  .logistics-dashboard .logistics-footer .medidoresEImagen {
+    flex: 0 1 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 50px !important;
+  }
+
+  /* Cuando el header es visible en monitores pequeños */
+  .header-visible .logistics-dashboard .logistics-footer {
+    margin: 100px 40px !important;
+    gap: 60px !important;
+  }
+
+  .header-visible .logistics-dashboard .logistics-footer .tabla-resumen-wrapper {
+    margin: 10px !important;
+  }
+
+  .header-visible .logistics-dashboard .logistics-footer .medidoresEImagen {
+    margin-top: 10px !important;
+  }
+}

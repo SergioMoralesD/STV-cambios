@@ -1,0 +1,162 @@
+.tabla-resumen-wrapper {
+  width: 100% !important;
+  flex: 1 1 auto;
+  margin-right: 30px; 
+  margin-top: 15px;
+  display: block; 
+  transition: margin 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tabla-resumen-logistica {
+  width: 100% !important;
+  border-collapse: collapse;
+  font-size: 0.72rem; /* Reducido para compactar y que se vea el contenido de abajo */
+}
+
+.tabla-resumen-logistica th,
+.tabla-resumen-logistica td {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap;
+  padding: 0px 4px !important; /* Más compacta */
+  line-height: 1.0 !important;
+}
+
+.tabla-resumen-logistica th {
+  background: #003d6b;
+  color: white;
+}
+
+.tabla-resumen-logistica th.corner-cell {
+  background: #003d6b !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ─── LEGACY COLOR SCALE ─────────────────────────────────────────────── */
+.Color0 { background-color: #63bc7b !important; color: black !important; }
+.Color1 { background-color: #7ac57d !important; color: black !important; }
+.Color2 { background-color: #9ac57d !important; color: black !important; }
+.Color3 { background-color: #a6d27f !important; color: black !important; }
+.Color4 { background-color: #bed881 !important; color: black !important; }
+.Color5 { background-color: #d3df82 !important; color: black !important; }
+.Color6 { background-color: #e9e583 !important; color: black !important; }
+.Color7 { background-color: #ffeb83 !important; color: black !important; }
+.Color8 { background-color: #fed880 !important; color: black !important; }
+.Color9 { background-color: #fdc57c !important; color: black !important; }
+.Color10 { background-color: #fcb379 !important; color: black !important; }
+.Color11 { background-color: #fba075 !important; color: black !important; }
+.Color12 { background-color: #fa8a72 !important; color: black !important; }
+.Color13 { background-color: #f97b6e !important; color: black !important; }
+.Color14 { background-color: #f8696b !important; color: black !important; }
+.Color15 { background-color: #fd2e32 !important; color: black !important; }
+
+/* Celda "Año" / "Mes" vertical */
+.periodo-cell {
+  font-weight: bold;
+  vertical-align: middle;
+  min-width: 60px; /* Forzar anchura */
+}
+
+.periodo-cell.azul {
+  background-color: #003d6b;
+  color: white;
+}
+
+.periodo-cell.blanco {
+  background-color: white;
+  color: #003d6b;
+}
+
+/* Etiqueta Dispen/Vitr/Vend/Bote */
+.label-cell {
+  text-align: center;
+  font-weight: bold;
+  min-width: 80px; /* Forzar anchura */
+}
+
+.label-cell.blanco {
+  background-color: white;
+  color: #003d6b;
+}
+
+.label-cell.azul {
+  background-color: #003d6b;
+  color: white;
+}
+
+/* Valor por isla */
+.valor-cell {
+  text-align: center;
+  color: black !important;
+}
+
+.valor-cell.azul {
+  background-color: #095899;
+  color: white;
+}
+
+/* Cabecera Tipos */
+.tipos-header {
+  background-color: #003d6b !important;
+  color: white !important;
+  font-weight: bold;
+  text-align: center !important;
+  min-width: 140px; /* Suma de periodo y label */
+}
+
+.tipos-subheader {
+  background-color: #003d6b;
+  color: white;
+  font-weight: bold;
+  text-align: center !important;
+}
+
+/* Etiqueta FI/FC/FR */
+.tipo-label {
+  color: #003d6b !important;
+  background-color: white !important;
+  font-weight: bold;
+  text-align: center !important;
+}
+
+.count-val {
+  color: black !important;
+}
+
+/* ─── 4K / PANTALLAS GRANDES ─────────────────────────────────────────── */
+@media screen and (min-width: 2000px) {
+  .tabla-resumen-logistica {
+    font-size: 1.4rem; /* Reducido para que quepa todo */
+  }
+
+  .tabla-resumen-logistica th,
+  .tabla-resumen-logistica td {
+    padding: 6px 12px; /* Reducido para que quepa todo */
+    border-width: 1px;
+  }
+
+  .periodo-cell {
+    font-size: 1.6rem;
+    min-width: 100px;
+  }
+
+  .label-cell {
+    font-size: 1.4rem;
+    min-width: 120px;
+  }
+
+  .tipos-header {
+    font-size: 1.6rem;
+    height: 50px;
+  }
+
+  .tipos-subheader {
+    font-size: 1.3rem;
+    height: 40px;
+  }
+  
+  .valor-cell {
+    font-size: 1.4rem;
+  }
+}  

@@ -1,0 +1,10 @@
+.etiqueta-isla {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.etiqueta-isla img {
+  width: 24px;
+  height: 24px;
+}
+  

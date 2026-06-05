@@ -1,0 +1,279 @@
+.header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    min-height: 80px;
+    padding: 0 2rem;
+    border-bottom: 2px solid var(--menu-azul);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-left-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 30%;
+}
+
+.global-back-button {
+    background: rgba(0, 82, 165, 0.05);
+    border: 1px solid rgba(0, 82, 165, 0.1);
+    color: var(--menu-azul);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.global-back-button:hover {
+    background: var(--menu-azul);
+    color: white;
+    transform: translateX(-3px);
+}
+
+/* Ocultar el contenido del header visualmente pero mantener el espacio */
+.header-main.header-oculto {
+    min-height: 0;
+    height: 0px;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.header-main.header-oculto .logo-container,
+.header-main.header-oculto .texto-container,
+.header-main.header-oculto .logout-container {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.acciones-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.boton-ojo {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: #666;
+    z-index: 1001;
+
+}
+
+/* Cuando el header está oculto, el botón del ojo se queda tenue */
+.header-oculto .boton-ojo {
+    filter: blur(.7px);
+    opacity: 0.3;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.336);
+}
+
+.header-oculto .boton-ojo:hover {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1.1);
+    box-shadow: 3px 3px 10px #0052a5;
+    transition: all 1s ease;
+    color: #0052a5;
+    border-color: rgb(255 205 0);
+}
+
+.header-oculto .boton-ojo:active {
+    transform: scale(0.9);
+}
+
+/* Efecto de rotación al icono dentro del botón al hacer click */
+.boton-ojo svg {
+    transition: transform .5s ease;
+}
+
+.boton-ojo:active svg {
+    transform: rotate(180deg);
+}
+
+/* Estilo cuando el ojo está "activo" (detalles visibles) */
+.boton-ojo.activo {
+    background-color: #d9efff;
+    color: #2196f3;
+    border-color: #2196f3;
+    box-shadow: 0 0 8px rgba(33, 149, 243, 0.331);
+}
+
+.titulo-activo {
+    color: #2196f3;
+    transition: color 0.3s ease;
+}
+
+.titulo-normal {
+    transition: color 0.3s ease;
+}
+
+
+.logo-container {
+    height: 60px;
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.panel-admin-button {
+    background: #f0f4f8;
+    border: 1px solid #d1d9e0;
+    color: var(--menu-azul);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    transition: background-color 0.2s;
+}
+
+.header-oculto .panel-admin-button {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.panel-admin-button:hover {
+    background-color: #e2e8f0;
+}
+
+.panel-admin-button:active {
+    transform: translate(-50%, -50%) scale(0.98);
+}
+
+.texto-container {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    height: 100%;
+    flex: 1;
+}
+
+.texto-container h1 {
+    height: fit-content;
+    width: fit-content;
+
+    margin: 3%;
+
+    color: var(--menu-azul);
+    font-family: var(--menu-header-font);
+    font-weight: calc(300 + 200);
+
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.logout-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3%;
+    height: 100%;
+}
+
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-family: var(--menu-body-font, Arial, sans-serif);
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.logout-button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 900px) {
+    .header-main {
+        padding: 0 10px;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .header-left-section {
+        width: auto;
+        gap: 10px;
+    }
+
+    /* Ocultamos el título para ahorrar espacio valioso en móvil */
+    .texto-container {
+        display: none;
+    }
+
+    /* El botón de admin pierde su posición absoluta y pasa al flujo normal (alineado a la derecha) */
+    .panel-admin-button {
+        position: static;
+        transform: none;
+        order: 2;
+        margin-left: auto;
+        font-size: 0; /* Oculta el texto largo */
+        padding: 6px 10px;
+    }
+
+    /* Añadimos texto corto para que no rompa el diseño */
+    .panel-admin-button::after {
+        content: "Admin";
+        font-size: 14px;
+    }
+
+    /* Cuando el header se oculta, no podemos dejarlo static porque se vería raro, lo dejamos fixed centrado temporalmente */
+    .header-oculto .panel-admin-button {
+        position: fixed;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .acciones-container {
+        order: 3;
+        gap: 10px;
+    }
+
+    .logout-button {
+        padding: 6px 10px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .logo-container {
+        height: 40px;
+    }
+}  

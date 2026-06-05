@@ -1,0 +1,906 @@
+/* ─── Averías Layout ─────────────────────────────────────────────────────── */
+:global(.layout-main-content.no-scroll),
+.layout-main-content.no-scroll {
+    overflow: hidden !important;
+}
+
+.averias-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.tecnicos-container {
+    flex: 1;
+     z-index: 3000 !important; 
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.tecnicos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 2px;
+    padding-right: 15px;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 3000 !important; 
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Scrollbar moderno para la rejilla de tecnicos */
+.tecnicos-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tecnicos-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.tecnicos-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tecnicos-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#table2 {
+    transform: scale(0.65);
+    transform-origin: bottom;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 10px;
+    margin-top: -15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.left-bottom-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-left: 10px;
+    transform: scale(1.1);
+    transform-origin: left bottom;
+}
+
+
+/* ─── Tecnico Card ───────────────────────────────────────────────────────── */
+
+.tecnico-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    margin-bottom: 4px;
+
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.tecnico-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2px;
+    width: 100%;
+}
+
+.tecnico-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #ffc107;
+    object-fit: cover;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tecnico-nombre {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 2px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.tecnico-averias-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Averia Row ─────────────────────────────────────────────────────────── */
+
+.averia-card-row {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.familia-tag {
+    width: 30px;
+    min-width: 30px;
+    min-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: white;
+    font-size: 0.7rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.averia-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 4px;
+    min-height: 22px;
+    text-align: center;
+}
+
+.averia-content a {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    line-height: 1.1;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Highlight / Borde Amarillo */
+.highlight-row {
+    outline: 4px solid #ffff00 !important;
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.4);
+}
+
+/* ─── SLA Widget ─────────────────────────────────────────────────────────── */
+
+.sla-widget-original {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+    border-radius: 15px;
+    border: 1px dashed rgba(255, 255, 255, 0.084);
+    gap: 2px;
+    margin-left: 40px;
+    transform: scale(0.85);
+    transform-origin: left bottom;
+}
+
+.sla-header-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.sla-title-original {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px black;
+}
+
+.sla-form-original {
+    display: flex;
+    gap: 5px;
+}
+
+.sla-input-original {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    background: white;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.sla-btn-original {
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.sla-result-original {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sla-number-original {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#SLA_Obj>img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+
+/* Media Queries */
+@media (max-width: 1400px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #table2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+
+    #table2>* {
+        grid-column: 1 !important;
+        justify-self: center !important;
+        margin-left: 0 !important;
+    }
+
+    .medidoresEImagen {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sla-widget-original,
+    .resumen-container-original {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tecnico-card {
+        max-width: 100%;
+    }
+}
+
+/* ─── Layout Desktop (Fijar abajo) ───────────────────────────── */
+@media (min-width: 1600px) {
+    #table2 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 20vh;
+        margin-bottom: 0;
+        padding: 5px 20px;
+        background: transparent;
+        z-index: 2000;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .left-bottom-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+        margin-left: 0;
+    }
+
+    .sla-widget-original {
+        margin-left: 0 !important;
+    }
+
+    .resumen-container-original {
+        margin-left: 0 !important;
+    }
+
+    .medidoresEImagen,
+    #medidores {
+        width: auto !important;
+        padding-right: 0 !important;
+    }
+
+    /* Solo para esta resolución: mover elementos y escalar */
+    .imgCocaCola-central {
+        transform: translateY(-105px);
+        margin-bottom: -60px;
+    }
+
+    .gauge-canvas-wrapper {
+        transform: scale(1);
+        margin-bottom: 10px;
+    }
+
+    .tituloTiempo {
+        transform: translateY(-20px);
+    }
+
+    .metric-label-original {
+        width: 45px !important;
+    }
+
+    .metric-real-original {
+        width: 70px !important;
+    }
+}
+
+/* ─── Tabla Resumen ──────────────────────────────────────────────────────── */
+
+.resumen-container-original {
+    z-index: 2;
+    align-self: end;
+    justify-self: start;
+    margin-left: 35px;
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0px;
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+
+.table-original#resume {
+    border-collapse: collapse;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    min-width: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.table-original#resume th,
+.table-original#resume td {
+    border: 1px solid #1a1a1a;
+    padding: 1px 4px;
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.table-original #texttable {
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Columna Nombres Familias */
+.table-original .principal {
+    background-color: #004b93 !important;
+    width: 85px;
+}
+
+/* Columna Ejecución (Verde) */
+.th-ejecucion {
+    background-color: #008000 !important;
+}
+
+.table-original .verdito {
+    background-color: #008000 !important;
+}
+
+/* Columna Pausa (Morado) */
+.th-pausa {
+    background-color: #800080 !important;
+}
+
+.table-original .moradito {
+    background-color: #800080 !important;
+}
+
+/* Columna Generadas (Azul) */
+.th-generadas {
+    background-color: #004b93 !important;
+}
+
+/* Columna Ejecutadas (Blanco/Gris) */
+.th-ejecutadas {
+    background-color: #f2f2f2 !important;
+    color: #004b93 !important;
+    min-width: 150px;
+}
+
+.table-original .blanco {
+    background-color: #f2f2f2 !important;
+    color: #004b93 !important;
+}
+
+/* Sub-valores amarillos (SLA/Media) */
+.table-original .media {
+    color: #ffff00 !important;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+/* Header vacío */
+.th-empty {
+    background: transparent;
+    border: none !important;
+}
+
+.tdTotales {
+    font-size: 1.1rem !important;
+    color: white !important;
+    background-color: #004b93 !important;
+    border: black 1px solid !important;
+    font-weight: 900 !important;
+    padding: 2px 4px !important;
+}
+
+.tdPorcentajeEjecutado {
+    background-color: #c9c9c9ab !important;
+    padding: 0 !important;
+}
+
+.divPorcentajeEjecutado {
+    z-index: 30;
+    position: relative;
+    padding: 2px 4px;
+    min-height: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.barraPorcentajeEjecutado {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.divTextoPorcentajeEjecutado {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.totalAveriasHoy {
+    font-weight: 900;
+}
+
+.porcentajeEjecutado {
+    font-weight: 900;
+}
+
+/* ─── COLORES SLA Y ESTADOS DE AVERÍA (referencia) ──────────────────────── */
+
+.verde,
+.amarillo,
+.rojo,
+.negro,
+.negroYell,
+.morado,
+.moradoverde,
+.moradoamarillo,
+.moradorojo,
+.moradonegro {
+    width: 100%;
+    color: white;
+}
+
+.verde {
+    background-color: green;
+}
+
+.amarillo {
+    background-color: yellow;
+    color: black;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.negro {
+    background-color: black;
+}
+
+.negroYell {
+    background-color: black;
+    color: yellow !important;
+}
+
+.morado {
+    background-color: purple;
+}
+
+.moradoverde {
+    background: linear-gradient(90deg, green, rgb(200, 2, 200));
+}
+
+.moradoamarillo {
+    background: linear-gradient(90deg, yellow, rgb(200, 2, 200));
+}
+
+.moradorojo {
+    background: linear-gradient(90deg, red, rgb(200, 2, 200));
+}
+
+.moradonegro {
+    background: linear-gradient(90deg, black, rgb(200, 2, 200));
+}
+
+/* ─── COLORES POR FAMILIA DE MÁQUINA ────────────────────────────────────── */
+
+.colorBotellero {
+    padding: 10px;
+    background-color: #0079a9;
+}
+
+.colorVitrina {
+    padding: 10px;
+    background-color: #c4732c;
+}
+
+.colorDispensing {
+    padding: 10px;
+    background-color: #828282;
+}
+
+.colorVending {
+    padding: 10px;
+    background-color: #6e4d19;
+}
+
+.colorDesconocido {
+    height: 28px;
+    min-width: 30px;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 3px #000;
+    vertical-align: middle !important;
+    padding: 1px;
+}
+
+.bordeAmarillo {
+    border: 5px solid yellow;
+}
+
+.bordeNegro {
+    border: 5px solid black;
+}
+
+/* ─── ESTADOS DE SEMANA ──────────────────────────────────────────────────── */
+
+.entreSemanaEjecutada {
+    color: coral !important;
+}
+
+.entreSemanaGenerada {
+    color: aqua !important;
+}
+
+.mediaRojo {
+    color: #008f39;
+}
+
+/* ─── TABLA AVERÍAS (textos y auxiliares) ────────────────────────────────── */
+
+.thAverias {
+    padding-bottom: 15px;
+}
+
+#texttable {
+    color: white;
+    border: black 2px solid;
+    font-size: 14px;
+    height: 30px;
+}
+
+/* ─── LOADER SLA (pequeño, para el widget SLA) ────────────────/* Overriding styles removed to use component-specific CSS */
+
+/* ─── GRID TÉCNICOS (layout legacy) ──────────────────────────────────────── */
+
+.tecnicos {
+    height: 63vh;
+    overflow-y: auto;
+    overflow-x: visible;
+    padding: 0 8px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 15px;
+}
+
+.tenico-islas {
+    height: 45px;
+    width: 45px;
+    border: 3px solid yellow;
+    border-radius: 50%;
+    background: #caccc7 no-repeat 50% / 100% auto;
+    margin-bottom: 5px;
+    object-fit: contain;
+}
+
+/* ─── WIDGETS Y MEDIDORES ────────────────────────────────────────────────── */
+
+.lineaAyuda {
+    margin: 10px;
+}
+
+#medidores {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 10px;
+    transform: translateX(-80px) !important;
+}
+
+.gauge-card {
+    width: 170px;
+    padding: 2px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.gauge-card:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.gauge-period-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div#mes {
+    top: -2vh;
+    position: relative;
+}
+
+div#anio {
+    top: -2vh;
+    position: relative;
+}
+
+/* ─── MÉTRICAS FILAS ─────────────────────────────────────────────────────── */
+
+.metric-row-original {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-family: "Segoe UI", sans-serif;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 0px;
+    padding: 0px;
+    height: 22px;
+}
+
+.metric-label-original {
+    color: white;
+    width: 45px;
+    font-size: 0.75rem;
+}
+
+.metric-exec-original {
+    color: white;
+}
+
+.metric-percent-original {
+    font-weight: 900;
+    min-width: 55px;
+    text-align: right;
+}
+
+.metric-real-original {
+    color: #ccc;
+}
+
+.metric-sla-original {
+    font-weight: 900;
+    margin-left: auto;
+}
+
+/* ─── LOGO TÉCNICO Y GAUGE HEADER ────────────────────────────────────────── */
+
+.logoTecnico-original {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+}
+
+.logoTecnico {
+    width: 80px;
+    height: 80px;
+}
+
+.headerGauge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    margin-bottom: 0px;
+}
+
+.tituloTiempo {
+    font-weight: 900;
+    color: white;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1;
+}
+
+.divTiempo {
+    height: 10%;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 auto;
+}
+
+/* ─── ELEMENTOS VISUALES ESPECÍFICOS ─────────────────────────────────────── */
+
+.cliente {
+    height: 18px;
+    width: 18px;
+    float: right;
+}
+
+.imgFSV {
+    width: 3vw;
+    position: absolute;
+    left: 49vw;
+    top: 0.5vh;
+}
+
+.siete,
+.treinta {
+    position: absolute;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.siete {
+    left: 42vw;
+}
+
+.treinta {
+    right: 41.4vw;
+}
+
+/*----FIX-----*/
+#medidores,
+#table2 {
+    transform: scale(1);
+}
+
+.tecnicos-container {
+    position: relative;
+    z-index: 2900;
+}
+
+/* ─── 4K / PANTALLAS GRANDES ─────────────────────────────────────────── */
+
+@media screen and (min-width: 2000px) {
+    .tecnicos-grid {
+        gap: 15px;
+        padding: 20px;
+        max-height: 55vh;
+    }
+
+    .tecnico-card {
+        width: 350px;
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    .tecnico-avatar {
+        width: 100px;
+        height: 100px;
+        border-width: 4px;
+    }
+
+    .metric-row-original-aligned {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+        width: 100%;
+        justify-content: center;
+        white-space: nowrap;
+    }
+
+    .label-original {
+        width: 80px;
+        text-align: right;
+        margin-right: 15px;
+        white-space: nowrap;
+    }
+
+    .value-original {
+        width: 150px;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .tecnico-nombre {
+        font-size: 1.6rem;
+        margin-top: 15px;
+    }
+
+    .familia-tag {
+        width: 60px;
+        min-width: 60px;
+        min-height: 45px;
+        font-size: 1.3rem;
+    }
+
+    .averia-content {
+        min-height: 45px;
+        padding: 5px 15px;
+    }
+
+    .averia-content a {
+        font-size: 1.2rem;
+    }
+
+    .left-bottom-group {
+        transform: scale(1.8);
+        transform-origin: left bottom;
+        margin-left: 150px;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .sla-widget-original {
+        margin-left: 150px;
+    }
+}  

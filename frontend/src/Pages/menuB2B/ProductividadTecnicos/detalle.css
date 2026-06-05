@@ -1,0 +1,188 @@
+#detalle-tecnico-page {
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+}
+
+.detalle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(13, 71, 161, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 15px 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.detalle-title-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.detalle-logo {
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.detalle-logo:hover {
+    transform: scale(1.05);
+}
+
+.detalle-title {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.detalle-filtros {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.filtro-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filtro-group label {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.filtro-group input[type="date"] {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.detalle-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-detalle {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-detalle:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-detalle.btn-primary {
+    background: #1976d2;
+    border-color: #1976d2;
+}
+
+.btn-detalle.btn-primary:hover {
+    background: #1565c0;
+}
+
+.detalle-ayuda {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* LISTA POR DÍAS */
+.detalle-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detalle-dia-row {
+    display: flex;
+    align-items: center;
+    background: rgba(25, 118, 210, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 15px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.detalle-dia-row:hover {
+    background: rgba(25, 118, 210, 0.25);
+}
+
+.detalle-dia-info {
+    width: 120px;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    margin-right: 25px;
+    padding-right: 10px;
+}
+
+.dia-label {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.dia-sublabel {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dia-minutos {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+}
+
+.detalle-dia-timeline {
+    flex: 1;
+}
+
+/* Overriding LineaTiempoTecnico styles for detail view */
+#detalle-tecnico-page .tecnico {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+}
+
+#detalle-tecnico-page .tecnico:hover {
+    transform: none !important;
+    background: transparent !important;
+}
+
+#detalle-tecnico-page .datos-tecnico {
+    display: none !important;
+}
+
+#detalle-tecnico-page .contenedor-horario {
+    padding: 0 !important;
+}  

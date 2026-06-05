@@ -1,0 +1,605 @@
+/* ================================================================
+   SLA ST02 — Estilos B2B
+   Arquitectura idéntica a la referencia (tablitas.css):
+     - .sla-cards-row:  height: calc(100% - var(--resumen-height))
+     - .sla-bottom-bar: position: absolute, bottom: 0
+     Cambia --resumen-height para ajustar ambas zonas a la vez.
+   ================================================================ */
+
+/* ─── VARIABLE DE CONTROL ──────────────────────────────────────── */
+:root {
+  --resumen-height: 18vh;
+  /* ◄ AJUSTA ESTO si la tabla se solapa */
+}
+
+/* ─── DASHBOARD BASE ───────────────────────────────────────────── */
+.sla-dashboard {
+  position: relative;
+  background-image: url("/img/Fondo_Escritorio_2.jpg");
+  background-repeat: no-repeat;
+  background-color: #095899;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+
+/* ─── LOADER ───────────────────────────────────────────────────── */
+.sla-loader-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.sla-loader {
+  position: relative;
+  width: 10vh;
+  height: 10vh;
+  color: white;
+}
+
+.sla-loader:before,
+.sla-loader:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s sla-spin linear infinite;
+}
+
+.sla-loader:after {
+  color: yellow;
+  transform: rotateY(70deg);
+  animation-delay: 0.4s;
+}
+
+@keyframes sla-spin {
+
+  0%,
+  100% {
+    box-shadow: 0.2em 0px 0 0px currentcolor;
+  }
+
+  12% {
+    box-shadow: 0.2em 0.2em 0 0 currentcolor;
+  }
+
+  25% {
+    box-shadow: 0 0.2em 0 0px currentcolor;
+  }
+
+  37% {
+    box-shadow: -0.2em 0.2em 0 0 currentcolor;
+  }
+
+  50% {
+    box-shadow: -0.2em 0 0 0 currentcolor;
+  }
+
+  62% {
+    box-shadow: -0.2em -0.2em 0 0 currentcolor;
+  }
+
+  75% {
+    box-shadow: 0px -0.2em 0 0 currentcolor;
+  }
+
+  87% {
+    box-shadow: 0.2em -0.2em 0 0 currentcolor;
+  }
+}
+
+/* ─── ERROR ────────────────────────────────────────────────────── */
+.sla-error-box {
+  color: white;
+  margin-top: 1.5vh;
+  font-weight: 500;
+  font-size: x-large;
+  text-align: center;
+}
+
+/* ─── GRID DE ISLAS ────────────────────────────────────────────── */
+/* Equivalente a #divInfo de la referencia                         */
+.sla-cards-row {
+  margin-top: -3vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: stretch;
+  gap: 2vh;
+  height: calc(100% - var(--resumen-height));
+  padding: 2vh 2vh 0 2vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Cada columna de delegación ocupa su celda del grid         */
+/* Equivalente a .orig-col de la referencia                    */
+.sla-deleg-col {
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0.5vh;
+  box-sizing: border-box;
+}
+
+.sla-deleg-col::-webkit-scrollbar {
+  display: none;
+}
+
+/* El div interno generado por IslaCard (sin clase) */
+.sla-deleg-col>div {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── BOTTOM BAR — posición absoluta en el fondo ──────────────── */
+/* Equivalente a #divResumenWrapper de la referencia               */
+.sla-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 7.5vh;
+  right: 2vh;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5vh;
+  padding-bottom: 1vh;
+}
+
+/* ─── CARD HEADER ──────────────────────────────────────────────── */
+/* Equivalente a .orig-th-tabla-principal                          */
+.sla-card-header {
+  padding: 0 !important;
+  text-align: center;
+  color: white;
+  font-size: 1.5vh;
+  height: 6vh;
+  background-color: #095899;
+  position: sticky;
+  top: 3px;
+  z-index: 10;
+  box-shadow: 0 0.2vh 0.5vh rgba(0, 0, 0, 0.2);
+}
+
+.isla-card-header-flex {
+  padding: 0px 25px !important;
+}
+
+.sla-card-header .etiqueta-isla {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  justify-content: center;
+}
+
+.sla-card-header .etiqueta-isla img {
+  height: 3.5vh;
+  width: auto;
+  margin-top: 1vh;
+}
+
+.sla-card-header .etiqueta-isla span {
+  font-size: 1.5vh;
+  font-weight: 500;
+}
+
+.sla-header-counter {
+  font-size: 1.3vh;
+  white-space: nowrap;
+}
+
+.sla-btn-scroll {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 6px;
+  vertical-align: middle;
+  transition: background 0.15s;
+}
+
+.sla-btn-scroll:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── LIST BODY ────────────────────────────────────────────────── */
+.sla-list-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding: 0.5vh;
+}
+
+.sla-list-body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── ROW ITEM ─────────────────────────────────────────────────── */
+.sla-row-item {
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-weight: 500;
+}
+
+.sla-row-item:hover {
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 0 0 3px #00d5ff;
+}
+
+/* ─── CELDA TIPO (familia) ─────────────────────────────────────── */
+/* Equivalente a .orig-machine                                     */
+.sla-cell-tipo {
+  width: 10%;
+  padding: 0.2vh;
+  color: white;
+  text-align: center;
+  font-size: 1.5vh;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-shadow: 0 0.2vh 0.3vh #666;
+  border-top: 0.5px solid black;
+  border-bottom: 0.5px solid black;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── CELDA INFO (modelo - matrícula) ──────────────────────────── */
+/* Equivalente a .orig-equipo                                      */
+.sla-cell-info {
+  width: 85%;
+  font-size: 1.7vh;
+  font-weight: 500;
+  padding: 0.2vh 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  border: 0.5px solid black;
+}
+
+/* ─── CELDA REDISPOSICIÓN ──────────────────────────────────────── */
+/* Equivalente a .orig-redisposicion                               */
+.sla-cell-redisposicion {
+  width: 5%;
+  border: 0.5px solid black;
+  flex-shrink: 0;
+}
+
+/* ─── PARPADEO ─────────────────────────────────────────────────── */
+.sla-parpadea {
+  animation: sla-parpadeo 3s linear infinite;
+}
+
+@keyframes sla-parpadeo {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.sla-no-data {
+  padding: 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* ─── TOOLTIP ──────────────────────────────────────────────────── */
+/* Tooltip styles are defined globally in HoverTooltip.css */
+
+
+/* ─── TABLA RESUMEN ────────────────────────────────────────────── */
+/* Equivalente a #tablaResumen de la referencia                    */
+.sla-summary-wrapper {
+  margin: 0;
+  align-self: center;
+}
+
+.sla-summary-table {
+  table-layout: fixed;
+  width: 101vh;
+  border-collapse: collapse;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  text-align: center;
+}
+
+/* .thInvisible */
+.sla-summary-label-th {
+  visibility: hidden;
+  font-size: 1.2vh;
+  line-height: 1;
+  padding: 0.2vh 0;
+}
+
+/* .thDelegacion */
+.sla-summary-deleg-th {
+  height: 10px;
+  background-color: #095899;
+  text-align: center;
+  color: white;
+  font-size: 1.5vh;
+  font-weight: 500;
+  border: 1px solid black;
+  text-shadow: 0 0.2vh 0.3vh #666;
+  padding: 0.2vh 0;
+  line-height: 1;
+}
+
+/* .thTipo */
+.sla-summary-label {
+  text-shadow: 0 0.2vh 0.3vh #666;
+  border: 1px solid black;
+  font-size: 1.7vh;
+  color: white;
+  padding: 0.4vh !important;
+  line-height: 1;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* .tdCantidad */
+.sla-summary-val {
+  height: 18px;
+  background-color: #ebe7e7;
+  border: 1px solid rgba(0, 0, 0, 0.027);
+  font-size: 1.9vh;
+  font-weight: 500;
+  padding: 0.2vh 0;
+  line-height: 1;
+  text-align: center;
+  color: #1a1a2e;
+}
+
+.sla-summary-table td:nth-child(odd) {
+  background-color: #dddddd;
+}
+
+.sla-summary-table th:first-child,
+.sla-summary-table td:first-child {
+  width: 18%;
+}
+
+.sla-summary-table tbody tr:last-child td {
+  border-bottom: 1px solid black;
+  background-color: #cfcdcd;
+  font-weight: 500;
+}
+
+.sla-summary-table tr td:last-child {
+  border-right: 1px solid black;
+}
+
+.sla-summary-total {
+  background: #095899 !important;
+  color: white !important;
+  font-size: 1.7vh !important;
+  font-weight: 500 !important;
+}
+
+.sla-summary-total-val {
+  background: #cfcdcd !important;
+  color: #1a1a2e !important;
+  font-weight: 500 !important;
+}
+
+/* ─── BADGES RESUMEN ───────────────────────────────────────────── */
+/* Equivalente a .orig-resumen-cell-inner / .orig-badge            */
+.sla-badge-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vh;
+  width: 100%;
+}
+
+.sla-badge-total {
+  font-weight: 500;
+  min-width: 2.8vh;
+  text-align: right;
+  display: inline-block;
+}
+
+.sla-badge-colors {
+  display: inline-flex;
+  gap: 0.2vh;
+  min-width: 6.5vh;
+  justify-content: flex-start;
+}
+
+.sla-badge {
+  min-width: 2.1vh;
+  padding: 0 0.2vh;
+  border-radius: 0.2vh;
+  font-size: 1.8vh;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.sla-badge-verde {
+  background: green;
+  color: white;
+}
+
+.sla-badge-amarillo {
+  background: #e6e600;
+  color: black;
+}
+
+.sla-badge-rojo {
+  background: red;
+  color: white;
+}
+
+/* ─── BOTONES DE FILTRO ────────────────────────────────────────── */
+.sla-filtro-wrapper {
+  display: flex;
+  margin-left: 4vh;
+  gap: 1vh;
+}
+
+.sla-filtro-btn {
+  color: #92b1cb;
+  border: 1px solid #092b50;
+  border-radius: 6px;
+  background: transparent;
+  font-weight: 500;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-size: 2.2vh;
+  padding: 1.2vh 2.5vh;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sla-filtro-btn:hover {
+  color: #fff;
+  background-color: #095899;
+}
+
+.sla-filtro-btn--active {
+  color: #fff;
+  background-color: #095899;
+  box-shadow: inset 0 0.3vh 0.5vh rgba(0, 0, 0, 1);
+}
+
+/* ─── COLORES SLA — filas y redisposición ──────────────────────── */
+.orig-verde {
+  background-color: green;
+  color: white;
+}
+
+.orig-amarillo {
+  background-color: yellow;
+  color: black;
+}
+
+.orig-rojo {
+  background-color: red;
+  color: white;
+}
+
+.orig-negro {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.verde {
+  background-color: green;
+  color: white;
+}
+
+.amarillo {
+  background-color: yellow;
+  color: black;
+}
+
+.rojo {
+  background-color: red;
+  color: white;
+}
+
+.negro {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.parpadea {
+  animation: sla-parpadeo 3s linear infinite;
+}
+
+/* ─── COLORES DE FAMILIA ───────────────────────────────────────── */
+.colorDispensing {
+  background-color: #979a9a !important;
+  color: white !important;
+}
+
+.colorVitrina {
+  background-color: #e67e22 !important;
+  color: white !important;
+}
+
+.colorVending {
+  background-color: #7b5103 !important;
+  color: white !important;
+}
+
+.colorBotellero {
+  background-color: #288ba8 !important;
+  color: white !important;
+}
+
+.colorDesconocido {
+  background-color: #000000 !important;
+  color: white !important;
+}
+
+.colorCabezales {
+  background-color: purple !important;
+  color: white !important;
+}
+
+.colorTotal {
+  background-color: #095899 !important;
+  color: white !important;
+}  
+
+/* ─── 4K / PANTALLAS GRANDES (SLA ST02) ────────────────────────── */
+@media screen and (min-width: 2000px) {
+  .sla-card-header {
+    height: 3vh !important; /* Cabecera mucho más delgada */
+    font-size: 1.2vh !important;
+  }
+  
+  .isla-card-header-flex {
+    padding: 0px 10px !important;
+  }
+
+  .sla-card-header .etiqueta-isla img {
+    height: 2vh !important;
+    margin-top: 0.2vh !important;
+  }
+
+  .sla-card-header .etiqueta-isla span {
+    font-size: 1.2vh !important;
+  }
+}

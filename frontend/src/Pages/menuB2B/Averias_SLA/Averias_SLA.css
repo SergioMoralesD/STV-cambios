@@ -1,0 +1,426 @@
+/* ─── CONTENEDOR PRINCIPAL ────────────────────────────────────────────────── */
+
+.dashboard-sla-main-container {
+    background-image: url("/img/Fondo_Escritorio_2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #095899;
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+
+.header-hidden .dashboard-sla-main-container {
+    height: 100vh;
+}
+
+/* ─── FILA DE TABLAS POR ISLA ─────────────────────────────────────────────── */
+
+.row-tables {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 4px;
+    flex: 1;
+    min-height: 0;
+    margin-bottom: 180px;
+    /* Reducido para que no flote tanto */
+}
+
+.col-isla {
+    flex: 1;
+    min-width: 0;
+    max-height: calc(100vh - 210px);
+    transition: max-height 0.5s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 1px;
+}
+
+.header-visible .col-isla {
+    max-height: calc(100vh - 460px);
+}
+
+/* Ocultar scrollbar */
+.col-isla::-webkit-scrollbar {
+    display: none;
+}
+
+/* ─── TABLA DE CADA ISLA ──────────────────────────────────────────────────── */
+
+.table-isla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.68rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-isla thead th {
+    background-color: #095899;
+    color: white;
+    font-size: 1.1rem !important;
+    font-weight: bold;
+    padding: 2px 4px;
+    text-align: center;
+    position: sticky;
+    top: -5px;
+    z-index: 9999;
+    border-bottom: 2px solid #fdf000;
+    white-space: nowrap;
+}
+
+.logo-isla {
+    width: 32px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.table-isla tbody td {
+    text-align: center !important;
+    font-weight: bold !important;
+    height: 36px;
+    font-size: 0.68rem;
+}
+
+/* ─── ANCHOS DE COLUMNAS ────────────────────────────────────────────────── */
+
+.Machine {
+    padding: 2px !important;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 3px #666;
+    width: 6%;
+}
+
+.avisTD {
+    width: 16%;
+}
+
+.cliTD {
+    width: 32%;
+}
+
+.tecTD {
+    width: 14%;
+}
+
+.TimeTD {
+    width: 32%;
+}
+
+
+
+/* ─── FOOTER ──────────────────────────────────────────────────────────────── */
+
+.footer-sla {
+    position: absolute;
+    bottom: 10px;
+    /* Pegado al fondo */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px 10px;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+
+/* Adaptación al header */
+.header-visible .footer-sla {
+    bottom: 5px;
+}
+
+.leyenda-familias {
+    margin-right: auto;
+}
+
+.medidores-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex: 1;
+    margin-left: auto;
+}
+
+#medidores {
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    margin-right: 10px;
+}
+
+.leyenda-familias table {
+    border: none;
+}
+
+.trLeyenda {
+    display: flex;
+}
+
+.leyenda {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-left: 12px;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.leyenda .colorBotellero,
+.leyenda .colorVitrina,
+.leyenda .colorVending,
+.leyenda .colorDispensing,
+.leyenda .colorDesconocido {
+    height: 22px;
+    min-width: 26px;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 3px #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 2px;
+}
+
+
+@media screen and (min-width: 2000px) {
+    .table-isla {
+        font-size: 1.35rem;
+    }
+
+    .table-isla thead th {
+        font-size: 2.3rem !important;
+        padding: 22px 12px;
+    }
+
+    .logo-isla {
+        width: 65px;
+        margin-right: 18px;
+    }
+
+    .table-isla tbody td {
+        height: 58px;
+        font-size: 1.4rem;
+    }
+
+    .Machine {
+        padding: 6px !important;
+    }
+
+    .leyenda {
+        font-size: 1.6rem;
+        margin-left: 35px;
+        gap: 18px;
+    }
+
+    .leyenda .colorBotellero,
+    .leyenda .colorVitrina,
+    .leyenda .colorVending,
+    .leyenda .colorDispensing {
+        height: 55px;
+        min-width: 65px;
+        font-size: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .footer-sla {
+        padding: 25px 45px 35px;
+        gap: 70px;
+    }
+}
+
+/* ─── TARJETAS LOGÍSTICA (REUTILIZADAS) ──────────────────────────────────── */
+.logistics-card-row {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 2px;
+    height: 38px;
+    font-size: 0.85rem;
+    color: white;
+    font-weight: 800;
+}
+
+.family-tag {
+    width: 32px;
+    min-width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0px 2px 3px #666;
+}
+
+.card-main-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.card-date-tag {
+    width: 85px;
+    min-width: 85px;
+    background-color: #63bc7b;
+    /* Verde por defecto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.logistics-card-row.rojo .card-date-tag {
+    background-color: #fd2e32;
+}
+
+.logistics-card-row.amarillo .card-date-tag {
+    background-color: #fed880;
+    color: black;
+}
+
+.logistics-card-row.negro .card-date-tag {
+    background-color: #000;
+}
+
+@media screen and (min-width: 2000px) {
+    .logistics-card-row {
+        height: 75px;
+        font-size: 1.6rem;
+        margin-bottom: 5px;
+    }
+
+    .family-tag {
+        width: 65px;
+        min-width: 65px;
+    }
+
+    .card-date-tag {
+        width: 180px;
+        min-width: 180px;
+        font-size: 1.5rem;
+    }
+}
+
+.isla-header {
+    background-color: #095899;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 2px 5px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid #fdf000;
+    white-space: nowrap;
+}
+
+/* Forzar que el logo esté a la izquierda y el texto a la derecha */
+.table-isla .isla-card-header-flex {
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 2px 0 !important;
+}
+
+.table-isla .logo-isla {
+    width: 24px !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+
+
+@media screen and (min-width: 2000px) {
+    .isla-header {
+        font-size: 2.3rem;
+        padding: 22px 12px;
+    }
+
+    .table-isla .logo-isla {
+        width: 65px !important;
+        height: auto !important;
+        margin-right: 12px !important;
+    }
+
+    .table-isla .isla-card-header-flex {
+        gap: 14px !important;
+        padding: 10px 6px !important;
+    }
+}
+
+/* ─── COLORES DE TABLA DE AVERIAS SLA ────────────────────────────────────── */
+
+.verde {
+    background-color: green;
+    color: white;
+}
+
+.amarillo {
+    background-color: yellow;
+    color: black !important;
+}
+
+.rojo {
+    background-color: red;
+    color: white;
+}
+
+.negro {
+    background-color: black;
+    color: white;
+}
+
+.morado {
+    background-color: purple;
+    color: white !important;
+}
+
+.moradoverde {
+    background: linear-gradient(90deg, green, purple) !important;
+    color: white !important;
+}
+
+.moradoamarillo {
+    background: linear-gradient(90deg, yellow, purple) !important;
+}
+
+.moradorojo {
+    background: linear-gradient(90deg, red, purple) !important;
+    color: white;
+}
+
+.moradonegro {
+    background: linear-gradient(90deg, black, purple) !important;
+    color: white !important;
+}
+
+.grey {
+    background-color: rgb(151, 151, 151);
+    color: black;
+}  

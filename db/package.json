@@ -1,0 +1,11 @@
+{
+  "name": "stv-db",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed": "node seed.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.16.0"
+  }
+}

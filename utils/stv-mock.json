@@ -1,0 +1,50 @@
+[
+  {
+    "id": "INC-2026-001",
+    "carretera": "TF-5",
+    "kilometro": 12.4,
+    "isla": "Tenerife",
+    "municipio": "San Cristóbal de La Laguna",
+    "tipo_averia": "Fallo en luminaria de túnel",
+    "prioridad": "ALTA",
+    "estado": "PENDIENTE",
+    "fecha_reporte": "2026-05-27T08:00:00Z",
+    "tecnico_asignado": null
+  },
+  {
+    "id": "INC-2026-002",
+    "carretera": "GC-1",
+    "kilometro": 25.8,
+    "isla": "Gran Canaria",
+    "municipio": "Telde",
+    "tipo_averia": "Desperfecto en bionda de seguridad (Guardarraíl)",
+    "prioridad": "MEDIA",
+    "estado": "EN_PROCESO",
+    "fecha_reporte": "2026-05-26T14:30:00Z",
+    "tecnico_asignado": "Téc. Juan Pérez"
+  },
+  {
+    "id": "INC-2026-003",
+    "carretera": "TF-1",
+    "kilometro": 63.1,
+    "isla": "Tenerife",
+    "municipio": "Arona",
+    "tipo_averia": "Limpieza de calzada por desprendimiento leve",
+    "prioridad": "BAJA",
+    "estado": "RESUELTA",
+    "fecha_reporte": "2026-05-25T11:15:00Z",
+    "tecnico_asignado": "Téc. Carlos Silva"
+  },
+  {
+    "id": "INC-2026-004",
+    "carretera": "GC-2",
+    "kilometro": 5.2,
+    "isla": "Gran Canaria",
+    "municipio": "Las Palmas de Gran Canaria",
+    "tipo_averia": "Semáforo en ámbar intermitente por fallo de placa",
+    "prioridad": "ALTA",
+    "estado": "PENDIENTE",
+    "fecha_reporte": "2026-05-27T06:45:00Z",
+    "tecnico_asignado": null
+  }
+]

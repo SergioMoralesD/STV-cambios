@@ -1,0 +1,349 @@
+{
+  "averias-tecnicos": {
+    "tecnicos": [
+      { "codigo": "T001", "nombre": "Juan Pérez", "fototec": null },
+      { "codigo": "T002", "nombre": "María López", "fototec": null },
+      { "codigo": "T003", "nombre": "Carlos Ruiz", "fototec": null },
+      { "codigo": "T004", "nombre": "Ana García", "fototec": null },
+      { "codigo": "T005", "nombre": "David Martín", "fototec": null }
+    ],
+    "averias": [
+      { "cod_tec": "T001", "nombre_zona": "Zona Norte", "cliente": "Café Central", "familia": "DI", "tipo_aviso": "HA", "delta_origen": "02:30", "recurrente": false, "userstatus": "Pendiente", "codeactivity": null, "codigo": "AV-001", "aviso": "AV-2026-001", "fecha_aviso": "2026-05-27 08:00", "tiempo_total": "04:15", "nombre_estado": "Asignada", "direccion": "C/ Mayor 15", "cod_post": "38001", "cli_cit": "CIT001", "tfn_cliente": "922123456", "nombre_contacto": "Antonio", "cod_indicado": "IND001", "notas_phonefix": null, "intervenciones_text": "", "averiaanterior_text": "", "delegacion": "6S21" },
+      { "cod_tec": "T002", "nombre_zona": "Zona Sur", "cliente": "Bar La Playa", "familia": "VI", "tipo_aviso": "HI", "delta_origen": "01:15", "recurrente": true, "userstatus": "En proceso", "codeactivity": "ACT01", "codigo": "AV-002", "aviso": "AV-2026-002", "fecha_aviso": "2026-05-26 14:30", "tiempo_total": "06:00", "nombre_estado": "Ejecución", "direccion": "Av. Marítima 42", "cod_post": "38002", "cli_cit": "CIT002", "tfn_cliente": "922654321", "nombre_contacto": "Laura", "cod_indicado": "IND002", "notas_phonefix": "Llamar antes", "intervenciones_text": "", "averiaanterior_text": "", "delegacion": "6S21" },
+      { "cod_tec": "T003", "nombre_zona": "Zona Centro", "cliente": "Restaurante El Monte", "familia": "VE", "tipo_aviso": "HC", "delta_origen": "05:45", "recurrente": false, "userstatus": "Pendiente", "codeactivity": null, "codigo": "AV-003", "aviso": "AV-2026-003", "fecha_aviso": "2026-05-25 11:00", "tiempo_total": "02:30", "nombre_estado": "Pendiente", "direccion": "C/ La Rosa 8", "cod_post": "38003", "cli_cit": "CIT003", "tfn_cliente": "922789012", "nombre_contacto": "Pedro", "cod_indicado": "IND003", "notas_phonefix": null, "intervenciones_text": "", "averiaanterior_text": "", "delegacion": "6S21" },
+      { "cod_tec": "T004", "nombre_zona": "Zona Norte", "cliente": "Hotel Bahía", "familia": "DI", "tipo_aviso": "HA", "delta_origen": "03:20", "recurrente": false, "userstatus": "En proceso", "codeactivity": "ACT04", "codigo": "AV-004", "aviso": "AV-2026-004", "fecha_aviso": "2026-05-27 09:00", "tiempo_total": "05:00", "nombre_estado": "Ejecución", "direccion": "Av. de la Playa 10", "cod_post": "38400", "cli_cit": "CIT004", "tfn_cliente": "922345678", "nombre_contacto": "Marta", "cod_indicado": "IND004", "notas_phonefix": "Llamar antes de ir", "intervenciones_text": "", "averiaanterior_text": "", "delegacion": "6S23" },
+      { "cod_tec": "T005", "nombre_zona": "Zona Sur", "cliente": "Cafetería Central", "familia": "BO", "tipo_aviso": "HI", "delta_origen": "01:45", "recurrente": true, "userstatus": "Pendiente", "codeactivity": null, "codigo": "AV-005", "aviso": "AV-2026-005", "fecha_aviso": "2026-05-28 10:30", "tiempo_total": "03:00", "nombre_estado": "Pendiente", "direccion": "C/ El Sol 5", "cod_post": "38600", "cli_cit": "CIT005", "tfn_cliente": "922456789", "nombre_contacto": "Roberto", "cod_indicado": "IND005", "notas_phonefix": null, "intervenciones_text": "", "averiaanterior_text": "", "delegacion": "6S21" }
+    ]
+  },
+  "tablaresumen": {
+    "list": {
+      "dispensing_ejec": 12,
+      "dispensing_pausa": 3,
+      "vitrina_ejec": 8,
+      "vitrina_pausa": 1,
+      "vending_ejec": 5,
+      "vending_pausa": 2,
+      "botellero_ejec": 3,
+      "botellero_pausa": 0,
+      "sin_familia_ejec": 1,
+      "sin_familia_pausa": 0
+    },
+    "generated": { "DIA": "12", "ENTRE_SEMANA": "14.50" },
+    "executed": { "DIA": "10", "ENTRE_SEMANA": "12.25" }
+  },
+  "tecnicos-necesarios": 3,
+  "sla-objetivo": { "sla_objetivo": 90 },
+  "metricas": {
+    "relojes": { "semana": "2026W22", "mes": "202605", "anio": "2026" },
+    "ejecucion": {
+      "semana": { "DISPENSING": "12", "VITRINA": "8", "VENDING": "5", "BOTELLERO": "3", "DI": "7", "VI": "4", "VE": "2", "BO": "1", "PERC": "72" },
+      "mes": { "DISPENSING": "48", "VITRINA": "32", "VENDING": "20", "BOTELLERO": "12", "DI": "28", "VI": "16", "VE": "8", "BO": "4", "PERC": "68" },
+      "anio": { "DISPENSING": "520", "VITRINA": "340", "VENDING": "210", "BOTELLERO": "95", "DI": "310", "VI": "180", "VE": "85", "BO": "30", "PERC": "65" }
+    },
+    "resolucion": {
+      "semana": { "DISPENSING": "10", "VITRINA": "7", "VENDING": "4", "BOTELLERO": "2", "DI": "6", "VI": "3", "VE": "2", "BO": "1", "PERC": "68" },
+      "mes": { "DISPENSING": "42", "VITRINA": "28", "VENDING": "17", "BOTELLERO": "10", "DI": "24", "VI": "14", "VE": "7", "BO": "3", "PERC": "64" },
+      "anio": { "DISPENSING": "480", "VITRINA": "310", "VENDING": "190", "BOTELLERO": "82", "DI": "285", "VI": "165", "VE": "78", "BO": "25", "PERC": "62" }
+    },
+    "porcentaje": {
+      "semana": { "DISPENSING": "83", "VITRINA": "88", "VENDING": "80", "BOTELLERO": "67", "DI": "86", "VI": "75", "VE": "100", "BO": "100", "PERC": "85" },
+      "mes": { "DISPENSING": "81", "VITRINA": "85", "VENDING": "78", "BOTELLERO": "65", "DI": "84", "VI": "73", "VE": "95", "BO": "90", "PERC": "82" },
+      "anio": { "DISPENSING": "79", "VITRINA": "83", "VENDING": "75", "BOTELLERO": "62", "DI": "82", "VI": "71", "VE": "92", "BO": "88", "PERC": "80" }
+    },
+    "porcentajeTiempo": {
+      "semana": { "DISPENSING": "78", "VITRINA": "82", "VENDING": "75", "BOTELLERO": "60", "DI": "80", "VI": "70", "VE": "90", "BO": "85", "PERC": "80" },
+      "mes": { "DISPENSING": "76", "VITRINA": "80", "VENDING": "72", "BOTELLERO": "58", "DI": "78", "VI": "68", "VE": "88", "BO": "82", "PERC": "78" },
+      "anio": { "DISPENSING": "74", "VITRINA": "78", "VENDING": "70", "BOTELLERO": "55", "DI": "76", "VI": "65", "VE": "85", "BO": "80", "PERC": "75" }
+    },
+    "tiemposAnio": {
+      "6S21": { "DI": "120", "VI": "85", "VE": "45", "BO": "12" },
+      "6S23": { "DI": "95", "VI": "72", "VE": "38", "BO": "8" },
+      "6E21": { "DI": "78", "VI": "55", "VE": "28", "BO": "5" }
+    },
+    "tiemposMes": {
+      "6S21": { "DI": "12", "VI": "8", "VE": "4", "BO": "1" },
+      "6S23": { "DI": "10", "VI": "7", "VE": "3", "BO": "1" },
+      "6E21": { "DI": "7", "VI": "5", "VE": "2", "BO": "0" }
+    }
+  },
+  "averias-repetitivas": [
+    { "fili": "6S21", "cuenta7": 2, "cuenta30": 5, "cuenta365": 12, "machine_familia": "DI", "matricula_original": "M-001", "cliente_actual": "Café Central", "matricula": "MX-101", "averias_text": "Fallo recurrente en dispensador" },
+    { "fili": "6S23", "cuenta7": 1, "cuenta30": 3, "cuenta365": 8, "machine_familia": "VI", "matricula_original": "M-002", "cliente_actual": "Bar La Playa", "matricula": "MX-202", "averias_text": "Puerta de vitrina desajustada" },
+    { "fili": "6S24", "cuenta7": 0, "cuenta30": 2, "cuenta365": 6, "machine_familia": "VE", "matricula_original": "M-003", "cliente_actual": "Restaurante El Monte", "matricula": "MX-303", "averias_text": "Error de conexión recurrente" },
+    { "fili": "6S25", "cuenta7": 3, "cuenta30": 8, "cuenta365": 20, "machine_familia": "BO", "matricula_original": "M-004", "cliente_actual": "Hotel Bahía", "matricula": "MX-404", "averias_text": "Fallo en válvula de CO2 recurrente" },
+    { "fili": "6S21_MENORES", "cuenta7": 1, "cuenta30": 4, "cuenta365": 10, "machine_familia": "DI", "matricula_original": "M-005", "cliente_actual": "Cafetería Central", "matricula": "MX-505", "averias_text": "Obstrucción en conducto de hielo" },
+    { "fili": "6S23", "cuenta7": 0, "cuenta30": 6, "cuenta365": 15, "machine_familia": "VI", "matricula_original": "M-006", "cliente_actual": "Bar La Playa", "matricula": "MX-606", "averias_text": "Burlete de puerta desgastado" },
+    { "fili": "6S21", "cuenta7": 2, "cuenta30": 3, "cuenta365": 9, "machine_familia": "VE", "matricula_original": "M-007", "cliente_actual": "Restaurante El Monte", "matricula": "MX-707", "averias_text": "Error en lector de monedas" }
+  ],
+  "averias-repetitivas-ano": [
+    { "fili": "6S21", "cuenta7": 2, "cuenta30": 5, "cuenta365": 12, "machine_familia": "DI", "matricula_original": "M-001", "cliente_actual": "Café Central", "matricula": "MX-101", "averias_text": "Fallo recurrente en dispensador" },
+    { "fili": "6S23", "cuenta7": 1, "cuenta30": 3, "cuenta365": 8, "machine_familia": "VI", "matricula_original": "M-002", "cliente_actual": "Bar La Playa", "matricula": "MX-202", "averias_text": "Puerta de vitrina desajustada" },
+    { "fili": "6S24", "cuenta7": 0, "cuenta30": 2, "cuenta365": 6, "machine_familia": "VE", "matricula_original": "M-003", "cliente_actual": "Restaurante El Monte", "matricula": "MX-303", "averias_text": "Error de conexión recurrente" },
+    { "fili": "6S25", "cuenta7": 3, "cuenta30": 8, "cuenta365": 20, "machine_familia": "BO", "matricula_original": "M-004", "cliente_actual": "Hotel Bahía", "matricula": "MX-404", "averias_text": "Fallo en válvula de CO2 recurrente" },
+    { "fili": "6S21_MENORES", "cuenta7": 1, "cuenta30": 4, "cuenta365": 10, "machine_familia": "DI", "matricula_original": "M-005", "cliente_actual": "Cafetería Central", "matricula": "MX-505", "averias_text": "Obstrucción en conducto de hielo" },
+    { "fili": "6S23", "cuenta7": 0, "cuenta30": 6, "cuenta365": 15, "machine_familia": "VI", "matricula_original": "M-006", "cliente_actual": "Bar La Playa", "matricula": "MX-606", "averias_text": "Burlete de puerta desgastado" },
+    { "fili": "6S21", "cuenta7": 2, "cuenta30": 3, "cuenta365": 9, "machine_familia": "VE", "matricula_original": "M-007", "cliente_actual": "Restaurante El Monte", "matricula": "MX-707", "averias_text": "Error en lector de monedas" }
+  ],
+  "averias-sla": [
+    { "AVISO": "AV-2026-001", "delegacion": "6S21", "CLIENTE": "Café Central", "FILI": "F001", "CLI_CIT": "CIT001", "COD_POST": "38001", "FECHA_HORA": "2026-05-27 08:00", "TECNICO": "T001", "FAMILIA": "DI", "USTATUS": 1, "USERSTATUS": "Pendiente", "CODIGO_PAUSA": "", "CODEACTIVITY": null, "DELTA_ORIGEN": 150, "TIPO_AVISO": "HA", "FILIAL": "6S21", "SLA_PAUSA": null, "SLA": 85, "TIME": 270 },
+    { "AVISO": "AV-2026-002", "delegacion": "6S21", "CLIENTE": "Bar La Playa", "FILI": "F002", "CLI_CIT": "CIT002", "COD_POST": "38002", "FECHA_HORA": "2026-05-26 14:30", "TECNICO": "T002", "FAMILIA": "VI", "USTATUS": 2, "USERSTATUS": "Ejecución", "CODIGO_PAUSA": "", "CODEACTIVITY": "ACT01", "DELTA_ORIGEN": 75, "TIPO_AVISO": "HI", "FILIAL": "6S21", "SLA_PAUSA": null, "SLA": 92, "TIME": 360 },
+    { "AVISO": "AV-2026-003", "delegacion": "6S21", "CLIENTE": "Restaurante El Monte", "FILI": "F003", "CLI_CIT": "CIT003", "COD_POST": "38003", "FECHA_HORA": "2026-05-25 11:00", "TECNICO": "T003", "FAMILIA": "VE", "USTATUS": 3, "USERSTATUS": "Resuelta", "CODIGO_PAUSA": "", "CODEACTIVITY": null, "DELTA_ORIGEN": 345, "TIPO_AVISO": "HC", "FILIAL": "6S21", "SLA_PAUSA": null, "SLA": 100, "TIME": 150 },
+    { "AVISO": "AV-2026-004", "delegacion": "6S23", "CLIENTE": "Hotel Bahía", "FILI": "F004", "CLI_CIT": "CIT004", "COD_POST": "38004", "FECHA_HORA": "2026-05-27 09:30", "TECNICO": "T001", "FAMILIA": "DI", "USTATUS": 1, "USERSTATUS": "Pendiente", "CODIGO_PAUSA": "", "CODEACTIVITY": null, "DELTA_ORIGEN": 210, "TIPO_AVISO": "HA", "FILIAL": "6S23", "SLA_PAUSA": null, "SLA": 72, "TIME": 310 },
+    { "AVISO": "AV-2026-005", "delegacion": "6S21", "CLIENTE": "Cafetería La Laguna", "FILI": "F005", "CLI_CIT": "CIT005", "COD_POST": "38201", "FECHA_HORA": "2026-05-25 16:00", "TECNICO": "T002", "FAMILIA": "BO", "USTATUS": 4, "USERSTATUS": "Cerrada", "CODIGO_PAUSA": "P01", "CODEACTIVITY": "ACT02", "DELTA_ORIGEN": 45, "TIPO_AVISO": "HC", "FILIAL": "6S21", "SLA_PAUSA": 30, "SLA": 100, "TIME": 90 },
+    { "AVISO": "AV-2026-006", "delegacion": "6S23", "CLIENTE": "Hotel Bahía", "FILI": "F004", "CLI_CIT": "CIT004", "COD_POST": "38400", "FECHA_HORA": "2026-05-27 09:00", "TECNICO": "T004", "FAMILIA": "BO", "USTATUS": 2, "USERSTATUS": "Ejecución", "CODIGO_PAUSA": "", "CODEACTIVITY": "ACT04", "DELTA_ORIGEN": 120, "TIPO_AVISO": "HI", "FILIAL": "6S23", "SLA_PAUSA": null, "SLA": 65, "TIME": 300 },
+    { "AVISO": "AV-2026-007", "delegacion": "6S21", "CLIENTE": "Cafetería Central", "FILI": "F005", "CLI_CIT": "CIT005", "COD_POST": "38600", "FECHA_HORA": "2026-05-28 10:30", "TECNICO": "T005", "FAMILIA": "DI", "USTATUS": 1, "USERSTATUS": "Pendiente", "CODIGO_PAUSA": "", "CODEACTIVITY": null, "DELTA_ORIGEN": 180, "TIPO_AVISO": "HA", "FILIAL": "6S21", "SLA_PAUSA": null, "SLA": 78, "TIME": 240 },
+    { "AVISO": "AV-2026-008", "delegacion": "6S21", "CLIENTE": "Bar La Playa", "FILI": "F006", "CLI_CIT": "CIT006", "COD_POST": "38500", "FECHA_HORA": "2026-05-26 08:00", "TECNICO": "T002", "FAMILIA": "VI", "USTATUS": 3, "USERSTATUS": "Resuelta", "CODIGO_PAUSA": "", "CODEACTIVITY": "ACT01", "DELTA_ORIGEN": 60, "TIPO_AVISO": "HC", "FILIAL": "6S21", "SLA_PAUSA": null, "SLA": 95, "TIME": 180 },
+    { "AVISO": "AV-2026-009", "delegacion": "6S23", "CLIENTE": "Restaurante El Monte", "FILI": "F007", "CLI_CIT": "CIT007", "COD_POST": "38300", "FECHA_HORA": "2026-05-27 12:00", "TECNICO": "T003", "FAMILIA": "VE", "USTATUS": 2, "USERSTATUS": "Ejecución", "CODIGO_PAUSA": "P02", "CODEACTIVITY": "ACT03", "DELTA_ORIGEN": 90, "TIPO_AVISO": "HI", "FILIAL": "6S23", "SLA_PAUSA": 15, "SLA": 82, "TIME": 200 }
+  ],
+  "maintenance": {
+    "sanitizaciones": [
+      { "CLIENTE": "Café Central", "DIRECCION": "C/ Mayor 15", "FECHA": "2026-05-27", "TIPO": "Sanitización", "ESTADO": "Pendiente", "TECNICO": "T001", "DELEGACION": "6S21" },
+      { "CLIENTE": "Bar La Playa", "DIRECCION": "Av. Marítima 42", "FECHA": "2026-05-28", "TIPO": "Mantenimiento", "ESTADO": "Programado", "TECNICO": "T002", "DELEGACION": "6S21" },
+      { "CLIENTE": "Restaurante El Monte", "DIRECCION": "C/ La Rosa 8", "FECHA": "2026-05-29", "TIPO": "Limpieza", "ESTADO": "Pendiente", "TECNICO": "T003", "DELEGACION": "6S21" },
+      { "CLIENTE": "Hotel Bahía", "DIRECCION": "Av. de la Playa 10", "FECHA": "2026-05-27", "TIPO": "Sanitización", "ESTADO": "Completado", "TECNICO": "T001", "DELEGACION": "6S23" }
+    ],
+    "avisos": [
+      { "CLIENTE": "Café Central", "DIRECCION": "C/ Mayor 15", "AVISO": "Aviso de limpieza urgente", "FECHA": "2026-05-27", "ESTADO": "Pendiente", "DELEGACION": "6S21" },
+      { "CLIENTE": "Bar La Playa", "DIRECCION": "Av. Marítima 42", "AVISO": "Revisión trimestral", "FECHA": "2026-05-28", "ESTADO": "Programado", "DELEGACION": "6S21" }
+    ]
+  },
+  "logistics-full": {
+    "logistics": {
+      "averias": [
+        { "DELEG": "6S21", "FAMILIA": "DI", "TIPO": "HA", "AVISO": "AV-2026-001", "CLIENTE": "Café Central", "FECHA_PLANIFICADA": "2026-05-27", "DIFERENCIA": 30, "DIFERENCIA2": 15, "USERSTATUS": "Ejecución" },
+        { "DELEG": "6S21", "FAMILIA": "VI", "TIPO": "HI", "AVISO": "AV-2026-002", "CLIENTE": "Bar La Playa", "FECHA_PLANIFICADA": "2026-05-27", "DIFERENCIA": 45, "DIFERENCIA2": 20, "USERSTATUS": "Ejecución" },
+        { "DELEG": "6S23", "FAMILIA": "DI", "TIPO": "HC", "AVISO": "AV-2026-004", "CLIENTE": "Hotel Bahía", "FECHA_PLANIFICADA": "2026-05-26", "DIFERENCIA": -15, "DIFERENCIA2": -5, "USERSTATUS": "Resuelta" },
+        { "DELEG": "6S21", "FAMILIA": "VE", "TIPO": "HA", "AVISO": "AV-2026-005", "CLIENTE": "Restaurante El Monte", "FECHA_PLANIFICADA": "2026-05-28", "DIFERENCIA": 60, "DIFERENCIA2": 30, "USERSTATUS": "Pendiente" },
+        { "DELEG": "6S21", "FAMILIA": "DI", "TIPO": "HI", "AVISO": "AV-2026-006", "CLIENTE": "Cafetería Central", "FECHA_PLANIFICADA": "2026-05-27", "DIFERENCIA": 10, "DIFERENCIA2": 5, "USERSTATUS": "En pausa" },
+        { "DELEG": "6S21", "FAMILIA": "BO", "TIPO": "HC", "AVISO": "AV-2026-007", "CLIENTE": "Hotel Bahía", "FECHA_PLANIFICADA": "2026-05-25", "DIFERENCIA": -120, "DIFERENCIA2": -60, "USERSTATUS": "Resuelta" }
+      ],
+      "recuentos": [
+        { "DELEGACION": "6S21", "TIPO": "DI", "ACTIVAS": "5", "PAUSA": "1" },
+        { "DELEGACION": "6S21", "TIPO": "VI", "ACTIVAS": "3", "PAUSA": "0" },
+        { "DELEGACION": "6S21", "TIPO": "VE", "ACTIVAS": "2", "PAUSA": "2" },
+        { "DELEGACION": "6S21", "TIPO": "BO", "ACTIVAS": "1", "PAUSA": "0" },
+        { "DELEGACION": "6S23", "TIPO": "DI", "ACTIVAS": "4", "PAUSA": "0" },
+        { "DELEGACION": "6S23", "TIPO": "VI", "ACTIVAS": "2", "PAUSA": "1" },
+        { "DELEGACION": "6S23", "TIPO": "VE", "ACTIVAS": "1", "PAUSA": "0" }
+      ]
+    },
+    "metricas": {
+    "relojes": { "semana": "78", "mes": "82", "anio": "85" },
+      "ejecucion": { "semana": { "DISPENSING": "12", "VITRINA": "8", "VENDING": "5", "BOTELLERO": "3", "DI": "7", "VI": "4", "VE": "2", "BO": "1", "PERC": "72" }, "mes": { "DISPENSING": "48", "VITRINA": "32", "VENDING": "20", "BOTELLERO": "12", "DI": "28", "VI": "16", "VE": "8", "BO": "4", "PERC": "68" }, "anio": { "DISPENSING": "520", "VITRINA": "340", "VENDING": "210", "BOTELLERO": "95", "DI": "310", "VI": "180", "VE": "85", "BO": "30", "PERC": "65" } },
+      "resolucion": { "semana": { "DISPENSING": "10", "VITRINA": "7", "VENDING": "4", "BOTELLERO": "2", "DI": "6", "VI": "3", "VE": "2", "BO": "1", "PERC": "68" }, "mes": { "DISPENSING": "42", "VITRINA": "28", "VENDING": "17", "BOTELLERO": "10", "DI": "24", "VI": "14", "VE": "7", "BO": "3", "PERC": "64" }, "anio": { "DISPENSING": "480", "VITRINA": "310", "VENDING": "190", "BOTELLERO": "82", "DI": "285", "VI": "165", "VE": "78", "BO": "25", "PERC": "62" } },
+      "porcentaje": { "semana": { "DISPENSING": "83", "VITRINA": "88", "VENDING": "80", "BOTELLERO": "67", "DI": "86", "VI": "75", "VE": "100", "BO": "100", "PERC": "85" }, "mes": { "DISPENSING": "81", "VITRINA": "85", "VENDING": "78", "BOTELLERO": "65", "DI": "84", "VI": "73", "VE": "95", "BO": "90", "PERC": "82" }, "anio": { "DISPENSING": "79", "VITRINA": "83", "VENDING": "75", "BOTELLERO": "62", "DI": "82", "VI": "71", "VE": "92", "BO": "88", "PERC": "80" } },
+      "porcentajeTiempo": { "semana": { "DISPENSING": "78", "VITRINA": "82", "VENDING": "75", "BOTELLERO": "60", "DI": "80", "VI": "70", "VE": "90", "BO": "85", "PERC": "80" }, "mes": { "DISPENSING": "76", "VITRINA": "80", "VENDING": "72", "BOTELLERO": "58", "DI": "78", "VI": "68", "VE": "88", "BO": "82", "PERC": "78" }, "anio": { "DISPENSING": "74", "VITRINA": "78", "VENDING": "70", "BOTELLERO": "55", "DI": "76", "VI": "65", "VE": "85", "BO": "80", "PERC": "75" } }
+    }
+  },
+  "logistics-dashboard": {
+    "averias": [
+      { "DELEG": "6S21", "FAMILIA": "DI", "TIPO": "HA", "AVISO": "AV-2026-001", "CLIENTE": "Café Central", "FECHA_PLANIFICADA": "2026-05-27", "DIFERENCIA": 30, "DIFERENCIA2": 15, "USERSTATUS": "Ejecución" },
+      { "DELEG": "6S21", "FAMILIA": "VI", "TIPO": "HI", "AVISO": "AV-2026-002", "CLIENTE": "Bar La Playa", "FECHA_PLANIFICADA": "2026-05-27", "DIFERENCIA": 45, "DIFERENCIA2": 20, "USERSTATUS": "Ejecución" }
+    ],
+    "recuentos": [
+      { "DELEGACION": "6S21", "TIPO": "DI", "ACTIVAS": "5", "PAUSA": "1" },
+      { "DELEGACION": "6S21", "TIPO": "VI", "ACTIVAS": "3", "PAUSA": "0" },
+      { "DELEGACION": "6S21", "TIPO": "VE", "ACTIVAS": "2", "PAUSA": "2" },
+      { "DELEGACION": "6S23", "TIPO": "DI", "ACTIVAS": "4", "PAUSA": "0" }
+    ],
+    "metrics": [
+      { "label": "Pendientes", "value": 8 },
+      { "label": "Ejecución", "value": 4 },
+      { "label": "Completadas", "value": 12 }
+    ]
+  },
+  "mapa-snapshot": {
+    "markers": [
+      { "LATITUD": 28.2916, "LONGITUD": -16.6291, "FECHA": "2026-05-27 10:30:00", "VELOCIDAD": "0", "CODIGO_TECNICO": "T001", "NOMBRE_TECNICO": "Juan Pérez", "MATRICULA": "TF-1234", "MAX_GPU_DATA": "1", "DESCONEXION": "" },
+      { "LATITUD": 28.4636, "LONGITUD": -16.2518, "FECHA": "2026-05-27 10:15:00", "VELOCIDAD": "45", "CODIGO_TECNICO": "T002", "NOMBRE_TECNICO": "María López", "MATRICULA": "TF-5678", "MAX_GPU_DATA": "1", "DESCONEXION": "" },
+      { "LATITUD": 28.1200, "LONGITUD": -16.7200, "FECHA": "2026-05-27 09:45:00", "VELOCIDAD": "0", "CODIGO_TECNICO": "T003", "NOMBRE_TECNICO": "Carlos Ruiz", "MATRICULA": "TF-9012", "MAX_GPU_DATA": "1", "DESCONEXION": "2026-05-27 10:00:00" },
+      { "LATITUD": 28.1500, "LONGITUD": -16.4300, "FECHA": "2026-05-27 08:00:00", "VELOCIDAD": "32", "CODIGO_TECNICO": "T004", "NOMBRE_TECNICO": "Ana García", "MATRICULA": "GC-4321", "MAX_GPU_DATA": "1", "DESCONEXION": "" }
+    ],
+    "aCocaCola": [
+      { "AVISO": "AV-2026-001", "NOMBRE_CLIENTE": "Café Central", "NOMBRE_CLIENTE2": "", "CLI_CIT": "CIT001", "CODIGO_TECNICO": "T001", "AGE_NOME": "Tenerife", "FAMILIA": "DI", "TIPO_AVISO": "HA", "USTATUS": 1, "LATITUD": 28.2916, "LONGITUD": -16.6291, "DELTA_ORIGEN": 150 },
+      { "AVISO": "AV-2026-002", "NOMBRE_CLIENTE": "Bar La Playa", "NOMBRE_CLIENTE2": "", "CLI_CIT": "CIT002", "CODIGO_TECNICO": "T002", "AGE_NOME": "Tenerife", "FAMILIA": "VI", "TIPO_AVISO": "HI", "USTATUS": 2, "LATITUD": 28.4636, "LONGITUD": -16.2518, "DELTA_ORIGEN": 75 },
+      { "AVISO": "AV-2026-003", "NOMBRE_CLIENTE": "Restaurante El Monte", "NOMBRE_CLIENTE2": "", "CLI_CIT": "CIT003", "CODIGO_TECNICO": "T003", "AGE_NOME": "Tenerife", "FAMILIA": "VE", "TIPO_AVISO": "HC", "USTATUS": 3, "LATITUD": 28.1200, "LONGITUD": -16.7200, "DELTA_ORIGEN": 345 },
+      { "AVISO": "AV-2026-004", "NOMBRE_CLIENTE": "Hotel Bahía", "NOMBRE_CLIENTE2": "Puerto de la Cruz", "CLI_CIT": "CIT004", "CODIGO_TECNICO": "T004", "AGE_NOME": "Tenerife", "FAMILIA": "DI", "TIPO_AVISO": "HA", "USTATUS": 1, "LATITUD": 28.4133, "LONGITUD": -16.5442, "DELTA_ORIGEN": 210 }
+    ],
+    "pausasCocaCola": [
+      { "CHIA_VOSTROORDINE": "AV-2026-001", "CODIGO_PAUSA": 1 },
+      { "CHIA_VOSTROORDINE": "AV-2026-005", "CODIGO_PAUSA": 2 }
+    ]
+  },
+  "historico": [
+    { "aviso": "AV-2026-001", "cliente": "Café Central", "fecha": "2026-05-27", "accion": "Apertura", "tecnico": "Juan Pérez" },
+    { "aviso": "AV-2026-002", "cliente": "Bar La Playa", "fecha": "2026-05-26", "accion": "Asignación", "tecnico": "María López" },
+    { "aviso": "AV-2026-003", "cliente": "Restaurante El Monte", "fecha": "2026-05-25", "accion": "Resolución", "tecnico": "Carlos Ruiz" },
+    { "aviso": "AV-2026-004", "cliente": "Hotel Bahía", "fecha": "2026-05-26", "accion": "Apertura", "tecnico": "Ana García" },
+    { "aviso": "AV-2026-005", "cliente": "Cafetería Central", "fecha": "2026-05-25", "accion": "Cierre", "tecnico": "María López" }
+  ],
+  "rank-productividad-tecnicos": [
+    { "CODIGO_EMPLEADO": "T001", "NOMBRE_EMPLEADO": "Pérez, Juan", "CODIGO_AREA": "6S21", "PRODUCTIVIDAD": 92 },
+    { "CODIGO_EMPLEADO": "T002", "NOMBRE_EMPLEADO": "López, María", "CODIGO_AREA": "6S21", "PRODUCTIVIDAD": 88 },
+    { "CODIGO_EMPLEADO": "T003", "NOMBRE_EMPLEADO": "Ruiz, Carlos", "CODIGO_AREA": "6S23", "PRODUCTIVIDAD": 95 },
+    { "CODIGO_EMPLEADO": "T004", "NOMBRE_EMPLEADO": "García, Ana", "CODIGO_AREA": "6S23", "PRODUCTIVIDAD": 78 },
+    { "CODIGO_EMPLEADO": "T005", "NOMBRE_EMPLEADO": "Martín, David", "CODIGO_AREA": "6S21", "PRODUCTIVIDAD": 85 }
+  ],
+  "productividad-tecnicos": [
+    { "CODIGO_EMPLEADO": "T001", "NOMBRE_EMPLEADO": "Pérez, Juan", "CODIGO_AREA": "6S21", "PRODUCTIVIDAD": 92 },
+    { "CODIGO_EMPLEADO": "T002", "NOMBRE_EMPLEADO": "López, María", "CODIGO_AREA": "6S21", "PRODUCTIVIDAD": 88 },
+    { "CODIGO_EMPLEADO": "T003", "NOMBRE_EMPLEADO": "Ruiz, Carlos", "CODIGO_AREA": "6S23", "PRODUCTIVIDAD": 95 },
+    { "CODIGO_EMPLEADO": "T004", "NOMBRE_EMPLEADO": "García, Ana", "CODIGO_AREA": "6S23", "PRODUCTIVIDAD": 78 },
+    { "CODIGO_EMPLEADO": "T005", "NOMBRE_EMPLEADO": "Martín, David", "CODIGO_AREA": "6S21", "PRODUCTIVIDAD": 85 }
+  ],
+  "productividad-tareas": [
+    { "COD_TECNICO": "T001", "DELEGACION": "6S21", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 10:30", "TAREA": "REP001", "DESCRIPCION": "Reparación dispensador", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Reparación", "MIEF_CHIA": "AV-2026-001", "AVERIA_ENCONTRADA": "Fallo en placa", "CLIENTE": "Café Central", "EQUIPO": "MX-101", "TIPO": "HA" },
+    { "COD_TECNICO": "T001", "DELEGACION": "6S21", "FECHA_INI": "2026-05-27 11:00", "FECHA_FIN": "2026-05-27 13:00", "TAREA": "MNT002", "DESCRIPCION": "Mantenimiento preventivo", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Mantenimiento", "MIEF_CHIA": "MN-2026-001", "AVERIA_ENCONTRADA": "", "CLIENTE": "Hotel Bahía", "EQUIPO": "MX-202", "TIPO": "HA" },
+    { "COD_TECNICO": "T002", "DELEGACION": "6S21", "FECHA_INI": "2026-05-27 07:30", "FECHA_FIN": null, "TAREA": "REP003", "DESCRIPCION": "Ajuste puerta vitrina", "ESTADOTAREA": "Ejecución", "ACTIVIDAD": "Ajuste", "MIEF_CHIA": "AV-2026-002", "AVERIA_ENCONTRADA": "Bisagra", "CLIENTE": "Bar La Playa", "EQUIPO": "MX-202", "TIPO": "HI" },
+    { "COD_TECNICO": "T002", "DELEGACION": "6S21", "FECHA_INI": "2026-05-26 14:30", "FECHA_FIN": "2026-05-26 17:00", "TAREA": "REP004", "DESCRIPCION": "Cambio filtro", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Sustitución", "MIEF_CHIA": "AV-2026-005", "AVERIA_ENCONTRADA": "Filtro obstruido", "CLIENTE": "Cafetería Central", "EQUIPO": "MX-303", "TIPO": "HC" },
+    { "COD_TECNICO": "T003", "DELEGACION": "6S21", "FECHA_INI": "2026-05-27 08:30", "FECHA_FIN": "2026-05-27 11:00", "TAREA": "REV005", "DESCRIPCION": "Revisión conexión", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Revisión", "MIEF_CHIA": "AV-2026-003", "AVERIA_ENCONTRADA": "Cable suelto", "CLIENTE": "Restaurante El Monte", "EQUIPO": "MX-303", "TIPO": "HC" },
+    { "COD_TECNICO": "T003", "DELEGACION": "6S21", "FECHA_INI": "2026-05-27 12:00", "FECHA_FIN": null, "TAREA": "MNT006", "DESCRIPCION": "Sanitización", "ESTADOTAREA": "Ejecución", "ACTIVIDAD": "Limpieza", "MIEF_CHIA": "SN-2026-001", "AVERIA_ENCONTRADA": "", "CLIENTE": "Café Central", "EQUIPO": "MX-101", "TIPO": "HA" },
+    { "COD_TECNICO": "T004", "DELEGACION": "6S23", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 11:30", "TAREA": "REP007", "DESCRIPCION": "Reparación dispensador", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Reparación", "MIEF_CHIA": "AV-2026-004", "AVERIA_ENCONTRADA": "Fallo en placa base", "CLIENTE": "Hotel Bahía", "EQUIPO": "MX-404", "TIPO": "HA" },
+    { "COD_TECNICO": "T004", "DELEGACION": "6S23", "FECHA_INI": "2026-05-27 13:00", "FECHA_FIN": "2026-05-27 15:00", "TAREA": "MNT008", "DESCRIPCION": "Mantenimiento preventivo", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Mantenimiento", "MIEF_CHIA": "MN-2026-004", "AVERIA_ENCONTRADA": "", "CLIENTE": "Hotel Bahía", "EQUIPO": "MX-404", "TIPO": "HA" },
+    { "COD_TECNICO": "T005", "DELEGACION": "6S21", "FECHA_INI": "2026-05-28 08:30", "FECHA_FIN": null, "TAREA": "REP009", "DESCRIPCION": "Revisión botellero", "ESTADOTAREA": "Ejecución", "ACTIVIDAD": "Revisión", "MIEF_CHIA": "AV-2026-005", "AVERIA_ENCONTRADA": "", "CLIENTE": "Cafetería Central", "EQUIPO": "MX-505", "TIPO": "HI" }
+  ],
+  "productividad-jornadas": [
+    { "COD_TECNICO": "T001", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 17:00", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 6.5, "NUM_TAREAS": 4 },
+    { "COD_TECNICO": "T002", "FECHA_INI": "2026-05-27 07:30", "FECHA_FIN": "2026-05-27 16:30", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 7.0, "NUM_TAREAS": 3 },
+    { "COD_TECNICO": "T003", "FECHA_INI": "2026-05-27 08:30", "FECHA_FIN": "2026-05-27 18:00", "DELEGACION": "6S21", "TOTAL_HORAS": 8.5, "HORAS_PRODUCTIVAS": 7.5, "NUM_TAREAS": 5 },
+    { "COD_TECNICO": "T001", "FECHA_INI": "2026-05-26 08:00", "FECHA_FIN": "2026-05-26 16:00", "DELEGACION": "6S21", "TOTAL_HORAS": 7.5, "HORAS_PRODUCTIVAS": 6.0, "NUM_TAREAS": 3 },
+    { "COD_TECNICO": "T004", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 15:00", "DELEGACION": "6S23", "TOTAL_HORAS": 6.5, "HORAS_PRODUCTIVAS": 5.5, "NUM_TAREAS": 2 },
+    { "COD_TECNICO": "T005", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 17:00", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 7.0, "NUM_TAREAS": 4 },
+    { "COD_TECNICO": "T004", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 16:00", "DELEGACION": "6S23", "TOTAL_HORAS": 7.5, "HORAS_PRODUCTIVAS": 6.5, "NUM_TAREAS": 3 },
+    { "COD_TECNICO": "T004", "FECHA_INI": "2026-05-26 08:00", "FECHA_FIN": "2026-05-26 15:30", "DELEGACION": "6S23", "TOTAL_HORAS": 7, "HORAS_PRODUCTIVAS": 6.0, "NUM_TAREAS": 2 },
+    { "COD_TECNICO": "T005", "FECHA_INI": "2026-05-28 08:00", "FECHA_FIN": "2026-05-28 16:30", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 6.5, "NUM_TAREAS": 3 },
+    { "COD_TECNICO": "T005", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 17:00", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 7.0, "NUM_TAREAS": 4 }
+  ],
+  "detalle-tecnicos": [
+    { "CODIGO_EMPLEADO": "T001", "NOMBRE_EMPLEADO": "Pérez, Juan", "CODIGO_AREA": "6S21", "PRODUCTIVIDAD": 92 },
+    { "CODIGO_EMPLEADO": "T002", "NOMBRE_EMPLEADO": "López, María", "CODIGO_AREA": "6S21", "PRODUCTIVIDAD": 88 },
+    { "CODIGO_EMPLEADO": "T003", "NOMBRE_EMPLEADO": "Ruiz, Carlos", "CODIGO_AREA": "6S23", "PRODUCTIVIDAD": 95 },
+    { "CODIGO_EMPLEADO": "T004", "NOMBRE_EMPLEADO": "García, Ana", "CODIGO_AREA": "6S23", "PRODUCTIVIDAD": 78 },
+    { "CODIGO_EMPLEADO": "T005", "NOMBRE_EMPLEADO": "Martín, David", "CODIGO_AREA": "6S21", "PRODUCTIVIDAD": 85 }
+  ],
+  "detalle-tareas": [
+    { "COD_TECNICO": "T001", "DELEGACION": "6S21", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 10:30", "TAREA": "REP001", "DESCRIPCION": "Reparación dispensador", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Reparación", "MIEF_CHIA": "AV-2026-001", "AVERIA_ENCONTRADA": "Fallo en placa", "CLIENTE": "Café Central", "EQUIPO": "MX-101", "TIPO": "HA" },
+    { "COD_TECNICO": "T001", "DELEGACION": "6S21", "FECHA_INI": "2026-05-27 11:00", "FECHA_FIN": "2026-05-27 13:00", "TAREA": "MNT002", "DESCRIPCION": "Mantenimiento", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Mantenimiento", "MIEF_CHIA": "MN-001", "AVERIA_ENCONTRADA": "", "CLIENTE": "Hotel Bahía", "EQUIPO": "MX-202", "TIPO": "HA" },
+    { "COD_TECNICO": "T001", "DELEGACION": "6S21", "FECHA_INI": "2026-05-26 14:00", "FECHA_FIN": "2026-05-26 15:30", "TAREA": "REP003", "DESCRIPCION": "Cambio pieza", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Sustitución", "MIEF_CHIA": "AV-2026-005", "AVERIA_ENCONTRADA": "Desgaste", "CLIENTE": "Cafetería Central", "EQUIPO": "MX-303", "TIPO": "HC" },
+    { "COD_TECNICO": "T002", "DELEGACION": "6S21", "FECHA_INI": "2026-05-27 07:30", "FECHA_FIN": "2026-05-27 10:00", "TAREA": "REP004", "DESCRIPCION": "Ajuste puerta vitrina", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Ajuste", "MIEF_CHIA": "AV-2026-002", "AVERIA_ENCONTRADA": "Bisagra desajustada", "CLIENTE": "Bar La Playa", "EQUIPO": "MX-202", "TIPO": "HI" },
+    { "COD_TECNICO": "T003", "DELEGACION": "6S23", "FECHA_INI": "2026-05-27 08:30", "FECHA_FIN": "2026-05-27 11:00", "TAREA": "REV005", "DESCRIPCION": "Revisión conexión", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Revisión", "MIEF_CHIA": "AV-2026-003", "AVERIA_ENCONTRADA": "Cable suelto", "CLIENTE": "Restaurante El Monte", "EQUIPO": "MX-303", "TIPO": "HC" },
+    { "COD_TECNICO": "T004", "DELEGACION": "6S23", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 11:30", "TAREA": "REP007", "DESCRIPCION": "Reparación dispensador", "ESTADOTAREA": "Finalizada", "ACTIVIDAD": "Reparación", "MIEF_CHIA": "AV-2026-004", "AVERIA_ENCONTRADA": "Fallo en placa base", "CLIENTE": "Hotel Bahía", "EQUIPO": "MX-404", "TIPO": "HA" },
+    { "COD_TECNICO": "T005", "DELEGACION": "6S21", "FECHA_INI": "2026-05-28 08:30", "FECHA_FIN": null, "TAREA": "REP009", "DESCRIPCION": "Revisión botellero", "ESTADOTAREA": "Ejecución", "ACTIVIDAD": "Revisión", "MIEF_CHIA": "AV-2026-005", "AVERIA_ENCONTRADA": "", "CLIENTE": "Cafetería Central", "EQUIPO": "MX-505", "TIPO": "HI" }
+  ],
+  "detalle-jornadas": [
+    { "COD_TECNICO": "T001", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 17:00", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 6.5, "NUM_TAREAS": 4 },
+    { "COD_TECNICO": "T001", "FECHA_INI": "2026-05-26 08:00", "FECHA_FIN": "2026-05-26 16:00", "DELEGACION": "6S21", "TOTAL_HORAS": 7.5, "HORAS_PRODUCTIVAS": 6.0, "NUM_TAREAS": 3 },
+    { "COD_TECNICO": "T001", "FECHA_INI": "2026-05-25 08:00", "FECHA_FIN": "2026-05-25 17:00", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 7.0, "NUM_TAREAS": 4 },
+    { "COD_TECNICO": "T002", "FECHA_INI": "2026-05-27 07:30", "FECHA_FIN": "2026-05-27 16:30", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 7.0, "NUM_TAREAS": 3 },
+    { "COD_TECNICO": "T002", "FECHA_INI": "2026-05-26 08:00", "FECHA_FIN": "2026-05-26 17:00", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 6.5, "NUM_TAREAS": 4 },
+    { "COD_TECNICO": "T003", "FECHA_INI": "2026-05-27 08:30", "FECHA_FIN": "2026-05-27 18:00", "DELEGACION": "6S23", "TOTAL_HORAS": 8.5, "HORAS_PRODUCTIVAS": 7.5, "NUM_TAREAS": 5 },
+    { "COD_TECNICO": "T003", "FECHA_INI": "2026-05-26 08:00", "FECHA_FIN": "2026-05-26 17:00", "DELEGACION": "6S23", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 7.0, "NUM_TAREAS": 3 },
+    { "COD_TECNICO": "T004", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 16:00", "DELEGACION": "6S23", "TOTAL_HORAS": 7.5, "HORAS_PRODUCTIVAS": 6.5, "NUM_TAREAS": 3 },
+    { "COD_TECNICO": "T004", "FECHA_INI": "2026-05-26 08:00", "FECHA_FIN": "2026-05-26 15:30", "DELEGACION": "6S23", "TOTAL_HORAS": 7, "HORAS_PRODUCTIVAS": 6.0, "NUM_TAREAS": 2 },
+    { "COD_TECNICO": "T005", "FECHA_INI": "2026-05-28 08:00", "FECHA_FIN": "2026-05-28 16:30", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 6.5, "NUM_TAREAS": 3 },
+    { "COD_TECNICO": "T005", "FECHA_INI": "2026-05-27 08:00", "FECHA_FIN": "2026-05-27 17:00", "DELEGACION": "6S21", "TOTAL_HORAS": 8, "HORAS_PRODUCTIVAS": 7.0, "NUM_TAREAS": 4 },
+    { "COD_TECNICO": "T005", "FECHA_INI": "2026-05-26 08:00", "FECHA_FIN": "2026-05-26 16:00", "DELEGACION": "6S21", "TOTAL_HORAS": 7.5, "HORAS_PRODUCTIVAS": 6.0, "NUM_TAREAS": 3 }
+  ],
+  "maquinas-retiradas": [
+    { "fechaini": "2026-05-01", "fechafin": "2026-05-27", "cod_retirada": "MR-001", "matricula_asignada": "M-001", "matricula": "MX-101", "fecha_ejecucion": "2026-05-20", "delegacion": "6S21", "subfamilia": "DI", "cod_modelo": "DX-200", "modelo": "Dispensador DX-200", "cliente_cod": "C001", "cliente_nombre": "Café Central", "tipo_trabajo": "Retirada", "accion": "Fin de contrato", "concambio": false, "solicitud_cambio_text": "", "redisposiciones_text": "" },
+    { "fechaini": "2026-05-01", "fechafin": "2026-05-27", "cod_retirada": "MR-002", "matricula_asignada": "M-002", "matricula": "MX-202", "fecha_ejecucion": "2026-05-18", "delegacion": "6S21", "subfamilia": "VI", "cod_modelo": "VX-100", "modelo": "Vitrina VX-100", "cliente_cod": "C002", "cliente_nombre": "Bar La Playa", "tipo_trabajo": "Sustitución", "accion": "Cambio por avería", "concambio": true, "solicitud_cambio_text": "Equipo obsoleto", "redisposiciones_text": "Nueva vitrina pendiente" },
+    { "fechaini": "2026-05-01", "fechafin": "2026-05-27", "cod_retirada": "MR-003", "matricula_asignada": "M-003", "matricula": "MX-303", "fecha_ejecucion": "2026-05-15", "delegacion": "6S21", "subfamilia": "VE", "cod_modelo": "VE-50", "modelo": "Vending VE-50", "cliente_cod": "C003", "cliente_nombre": "Restaurante El Monte", "tipo_trabajo": "Retirada", "accion": "Avería total", "concambio": false, "solicitud_cambio_text": "No reparable", "redisposiciones_text": "Pendiente de baja" },
+    { "fechaini": "2026-05-01", "fechafin": "2026-05-27", "cod_retirada": "MR-004", "matricula_asignada": "M-004", "matricula": "MX-404", "fecha_ejecucion": "2026-05-22", "delegacion": "6S23", "subfamilia": "DI", "cod_modelo": "DX-300", "modelo": "Dispensador DX-300", "cliente_cod": "C004", "cliente_nombre": "Hotel Bahía", "tipo_trabajo": "Retirada", "accion": "Actualización", "concambio": true, "solicitud_cambio_text": "Modelo superior", "redisposiciones_text": "Nuevo equipo instalado" }
+  ],
+  "equipos-instalados": [
+    { "fechaini": "2026-05-01", "fechafin": "2026-05-27", "cod_trabajo": "IN-001", "matricula_asignada": "M-101", "matricula": "MX-101", "fecha_ejecucion": "2026-05-15", "delegacion": "6S21", "subfamilia": "DI", "cod_modelo": "DX-200", "modelo": "Dispensador DX-200", "cliente_cod": "C001", "cliente_nombre": "Café Central", "tipo_trabajo": "Instalación", "accion": "Primera instalación", "conaveria": false, "averias_text": "", "intervenciones_text": "", "redisposiciones_text": "" },
+    { "fechaini": "2026-05-01", "fechafin": "2026-05-27", "cod_trabajo": "IN-002", "matricula_asignada": "M-202", "matricula": "MX-202", "fecha_ejecucion": "2026-05-20", "delegacion": "6S21", "subfamilia": "VI", "cod_modelo": "VX-100", "modelo": "Vitrina VX-100", "cliente_cod": "C002", "cliente_nombre": "Bar La Playa", "tipo_trabajo": "Instalación", "accion": "Sustitución", "conaveria": false, "averias_text": "", "intervenciones_text": "", "redisposiciones_text": "Equipo retirado MR-002" },
+    { "fechaini": "2026-05-01", "fechafin": "2026-05-27", "cod_trabajo": "IN-003", "matricula_asignada": "M-303", "matricula": "MX-505", "fecha_ejecucion": "2026-05-25", "delegacion": "6S23", "subfamilia": "DI", "cod_modelo": "DX-300", "modelo": "Dispensador DX-300", "cliente_cod": "C004", "cliente_nombre": "Hotel Bahía", "tipo_trabajo": "Instalación", "accion": "Nuevo cliente", "conaveria": false, "averias_text": "", "intervenciones_text": "", "redisposiciones_text": "" }
+  ],
+  "sla-st02": [
+    { "DELEGACION": "6S21", "MODELO": "DX-200", "MATRICULA": "MX-101", "SUBFAMILIA": "DI", "TIPO_FAMILIA": "Dispensador", "SLA": 85, "FECHA": "2026-05-27", "TIPO_AVISO": "HA", "FAMILIA": "DI", "DESCRIPCION_ESTADO": "En plazo", "ESTADO_SOLICITUD_REDISPOSICION": null, "rn": 1 },
+    { "DELEGACION": "6S21", "MODELO": "VX-100", "MATRICULA": "MX-202", "SUBFAMILIA": "VI", "TIPO_FAMILIA": "Vitrina", "SLA": 92, "FECHA": "2026-05-26", "TIPO_AVISO": "HI", "FAMILIA": "VI", "DESCRIPCION_ESTADO": "En plazo", "ESTADO_SOLICITUD_REDISPOSICION": null, "rn": 2 },
+    { "DELEGACION": "6S21", "MODELO": "VE-50", "MATRICULA": "MX-303", "SUBFAMILIA": "VE", "TIPO_FAMILIA": "Vending", "SLA": 100, "FECHA": "2026-05-25", "TIPO_AVISO": "HC", "FAMILIA": "VE", "DESCRIPCION_ESTADO": "Cerrada", "ESTADO_SOLICITUD_REDISPOSICION": null, "rn": 3 },
+    { "DELEGACION": "6S23", "MODELO": "DX-300", "MATRICULA": "MX-404", "SUBFAMILIA": "DI", "TIPO_FAMILIA": "Dispensador", "SLA": 72, "FECHA": "2026-05-27", "TIPO_AVISO": "HA", "FAMILIA": "DI", "DESCRIPCION_ESTADO": "Fuera de plazo", "ESTADO_SOLICITUD_REDISPOSICION": "Pendiente", "rn": 4 },
+    { "DELEGACION": "6S21", "MODELO": "DX-200", "MATRICULA": "MX-606", "SUBFAMILIA": "DI", "TIPO_FAMILIA": "Dispensador", "SLA": 95, "FECHA": "2026-05-24", "TIPO_AVISO": "HA", "FAMILIA": "DI", "DESCRIPCION_ESTADO": "En plazo", "ESTADO_SOLICITUD_REDISPOSICION": null, "rn": 5 }
+  ],
+  "redisposiciones": [
+    { "DELEGACION": "6S21", "MODELO": "DX-200", "MATRICULA": "MX-101", "SUBFAMILIA": "DI", "TIPO_FAMILIA": "Dispensador", "NOMBRE_FAMILIA": "Dispensación", "TIPO_FRIO": "No", "NOMBRE_MODELO": "Dispensador DX-200", "SLA": 85, "DESCRIPCION_ESTADO": "Nivel Básico", "ESTADO_SOLICITUD_REDISPOSICION": "Pendiente", "NIVEL": 1, "rn": 1 },
+    { "DELEGACION": "6S21", "MODELO": "VX-100", "MATRICULA": "MX-202", "SUBFAMILIA": "VI", "TIPO_FAMILIA": "Vitrina", "NOMBRE_FAMILIA": "Vitrina", "TIPO_FRIO": "No", "NOMBRE_MODELO": "Vitrina VX-100", "SLA": 92, "DESCRIPCION_ESTADO": "Nivel Medio", "ESTADO_SOLICITUD_REDISPOSICION": "Aprobada", "NIVEL": 2, "rn": 2 },
+    { "DELEGACION": "6S21", "MODELO": "VE-50", "MATRICULA": "MX-303", "SUBFAMILIA": "VE", "TIPO_FAMILIA": "Vending", "NOMBRE_FAMILIA": "Vending", "TIPO_FRIO": "Sí", "NOMBRE_MODELO": "Vending VE-50", "SLA": 100, "DESCRIPCION_ESTADO": "Nivel Máximo", "ESTADO_SOLICITUD_REDISPOSICION": "Completada", "NIVEL": 3, "rn": 3 },
+    { "DELEGACION": "6S23", "MODELO": "DX-300", "MATRICULA": "MX-404", "SUBFAMILIA": "DI", "TIPO_FAMILIA": "Dispensador", "NOMBRE_FAMILIA": "Dispensación", "TIPO_FRIO": "No", "NOMBRE_MODELO": "Dispensador DX-300", "SLA": 72, "DESCRIPCION_ESTADO": "Nivel Extra+", "ESTADO_SOLICITUD_REDISPOSICION": "Urgente", "NIVEL": 4, "rn": 4 }
+  ],
+  "trabajo-cliente": [
+    { "DELEGACION": "6S21", "AVISO": "AV-2026-001", "CLIENTE": "Café Central", "FECHA": "2026-05-27", "TIPO": "Instalación", "TECNICO": "Juan Pérez", "ESTADO": "Pendiente", "DIRECCION": "C/ Mayor 15" },
+    { "DELEGACION": "6S21", "AVISO": "AV-2026-002", "CLIENTE": "Bar La Playa", "FECHA": "2026-05-27", "TIPO": "Reparación", "TECNICO": "María López", "ESTADO": "En proceso", "DIRECCION": "Av. Marítima 42" },
+    { "DELEGACION": "6S21", "AVISO": "AV-2026-003", "CLIENTE": "Restaurante El Monte", "FECHA": "2026-05-27", "TIPO": "Mantenimiento", "TECNICO": "Carlos Ruiz", "ESTADO": "Finalizado", "DIRECCION": "C/ La Rosa 8" },
+    { "DELEGACION": "6S23", "AVISO": "AV-2026-004", "CLIENTE": "Hotel Bahía", "FECHA": "2026-05-26", "TIPO": "Instalación", "TECNICO": "Ana García", "ESTADO": "Pendiente", "DIRECCION": "Av. de la Playa 10" }
+  ],
+  "fly-fb": [
+    { "DELEGACION": "6S21", "AVISO": "FL-2026-001", "CLIENTE": "Café Central", "FAMILIA": "FL", "TIPO_AVISO": "FL", "NIVEL": "1", "ESTADO": "Pendiente", "FECHA": "2026-05-27", "IMPORTE": 150.50, "DIRECCION": "C/ Mayor 15" },
+    { "DELEGACION": "6S21", "AVISO": "FB-2026-001", "CLIENTE": "Bar La Playa", "FAMILIA": "FB", "TIPO_AVISO": "FB", "NIVEL": "2", "ESTADO": "Pagado", "FECHA": "2026-05-26", "IMPORTE": 230.00, "DIRECCION": "Av. Marítima 42" },
+    { "DELEGACION": "6S23", "AVISO": "FL-2026-002", "CLIENTE": "Hotel Bahía", "FAMILIA": "FL", "TIPO_AVISO": "FL", "NIVEL": "0", "ESTADO": "Pendiente", "FECHA": "2026-05-25", "IMPORTE": 89.99, "DIRECCION": "Av. de la Playa 10" },
+    { "DELEGACION": "6S21", "AVISO": "FB-2026-002", "CLIENTE": "Restaurante El Monte", "FAMILIA": "FB", "TIPO_AVISO": "FB", "NIVEL": "3", "ESTADO": "Pendiente", "FECHA": "2026-05-24", "IMPORTE": 312.50, "DIRECCION": "C/ La Rosa 8" }
+  ],
+  "tecnico-info": [
+    { "CODIGO_EMPLEADO": "T001", "NOMBRE_EMPLEADO": "Pérez, Juan", "CODIGO_AREA": "6S21", "TLF": "600111222", "EMAIL": "juan@stv.com" },
+    { "CODIGO_EMPLEADO": "T002", "NOMBRE_EMPLEADO": "López, María", "CODIGO_AREA": "6S21", "TLF": "600111333", "EMAIL": "maria@stv.com" },
+    { "CODIGO_EMPLEADO": "T003", "NOMBRE_EMPLEADO": "Ruiz, Carlos", "CODIGO_AREA": "6S23", "TLF": "600111444", "EMAIL": "carlos@stv.com" },
+    { "CODIGO_EMPLEADO": "T004", "NOMBRE_EMPLEADO": "García, Ana", "CODIGO_AREA": "6S23", "TLF": "600111555", "EMAIL": "ana@stv.com" },
+    { "CODIGO_EMPLEADO": "T005", "NOMBRE_EMPLEADO": "Martín, David", "CODIGO_AREA": "6S21", "TLF": "600111666", "EMAIL": "david@stv.com" }
+  ],
+  "averias-tecnico": [
+    { "AVISO": "AV-2026-001", "CLIENTE": "Café Central", "FECHA": "2026-05-27", "ESTADO": "Asignada", "FAMILIA": "DI", "TIPO": "HA", "DELEGACION": "6S21" },
+    { "AVISO": "AV-2026-004", "CLIENTE": "Hotel Bahía", "FECHA": "2026-05-27", "ESTADO": "En proceso", "FAMILIA": "VI", "TIPO": "HI", "DELEGACION": "6S23" },
+    { "AVISO": "AV-2026-005", "CLIENTE": "Cafetería Central", "FECHA": "2026-05-26", "ESTADO": "Resuelta", "FAMILIA": "VE", "TIPO": "HC", "DELEGACION": "6S21" },
+    { "AVISO": "AV-2026-004", "CLIENTE": "Hotel Bahía", "FECHA": "2026-05-27", "ESTADO": "Ejecución", "FAMILIA": "DI", "TIPO": "HA", "DELEGACION": "6S23" },
+    { "AVISO": "AV-2026-005", "CLIENTE": "Cafetería Central", "FECHA": "2026-05-28", "ESTADO": "Pendiente", "FAMILIA": "BO", "TIPO": "HI", "DELEGACION": "6S21" }
+  ],
+  "135": [
+    { "CODIGO_REPUESTO": "REP-001", "NOMBRE_REPUESTO": "Filtro de agua universal", "IMAGEN": null, "NOMBRE_CATEGORIA": "Filtros" },
+    { "CODIGO_REPUESTO": "REP-002", "NOMBRE_REPUESTO": "Junta de puerta vitrina", "IMAGEN": null, "NOMBRE_CATEGORIA": "Juntas" },
+    { "CODIGO_REPUESTO": "REP-003", "NOMBRE_REPUESTO": "Placa controladora DX-200", "IMAGEN": null, "NOMBRE_CATEGORIA": "Electrónica" },
+    { "CODIGO_REPUESTO": "REP-004", "NOMBRE_REPUESTO": "Sensor de temperatura", "IMAGEN": null, "NOMBRE_CATEGORIA": "Sensores" },
+    { "CODIGO_REPUESTO": "REP-005", "NOMBRE_REPUESTO": "Válvula de CO2", "IMAGEN": null, "NOMBRE_CATEGORIA": "Gas" },
+    { "CODIGO_REPUESTO": "REP-006", "NOMBRE_REPUESTO": "Boquilla dispensador", "IMAGEN": null, "NOMBRE_CATEGORIA": "Dispensación" },
+    { "CODIGO_REPUESTO": "REP-007", "NOMBRE_REPUESTO": "Manguera de silicona 1m", "IMAGEN": null, "NOMBRE_CATEGORIA": "Mangueras" },
+    { "CODIGO_REPUESTO": "REP-008", "NOMBRE_REPUESTO": "Resistencia calentadora", "IMAGEN": null, "NOMBRE_CATEGORIA": "Eléctrico" },
+    { "CODIGO_REPUESTO": "REP-009", "NOMBRE_REPUESTO": "Rodamiento vitrina", "IMAGEN": null, "NOMBRE_CATEGORIA": "Mecánica" },
+    { "CODIGO_REPUESTO": "REP-010", "NOMBRE_REPUESTO": "Bomba de agua", "IMAGEN": null, "NOMBRE_CATEGORIA": "Hidráulica" }
+  ],
+  "136": [
+    { "CODIGO_REPUESTO": "REP-001", "CANTIDAD_ACTUAL": 5, "STOCK_MINIMO": 10, "STOCK_MAXIMO": 50, "PRIORIDAD": "Alta" },
+    { "CODIGO_REPUESTO": "REP-002", "CANTIDAD_ACTUAL": 12, "STOCK_MINIMO": 5, "STOCK_MAXIMO": 30, "PRIORIDAD": "Media" },
+    { "CODIGO_REPUESTO": "REP-003", "CANTIDAD_ACTUAL": 0, "STOCK_MINIMO": 3, "STOCK_MAXIMO": 15, "PRIORIDAD": "Urgente" },
+    { "CODIGO_REPUESTO": "REP-004", "CANTIDAD_ACTUAL": 8, "STOCK_MINIMO": 5, "STOCK_MAXIMO": 20, "PRIORIDAD": "Media" },
+    { "CODIGO_REPUESTO": "REP-005", "CANTIDAD_ACTUAL": 20, "STOCK_MINIMO": 10, "STOCK_MAXIMO": 40, "PRIORIDAD": "Baja" },
+    { "CODIGO_REPUESTO": "REP-006", "CANTIDAD_ACTUAL": 3, "STOCK_MINIMO": 8, "STOCK_MAXIMO": 25, "PRIORIDAD": "Alta" },
+    { "CODIGO_REPUESTO": "REP-007", "CANTIDAD_ACTUAL": 15, "STOCK_MINIMO": 10, "STOCK_MAXIMO": 50, "PRIORIDAD": "Baja" },
+    { "CODIGO_REPUESTO": "REP-008", "CANTIDAD_ACTUAL": 1, "STOCK_MINIMO": 5, "STOCK_MAXIMO": 20, "PRIORIDAD": "Alta" },
+    { "CODIGO_REPUESTO": "REP-009", "CANTIDAD_ACTUAL": 6, "STOCK_MINIMO": 3, "STOCK_MAXIMO": 15, "PRIORIDAD": "Media" },
+    { "CODIGO_REPUESTO": "REP-010", "CANTIDAD_ACTUAL": 0, "STOCK_MINIMO": 2, "STOCK_MAXIMO": 10, "PRIORIDAD": "Urgente" }
+  ],
+  "143": [
+    { "CODIGO_REPUESTO": "REP-001", "CANTIDAD_ACTUAL": 3, "STOCK_MINIMO": 5, "STOCK_MAXIMO": 20, "PRIORIDAD": "Alta" },
+    { "CODIGO_REPUESTO": "REP-003", "CANTIDAD_ACTUAL": 0, "STOCK_MINIMO": 2, "STOCK_MAXIMO": 10, "PRIORIDAD": "Urgente" },
+    { "CODIGO_REPUESTO": "REP-005", "CANTIDAD_ACTUAL": 8, "STOCK_MINIMO": 5, "STOCK_MAXIMO": 25, "PRIORIDAD": "Media" },
+    { "CODIGO_REPUESTO": "REP-008", "CANTIDAD_ACTUAL": 2, "STOCK_MINIMO": 3, "STOCK_MAXIMO": 15, "PRIORIDAD": "Alta" }
+  ],
+  "137": [
+    { "CODIGO_REPUESTO": "REP-001", "FECHA_INVENTARIO": "2026-05-15" },
+    { "CODIGO_REPUESTO": "REP-002", "FECHA_INVENTARIO": "2026-04-20" },
+    { "CODIGO_REPUESTO": "REP-003", "FECHA_INVENTARIO": "2026-01-10" },
+    { "CODIGO_REPUESTO": "REP-004", "FECHA_INVENTARIO": "2026-05-01" },
+    { "CODIGO_REPUESTO": "REP-005", "FECHA_INVENTARIO": "2025-12-15" },
+    { "CODIGO_REPUESTO": "REP-006", "FECHA_INVENTARIO": "" },
+    { "CODIGO_REPUESTO": "REP-007", "FECHA_INVENTARIO": "2026-03-01" },
+    { "CODIGO_REPUESTO": "REP-008", "FECHA_INVENTARIO": "2026-02-28" },
+    { "CODIGO_REPUESTO": "REP-009", "FECHA_INVENTARIO": "2026-05-22" },
+    { "CODIGO_REPUESTO": "REP-010", "FECHA_INVENTARIO": "" }
+  ],
+  "146": [
+    { "FECHA_MOVIMIENTO": "2026-05-27 10:30:00", "CODIGO_REPUESTO": "REP-001", "NOMBRE_REPUESTO": "Filtro de agua universal", "PRECIO_ESTANDAR": 12.50, "CANTIDAD_MOV": 2, "COSTE_TOTAL": 25.00, "DESTINATARIO": "tenerife repuestos" },
+    { "FECHA_MOVIMIENTO": "2026-05-27 11:00:00", "CODIGO_REPUESTO": "REP-003", "NOMBRE_REPUESTO": "Placa controladora DX-200", "PRECIO_ESTANDAR": 85.00, "CANTIDAD_MOV": 1, "COSTE_TOTAL": 85.00, "DESTINATARIO": "tenerife repuestos" },
+    { "FECHA_MOVIMIENTO": "2026-05-26 09:00:00", "CODIGO_REPUESTO": "REP-006", "NOMBRE_REPUESTO": "Boquilla dispensador", "PRECIO_ESTANDAR": 8.75, "CANTIDAD_MOV": 5, "COSTE_TOTAL": 43.75, "DESTINATARIO": "tenerife repuestos" },
+    { "FECHA_MOVIMIENTO": "2026-05-26 14:30:00", "CODIGO_REPUESTO": "REP-002", "NOMBRE_REPUESTO": "Junta de puerta vitrina", "PRECIO_ESTANDAR": 15.00, "CANTIDAD_MOV": 2, "COSTE_TOTAL": 30.00, "DESTINATARIO": "gran canaria" },
+    { "FECHA_MOVIMIENTO": "2026-05-25 08:30:00", "CODIGO_REPUESTO": "REP-008", "NOMBRE_REPUESTO": "Resistencia calentadora", "PRECIO_ESTANDAR": 22.00, "CANTIDAD_MOV": 1, "COSTE_TOTAL": 22.00, "DESTINATARIO": "tenerife repuestos" },
+    { "FECHA_MOVIMIENTO": "2026-05-24 10:00:00", "CODIGO_REPUESTO": "REP-010", "NOMBRE_REPUESTO": "Bomba de agua", "PRECIO_ESTANDAR": 45.00, "CANTIDAD_MOV": 1, "COSTE_TOTAL": 45.00, "DESTINATARIO": "lanzarote" },
+    { "FECHA_MOVIMIENTO": "2026-05-24 12:00:00", "CODIGO_REPUESTO": "REP-005", "NOMBRE_REPUESTO": "Válvula de CO2", "PRECIO_ESTANDAR": 18.50, "CANTIDAD_MOV": 3, "COSTE_TOTAL": 55.50, "DESTINATARIO": "gran canaria" },
+    { "FECHA_MOVIMIENTO": "2026-05-23 15:00:00", "CODIGO_REPUESTO": "REP-007", "NOMBRE_REPUESTO": "Manguera de silicona 1m", "PRECIO_ESTANDAR": 3.25, "CANTIDAD_MOV": 10, "COSTE_TOTAL": 32.50, "DESTINATARIO": "tenerife repuestos" }
+  ]
+}
