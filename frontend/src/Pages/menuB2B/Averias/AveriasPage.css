@@ -78,9 +78,26 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    margin-left: 0;
+    margin-left: -18px;
     transform: none;
     transform-origin: unset;
+}
+
+/* Ajuste fino: tabla resumen más a la izquierda, medidores más a la derecha */
+#table2 .resumen-container-original {
+    margin-left: 0;
+}
+
+#table2 .medidoresEImagen {
+    justify-self: end;
+    width: auto;
+    margin-right: 28px;
+    padding-right: 0;
+}
+
+#table2 #medidores {
+    transform: translateX(12px) !important;
+    margin-right: 0;
 }
 
 @media (max-width: 1400px) {
@@ -374,7 +391,7 @@
     z-index: 2;
     align-self: end;
     justify-self: start;
-    margin-left: 35px;
+    margin-left: 0;
     grid-column: 1;
     grid-row: 2;
     margin-top: 0px;
@@ -672,7 +689,7 @@
     justify-content: flex-end;
     gap: 10px;
     margin-right: 10px;
-    transform: translateX(-80px) !important;
+    transform: translateX(12px) !important;
 }
 
 .gauge-card {
