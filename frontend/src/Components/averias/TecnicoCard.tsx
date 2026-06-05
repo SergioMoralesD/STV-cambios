@@ -153,13 +153,34 @@ export default function TablaTecnicos({
   tecnicos,
   averias,
 }: TablaTecnicosProps) {
+  const tecnicosOrdenados = [...tecnicos].sort((a, b) => {
+    const codeA = (a.codigo ?? "").toString().trim();
+    const codeB = (b.codigo ?? "").toString().trim();
+    if (codeA && codeB) return codeA.localeCompare(codeB, "es", { numeric: true });
+    if (codeA) return -1;
+    if (codeB) return 1;
+    const nameA = (a.nombre ?? "").toString().trim();
+    const nameB = (b.nombre ?? "").toString().trim();
+    return nameA.localeCompare(nameB, "es", { sensitivity: "base" });
+  });
+
+  const averiasOrdenadas = [...averias].sort((a, b) => {
+    const da = parseFloat((a.delta_origen ?? "").toString()) || 0;
+    const db = parseFloat((b.delta_origen ?? "").toString()) || 0;
+    // Prioriza SLA más crítico (más negativo) primero
+    if (da !== db) return da - db;
+    const ca = (a.cliente ?? "").toString();
+    const cb = (b.cliente ?? "").toString();
+    return ca.localeCompare(cb, "es", { sensitivity: "base" });
+  });
+
   return (
     <div className="tecnicos-grid" id="tablaTecnicos">
-      {tecnicos.map((tec) => (
+      {tecnicosOrdenados.map((tec) => (
         <TecnicoCard
           key={tec.codigo ?? tec.nombre}
           tecnico={tec}
-          averias={averias}
+          averias={averiasOrdenadas}
         />
       ))}
     </div>
