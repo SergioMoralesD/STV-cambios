@@ -24,7 +24,7 @@ echo [OK] Docker detectado
 echo.
 
 :downloadProject
-if exist "Dockerfile" goto :build
+if exist "docker-compose.yml" goto :start
 echo [INFO] Descargando proyecto desde GitHub...
 powershell -Command "& {Invoke-WebRequest -Uri 'https://github.com/samu-gonz/STV-cambios/archive/refs/heads/main.zip' -OutFile 'stv-proyecto.zip' -UseBasicParsing}"
 if %errorlevel% neq 0 (
@@ -38,33 +38,21 @@ if exist "STV-cambios-main" cd STV-cambios-main
 echo [OK] Proyecto descargado
 echo.
 
-:build
-echo [INFO] Construyendo imagen Docker (5-10 minutos)...
-docker build -t stv-cambios .
+:start
+echo [INFO] Construyendo e iniciando contenedores (docker compose)...
+docker compose up --build -d
 if %errorlevel% neq 0 (
-    echo [ERROR] Fallo la construccion de la imagen.
+    echo [ERROR] Fallo al construir o iniciar los contenedores.
     pause
     exit /b
 )
-echo [OK] Imagen construida
-echo.
-
-:run
-echo [INFO] Iniciando contenedor...
-docker stop stv 2>nul
-docker rm stv 2>nul
-docker run -d -p 80:80 --name stv stv-cambios
-if %errorlevel% neq 0 (
-    echo [ERROR] Fallo al iniciar el contenedor.
-    pause
-    exit /b
-)
-echo [OK] Contenedor iniciado
+echo [OK] Contenedores iniciados
 echo.
 
 echo ============================================
 echo   LISTO!
-echo   Abriendo navegador en http://localhost
+echo   Backend:  http://localhost:4000
+echo   Frontend: http://localhost
 echo ============================================
 echo.
 timeout /t 3 /nobreak >nul
