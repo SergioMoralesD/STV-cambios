@@ -1,91 +1,88 @@
-# Documentación - Portal B2B STV
+# Documentación Técnica - Portal B2B STV
 
-Esta documentación explica cómo funciona el servidor del Portal B2B, su estructura, seguridad y los módulos principales.
-
-
-## 1. Cómo está construido el sistema
-
-El servidor está hecho con Node.js y TypeScript, usando NestJS como organización del código y Fastify como motor para que sea rápido.
-
-- Base de datos: SQLite (archivo local, no necesita instalación)
-- Seguridad: Cookies seguras, contraseñas protegidas y validación de acceso
-- Registros: Guarda toda la actividad y los errores en archivos y base de datos
+Documentación de arquitectura, base de datos, seguridad y módulos del backend del Portal B2B.
 
 
-## 2. Base de datos
+## 1. Arquitectura del Sistema
 
-La base de datos (portalb2b.db) guarda toda la información del sistema en tablas relacionadas entre sí.
+El backend está construido con NestJS sobre Node.js y TypeScript, usando Fastify como motor HTTP para alto rendimiento.
+
+- Lenguaje: TypeScript
+- Motor de base de datos: SQLite (archivo local, sin servidor externo)
+- Seguridad: Cookies HttpOnly, Argon2 para hash de contraseñas, Helmet para cabeceras HTTP seguras
+- Logs: Sistema dual (actividad de usuarios en base de datos + errores técnicos en archivos)
+
+
+## 2. Modelo de Datos
+
+La base de datos (portalb2b.db) sigue un esquema relacional diseñado para permisos flexibles y configuración dinámica.
 
 ### Tablas principales:
-- usuarios: Guarda los datos de cada usuario, su contraseña y estado de la cuenta
-- roles: Define los tipos de acceso (Admin, Coordinador, Técnico, etc.) y cuánto dura su sesión
-- sesiones: Controla quién tiene sesión abierta, desde qué IP y hasta cuándo
-- vistas: Catálogo de las pantallas del sistema (Averías, SLAs, etc.)
-- regiones y delegaciones: Organización geográfica de la empresa
-- permisos_acceso: Relaciona qué rol puede acceder a qué vista en cada región y delegación
+- usuarios: Credenciales, estado de cuenta y vinculación con roles
+- roles: Niveles de acceso (Admin, Coordinador, Técnico) y duración de sesión
+- sesiones: Tokens activos, IP de origen y control de expiración
+- vistas: Catálogo de módulos funcionales (Averías, SLAs, etc.)
+- regiones y delegaciones: Estructura geográfica de la organización
+- permisos_acceso: Tabla pivote que relaciona Rol + Región + Vista + Delegación
 
 
-## 3. Seguridad y acceso
+## 3. Seguridad y Autenticación
 
-### Cómo se inicia sesión
-1. Antes de validar, el sistema comprueba que el usuario o su IP no estén bloqueados por muchos intentos fallidos
-2. Verifica la contraseña contra la guardada en base de datos
-3. Si es correcta, crea una sesión con un token único de 64 bytes
-4. El token se guarda en una cookie segura que el navegador no puede leer con JavaScript
+### Flujo de inicio de sesión
+1. Protección anti-brute force: antes de validar, se comprueba si el usuario o IP están bloqueados por intentos fallidos
+2. Validación de contraseña contra el hash almacenado en base de datos
+3. Si es correcta, se genera un token aleatorio de 64 bytes y se persiste en la tabla sesiones
+4. El token se envía al navegador como cookie HttpOnly con flags Secure y SameSite=Strict
 
-### Cómo se validan las peticiones
-Todas las rutas protegidas pasan por un filtro que:
+### Validación de peticiones
+Todas las rutas protegidas pasan por un guardián de acceso que:
 1. Extrae el token de la cookie
-2. Verifica que la sesión siga activa y no haya expirado
-3. Comprueba que la IP y el navegador sean los mismos que iniciaron sesión (antirrobo de sesión)
-4. Carga los permisos del usuario en la petición
+2. Verifica que la sesión exista, esté activa y no haya expirado
+3. Comprueba que la IP y el User-Agent coincidan con los originales (protección contra robo de sesión)
+4. Inyecta los permisos del usuario en la petición
 
 
-## 4. Control de permisos (RBAC)
+## 4. Sistema RBAC (Control de Acceso por Roles)
 
-El acceso no es simplemente "usuario normal o administrador". Es más detallado:
+El acceso no es binario; es multidimensional. Un usuario accede a una vista (ej. Averías) solo si su rol tiene un permiso explícito para esa vista en una región y delegación concretas.
 
-Un usuario puede acceder a una pantalla (por ejemplo, Averías) solo si su rol tiene permiso para esa pantalla en una región y delegación concreta.
-
-- Cada usuario se identifica con un código único que lo vincula con los sistemas externos
-- Al iniciar sesión, el servidor calcula todos los permisos del usuario y se los envía al navegador para que muestre solo lo que puede ver y hacer
+- Cada usuario se identifica con un código único que vincula datos con sistemas externos
+- Al validar la sesión, el backend calcula el mapa completo de permisos y lo envía al frontend para renderizar el menú y las acciones disponibles
 
 
-## 5. Módulos del sistema
+## 5. Módulos Funcionales
 
 ### Pedidos de Repuestos
-Permite enviar solicitudes de materiales.
-- Envía correos mediante SMTP con una plantilla HTML profesional
-- En modo prueba, los correos se capturan y se pueden previsualizar sin enviarlos
+Gestión de solicitudes de materiales con envío de correo SMTP y plantilla HTML profesional. En modo desarrollo, los correos se capturan y previsualizan sin enviarse.
 
-### Gestión de Recursos (archivos)
-Escanea automáticamente la carpeta de archivos subidos y:
-- Clasifica los archivos por tipo (PDF, vídeo, documento)
-- Asigna iconos y colores según el tipo
-- Los sirve de forma segura al navegador
+### Gestión de Recursos
+Módulo zero-config que escanea recursivamente la carpeta de archivos subidos y:
+- Genera metadatos dinámicos (tipo de archivo, iconos, colores)
+- Sirve archivos estáticos de forma segura
+- Organiza por categorías según la estructura de carpetas
 
-### Conectividad con sistemas externos
-Actúa como puente entre el portal y sistemas externos:
-- Averías en tiempo real
-- Objetivos y métricas de rendimiento (SLAs)
-- Integraciones con sistemas antiguos de la empresa
+### Conectividad Externa
+Proxy transformador para sistemas externos:
+- API de averías en tiempo real
+- API de objetivos y métricas de rendimiento (SLAs)
+- Integraciones con sistemas heredados
 
 
 ## 6. Mantenimiento
 
-### Comandos útiles
-- Inicializar la base de datos con datos básicos
-- Aplicar cambios en la base de datos sin perder información
-- Diagnosticar problemas en las tablas de configuración
+### Scripts de utilidad
+- node setup.js: Inicializa la base de datos con esquema base y datos maestros
+- node migrate_db.js: Aplica cambios estructurales sin perder datos
+- node check_db.js: Diagnóstico de integridad de tablas de configuración
 
-### Variables de configuración principales
-- COOKIE_SECRET: Clave para proteger las cookies
-- DATABASE_PATH: Ruta donde está el archivo de base de datos
-- CORS_ORIGIN: Lista de dominios permitidos para conectar con el servidor
+### Variables de entorno clave
+- COOKIE_SECRET: Firma las cookies para evitar manipulaciones
+- DATABASE_PATH: Ruta al archivo de base de datos
+- CORS_ORIGIN: Lista blanca de dominios permitidos para conectar con la API
 
 
-## 7. Estándares de código
-- Las partes que reciben peticiones solo gestionan la entrada y salida de datos
-- La lógica del negocio está separada en servicios
-- Todas las acciones importantes (inicios de sesión, errores, envíos de correo) quedan registradas tanto en consola como en archivos
+## 7. Estándares de Código
+- Controladores: Solo gestionan entrada/salida y validación con DTOs
+- Servicios: Contienen la lógica de negocio pura y acceso a datos
+- Logger: Todas las acciones críticas (login, errores, envío de mail) se registran en consola y archivo
 
