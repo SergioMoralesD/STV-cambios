@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+*.log
+logs
+.env
+scratch
+.gitignore
+README.md
+DOCUMENTATION.md
+Database-v1.01.html
