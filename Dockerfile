@@ -21,15 +21,15 @@ COPY --from=backend-builder /app/dist ./dist
 COPY --from=backend-builder /app/node_modules ./node_modules
 COPY package*.json ./
 COPY utils/ ./utils/
-COPY portalb2b.db ./
+COPY portalb2b.db ./data/
 
 COPY --from=frontend-builder /app/dist /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/http.d/default.conf.template
 COPY supervisord.conf /etc/supervisord.conf
 
-RUN mkdir -p /app/uploads /app/logs
-COPY uploads/ /app/uploads/
+RUN mkdir -p /app/data/uploads /app/data/logs
+COPY uploads/ /app/data/uploads/
 
 EXPOSE ${PORT}
 
